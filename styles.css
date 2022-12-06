@@ -1,22 +1,6 @@
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-}
-
-.nav-bar {
-    width: 100%;
-    height: 5em;
-    background-color: #5F0B7C;
+.logo {
+    width: 10%;
     display: flex;
-    justify-content: space-around;
-}
-
-.nav-right {
-    width: 3em;
-}
-.logo-nav {
-    width: 10em;
+    justify-content: center;
+    align-items: center;
 }
