@@ -1,2 +1,2 @@
 # gocery
- Fianl Requirement for Software Development
+ Final Requirement for Software Development
