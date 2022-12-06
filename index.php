@@ -57,7 +57,7 @@
         </nav>
     </div>
         <!-- third child -->
-        <div class="bg-light">
+        <div class="bg-light pt-2 pb-1 mb-2">
             <h3 class="text-center">Available Products</h3>
             <p class="text-center">Grocery items at the click of your mouse</p>
         </div>
@@ -69,68 +69,112 @@
             <!-- products -->
             <div class="row">
                 <div class="col-md-4 mb-2">
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 90%">
                     <img src="images/bear-brand-milk-320.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                        <a href="#" style="background-color:#42C84F; border-color: #42C84F;" class="btn btn-primary">Add to Cart</a>
+                        <a href="#" class="btn btn-secondary">View More</a>
+
                     </div>
                     </div>
                 </div>
                 <div class="col-md-4  mb-2">
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 90%;">
                     <img src="images/jack-daniels.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                        <a href="#" style="background-color:#42C84F; border-color: #42C84F;" class="btn btn-primary">Add to Cart</a>
+                        <a href="#" class="btn btn-secondary">View More</a>
+
                     </div>
                     </div>
                 </div>
                 <div class="col-md-4 mb-2">
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 90%;">
                 <img src="images/tender-juicy.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                    <a href="#" style="background-color:#42C84F; border-color: #42C84F;" class="btn btn-primary">Add to Cart</a>
+                    <a href="#" class="btn btn-secondary">View More</a>
                 </div>
                 </div>
                 </div>
                 <div class="col-md-4 mb-2">
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 90%;">
                 <img src="images/tender-juicy.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                    <a href="#" style="background-color:#42C84F; border-color: #42C84F;" class="btn btn-primary">Add to Cart</a>
+                    <a href="#" class="btn btn-secondary">View More</a>
                 </div>
                 </div>
                 </div>
                 <div class="col-md-4 mb-2">
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 90%;">
                 <img src="images/tender-juicy.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                    <a href="#" style="background-color:#42C84F; border-color: #42C84F;" class="btn btn-primary">Add to Cart</a>
+                    <a href="#" class="btn btn-secondary">View More</a>
                 </div>
                 </div>
                 </div>
                 <div class="col-md-4 mb-2">
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 90%;">
                 <img src="images/tender-juicy.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                    <a href="#" style="background-color:#42C84F; border-color: #42C84F;" class="btn btn-primary">Add to Cart</a>
+                    <a href="#" class="btn btn-secondary">View More</a>
                 </div>
                 </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-2 p-0" style="background-color: #322348;">
+            <ul class="navbar-nav me-auto text-center" >
+                <li class="nav-item" style="background-color: #563D7C;">
+                    <a href="#" class="nav-link text-light"><h3>Categories</h3></a>
+                </li>
+                <!-- categories -->
+                <li class="nav-item" >
+                    <a href="#" class="nav-link text-light">Category1</a>
+                </li>
+                <li class="nav-item ">
+                    <a href="#" class="nav-link text-light">Category2</a>
+                </li>
+                <li class="nav-item ">
+                    <a href="#" class="nav-link text-light">Category3</a>
+                </li>
+                <li class="nav-item ">
+                    <a href="#" class="nav-link text-light">Category4</a>
+                </li>
+                <li class="nav-item ">
+                    <a href="#" class="nav-link text-light">Category5</a>
+                </li>
+                <li class="nav-item ">
+                    <a href="#" class="nav-link text-light">Category6</a>
+                </li>
+                <li class="nav-item ">
+                    <a href="#" class="nav-link text-light">Category7</a>
+                </li>
+                <li class="nav-item ">
+                    <a href="#" class="nav-link text-light">Category8</a>
+                </li>
+                <li class="nav-item ">
+                    <a href="#" class="nav-link text-light">Category9</a>
+                </li>
+                <li class="nav-item ">
+                    <a href="#" class="nav-link text-light">Category10</a>
+                </li>
+            </ul>
             
         </div>
     </div>
