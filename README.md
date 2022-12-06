@@ -1,10 +1,8 @@
 # gocery
  Final Requirement for Software Development and Software Engineering
-
- SUCKANIGGA DEEK
-<<<<<<< Updated upstream
-
-QIQI BUKAS SI JAYCIE MGA LIMA
-=======
-SIGEEEEEEEEEEEEEEEEEEEEEEEE
->>>>>>> Stashed changes
+Group 4 SD3A
+Members:
+Gemuel Senina
+Jaycie Dela Cruz
+Nixon Somoza
+Yvanne Zechael Vinzon
