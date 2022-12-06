@@ -34,7 +34,7 @@
                     <a class="nav-link" href="#" style="color: white;"><i class="fa-solid fa-cart-shopping"></i><sup>1</sup></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" style="color: white;" href="#">Total Price</a>
+                    <a class="nav-link" style="color: white;" href="#"><i class="fa-solid fa-hand-holding-dollar"></i>Total Price</a>
                 </li>
             </ul>
             <form class="d-flex" role="search">
@@ -136,6 +136,36 @@
                 </div>
                 </div>
                 </div>
+                <div class="col-md-4 mb-2">
+                <div class="card" style="width: 18rem;">
+                <img src="images/pancit-canton.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                </div>
+                </div>
+                </div>
+                <div class="col-md-4 mb-2">
+                <div class="card" style="width: 18rem;">
+                <img src="images/magnum.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                </div>
+                </div>
+                </div>
+                <div class="col-md-4 mb-2">
+                <div class="card" style="width: 18rem;">
+                <img src="images/pineapple-juice.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                </div>
+                </div>
+                </div>
             </div>
         </div>
         <div class="col-md-2 p-0" style="background-color: #322348;">
@@ -181,7 +211,7 @@
         
     <!-- last child -->
     <div style="background-color: #563D7C; color: white;" class="p-3 text-center">
-    <p>Dela Cruz, Vinzon, Somoza, Senina - 2022</p>
+    <p>Dela Cruz, Vinzon, Somoza, Senina - 2022 &copy</p>
     </div>
 
 
