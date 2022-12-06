@@ -34,7 +34,7 @@
                     <a class="nav-link" href="#" style="color: white;"><i class="fa-solid fa-cart-shopping"></i><sup>1</sup></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" style="color: white;" href="#">Total Price</a>
+                    <a class="nav-link" style="color: white;" href="#"><i class="fa-solid fa-hand-holding-dollar"></i>Total Price</a>
                 </li>
             </ul>
             <form class="d-flex" role="search">
