@@ -25,16 +25,16 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" style="color: white;" href="#"><i class="fa-solid fa-house fa-2xl"></i><strong> Home</strong></a>
+                    <a class="nav-link active" aria-current="page" style="color: white;" href="#"><i class="fa-solid fa-house fa-xl"></i><strong> Home</strong></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" style="color: white;" href="#"><i class="fa-solid fa-user fa-2xl"></i><strong> Register</strong></a>
+                    <a class="nav-link" style="color: white;" href="#"><i class="fa-solid fa-user fa-xl"></i><strong> Register</strong></a>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#" style="color: white;"><i class="fa-solid fa-cart-shopping fa-2xl"></i><strong> Cart</strong><sup>1</sup></a>
+                    <a class="nav-link" href="#" style="color: white;"><i class="fa-solid fa-cart-shopping fa-xl"></i><strong><sup>1</sup> Cart</strong></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" style="color: white;" href="#"><i class="fa-solid fa-hand-holding-dollar fa-2xl"></i><strong> Total Price</strong> </a>
+                    <a class="nav-link" style="color: white;" href="#"><i class="fa-solid fa-hand-holding-dollar fa-xl"></i><strong> Total Price</strong> </a>
                 </li>
             </ul>
             <form class="d-flex" role="search">
@@ -137,32 +137,35 @@
                 </div>
                 </div>
                 <div class="col-md-4 mb-2">
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 90%;">
                 <img src="images/pancit-canton.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                   <a href="#" style="background-color:#42C84F; border-color: #42C84F;" class="btn btn-primary">Add to Cart</a>
+                    <a href="#" class="btn btn-secondary">View More</a>
                 </div>
                 </div>
                 </div>
                 <div class="col-md-4 mb-2">
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 90%;">
                 <img src="images/magnum.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                    <a href="#" style="background-color:#42C84F; border-color: #42C84F;" class="btn btn-primary">Add to Cart</a>
+                    <a href="#" class="btn btn-secondary">View More</a>
                 </div>
                 </div>
                 </div>
                 <div class="col-md-4 mb-2">
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 90%;">
                 <img src="images/pineapple-juice.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                    <a href="#" style="background-color:#42C84F; border-color: #42C84F;" class="btn btn-primary">Add to Cart</a>
+                    <a href="#" class="btn btn-secondary">View More</a>
                 </div>
                 </div>
                 </div>
