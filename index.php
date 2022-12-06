@@ -25,16 +25,16 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" style="color: white" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" style="color: white;" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" style="color: white" href="#">Register</a>
+                    <a class="nav-link" style="color: white;" href="#">Register</a>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#" style="color: white"><i class="fa-solid fa-cart-shopping"></i><sup>1</sup></a>
+                    <a class="nav-link" href="#" style="color: white;"><i class="fa-solid fa-cart-shopping"></i><sup>1</sup></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" style="color: white" href="#">Total Price</a>
+                    <a class="nav-link" style="color: white;" href="#">Total Price</a>
                 </li>
             </ul>
             <form class="d-flex" role="search">
@@ -44,10 +44,72 @@
             </div>
         </div>
         </nav>
-            
+        <!-- second child -->
+        <nav class="navbar navbar-expand-lg" style="background-color: #322348;">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" style="color: white;" href="#">Welcome Guest</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: white;" href="#">Login</a>
+                </li>
+            </ul>
+        </nav>
     </div>
-    <!-- font awesome link -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+        <!-- third child -->
+        <div class="bg-light">
+            <h3 class="text-center">Available Products</h3>
+            <p class="text-center">Grocery items at the click of your mouse</p>
+        </div>
+    
+    
+    <!-- fourth child -->
+    <div class="row">
+        <div class="col-md-10"></div>
+            <!-- products -->
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+                </div>
+                </div>
+                <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+                </div>
+                </div>
+                <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+                </div>
+                </div>
+            </div>
+        <div class="col-md-2">
+            <!-- sidenav -->
+        </div>
+    </div>
+    <!-- last child -->
+    <div style="background-color: #563D7C; color: white;" class="p-3 text-center">
+    <p>Dela Cruz, Vinzon, Somoza, Senina - 2022</p>
+    </div>
 
+
+    <!-- JS link -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 </html>
