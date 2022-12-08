@@ -39,7 +39,7 @@
             </ul>
             <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+                <button class="btn btn-outline-success" type="submit"><img src="images/search-icon-endless-icons-33.png" width="25rem" alt=""></button>
             </form>
             </div>
         </div>
@@ -65,7 +65,7 @@
     
     <!-- fourth child -->
     <div class="row">
-        <div class="col-md-10 ">
+        <div class="col-md-10">
             <!-- products -->
             <div class="row">
                 <div class="col-md-4 mb-2">
@@ -174,7 +174,7 @@
         <div class="col-md-2 p-0" style="background-color: #322348;">
             <ul class="navbar-nav me-auto text-center" >
                 <li class="nav-item" style="background-color: #563D7C;">
-                    <a href="#" class="nav-link text-light"><h3>Categories</h3></a>
+                    <a href="#" class="nav-link text-light"><h3><strong>Categories</strong></h3></a>
                 </li>
                 <!-- categories -->
                 <li class="nav-item" >
