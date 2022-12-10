@@ -17,3 +17,24 @@
 .secondary{
     background-color: #322348;;
 }
+
+.mb-n12 {
+    margin-bottom: -12px;
+}
+
+.admin_image{
+    width: 100px;
+    object-fit: contain;
+}
+
+.btn-green{
+    --bs-btn-font-weight: 600;
+    --bs-btn-color: var(--bs-white);
+    --bs-btn-bg: #42C84F;
+    --bs-btn-border-color: #42C84F;
+    --bs-btn-border-radius: .5rem;
+    --bs-btn-hover-color: var(--bs-white);
+    --bs-btn-hover-bg: #FF6E41;
+    --bs-btn-hover-border-color: #FF6E41;
+
+}

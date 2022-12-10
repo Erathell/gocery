@@ -32,8 +32,25 @@
         </nav>
     </div>
         <!-- second child -->
-        <div class="secondary text-white">
+        <div class="mb-n12 secondary text-white">
             <h3 class="text-center p-2">Manage Details</h3>
+        </div>
+
+        <!-- third child -->
+        <div class="row p-0">
+            <div class="col-md-12 secondary p-2 px-4">
+                <div>
+                    <a href="#"><img src="../images/pineapple-juice.jpg" alt="" class="admin_image"></a>
+                    <p class="text-light text-center">Seller Name</p>
+                    <div class="button text-center">
+                        <button type="button" class="btn btn-green"><a href="#" class="nav-link">Add Product</a></button>
+                        <button type="button" class="btn btn-green"><a href="#" class="nav-link">View Products</a></button>
+                        <button type="button" class="btn btn-green"><a href="#" class="nav-link">View Transactions</a></button>
+                        <button type="button" class="btn btn-green"><a href="#" class="nav-link">Edit Profile</a></button>
+                        <button type="button" class="btn btn-green"><a href="#" class="nav-link">Log Out</a></button>
+                    </div>
+                </div>
+            </div>
         </div>
     <!-- Bootstrap JS Link -->
 </body>
