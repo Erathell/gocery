@@ -57,11 +57,15 @@
                 <input type="text" name="price" id="price" class="form-control" placeholder="Enter Product Price" autocomplete="off" required>
             </div>
             <!-- submit -->
-            <div class="form-outline mb-4 w-50 m-auto">
+            <div class="form-outline mb-4 d-flex justify-content-center">
                 <input type="submit" name="insert_product" style="background-color:#563D7C; color: #FFFFFF;" class="insert_product" value="Insert Products">
             </div>
 
         </form>
     </div> 
+    <!-- Bootstrap JS Link -->
+    <div style="background-color: #563D7C; color: white;" class="p-3 text-center">
+    <p>Dela Cruz, Vinzon, Somoza, Senina - 2022 &copy</p>
+    </div>
 </body>
 </html>
