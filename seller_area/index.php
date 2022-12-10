@@ -38,20 +38,23 @@
 
         <!-- third child -->
         <div class="row p-0">
-            <div class="col-md-12 secondary p-2 px-4">
+            <div class="col-md-12 secondary p-2 px-5 d-flex align-items-center">
                 <div>
                     <a href="#"><img src="../images/pineapple-juice.jpg" alt="" class="admin_image"></a>
                     <p class="text-light text-center">Seller Name</p>
-                    <div class="button text-center">
-                        <button type="button" class="btn btn-green"><a href="#" class="nav-link">Add Product</a></button>
-                        <button type="button" class="btn btn-green"><a href="#" class="nav-link">View Products</a></button>
-                        <button type="button" class="btn btn-green"><a href="#" class="nav-link">View Transactions</a></button>
-                        <button type="button" class="btn btn-green"><a href="#" class="nav-link">Edit Profile</a></button>
-                        <button type="button" class="btn btn-green"><a href="#" class="nav-link">Log Out</a></button>
-                    </div>
+                </div>
+                <div class="button text-center ms-auto me-auto">
+                        <button type="button" class="btn btn-green m-2"><a href="#" class="nav-link">Add Product</a></button>
+                        <button type="button" class="btn btn-green m-2"><a href="#" class="nav-link">View Products</a></button>
+                        <button type="button" class="btn btn-green m-2"><a href="#" class="nav-link">View Transactions</a></button>
+                        <button type="button" class="btn btn-green m-2"><a href="#" class="nav-link">Edit Profile</a></button>
+                        <button type="button" class="btn btn-green m-2"><a href="#" class="nav-link">Log Out</a></button>
                 </div>
             </div>
         </div>
     <!-- Bootstrap JS Link -->
+    <div style="background-color: #563D7C; color: white;" class="p-3 text-center">
+    <p>Dela Cruz, Vinzon, Somoza, Senina - 2022 &copy</p>
+    </div>
 </body>
 </html>

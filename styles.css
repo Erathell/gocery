@@ -38,3 +38,7 @@
     --bs-btn-hover-border-color: #FF6E41;
 
 }
+
+.ms-20 {
+    margin-left: 200px !important;
+}
