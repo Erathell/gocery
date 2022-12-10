@@ -57,7 +57,7 @@
         </nav>
     </div>
         <!-- third child -->
-        <div class="bg-light pt-2 pb-1 mb-2">
+        <div class="bg-light pt-4 pb-1 mb-2">
             <h3 class="text-center">Available Products</h3>
             <p class="text-center">Grocery items at the click of your mouse</p>
         </div>

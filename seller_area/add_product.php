@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-    <div class="container-fluid p-0">
+<div class="container-fluid p-0">
         <!-- first child -->
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #563D7C;">
             <div class="container-fluid">
@@ -28,7 +28,23 @@
             </div>
         </nav>
     </div>
-
+    <div class="row p-0">
+            <div class="col-md-12 secondary p-2 px-5 d-flex align-items-center">
+                <div>
+                    <a href="#"><img src="../images/pineapple-juice.jpg" alt="" class="admin_image"></a>
+                    <p class="text-light text-center">Seller Name</p>
+                </div>
+                <div class="button text-center ms-auto me-auto">
+                        <button type="button" class="btn btn-green m-2"><a href="add_product.php" class="nav-link">Add Product</a></button>
+                        <button type="button" class="btn btn-green m-2"><a href="#" class="nav-link">View Products</a></button>
+                        <button type="button" class="btn btn-green m-2"><a href="#" class="nav-link">View Transactions</a></button>
+                        <button type="button" class="btn btn-green m-2"><a href="#" class="nav-link">Edit Profile</a></button>
+                        <button type="button" class="btn btn-green m-2"><a href="#" class="nav-link">Log Out</a></button>
+                        
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container mt-3">
         <h1 class="text-center">Add Products</h1>
         <!-- form -->
