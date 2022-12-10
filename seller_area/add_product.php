@@ -10,9 +10,25 @@
     <!-- font awesome link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- CSS file -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
+    <div class="container-fluid p-0">
+        <!-- first child -->
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #563D7C;">
+            <div class="container-fluid">
+                <img src="../images/logo.png" class="logo" alt="logo">
+                <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #563D7C;">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="" class="nav-link text-white fw-bold"><i class="fa-solid fa-user fa-xl"></i> Welcome guest</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </nav>
+    </div>
+
     <div class="container mt-3">
         <h1 class="text-center">Add Products</h1>
         <!-- form -->
@@ -57,8 +73,8 @@
                 <input type="text" name="price" id="price" class="form-control" placeholder="Enter Product Price" autocomplete="off" required>
             </div>
             <!-- submit -->
-            <div class="form-outline mb-4 d-flex justify-content-center">
-                <input type="submit" name="insert_product" style="background-color:#563D7C; color: #FFFFFF;" class="insert_product" value="Insert Products">
+            <div class="form-outline mb-4 d-flex justify-content-center ">
+                <button type="submit" name="insert_product" class="insert_product btn btn-green" value="Insert Product">Insert Product</button>
             </div>
 
         </form>
