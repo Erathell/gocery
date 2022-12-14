@@ -42,3 +42,12 @@
 .ms-20 {
     margin-left: 200px !important;
 }
+
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    background-color: #563D7C; 
+    color: white;
+    width: 100%;
+}

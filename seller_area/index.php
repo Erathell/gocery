@@ -45,7 +45,7 @@
                 </div>
                 <div class="button text-center ms-auto me-auto">
                         <button type="button" class="btn btn-green m-2"><a href="add_product.php" class="nav-link">Add Product</a></button>
-                        <button type="button" class="btn btn-green m-2"><a href="/seller_area/add_category.php" class="nav-link">Add Category</a></button>
+                        <button type="button" class="btn btn-green m-2"><a href="add_category.php" class="nav-link">Add Category</a></button>
                         <button type="button" class="btn btn-green m-2"><a href="#" class="nav-link">View Products</a></button>
                         <button type="button" class="btn btn-green m-2"><a href="#" class="nav-link">View Transactions</a></button>
                         <button type="button" class="btn btn-green m-2"><a href="#" class="nav-link">Edit Profile</a></button>
@@ -55,8 +55,8 @@
             </div>
         </div>
     <!-- Bootstrap JS Link -->
-    <div style="background-color: #563D7C; color: white;" class="p-3 text-center">
-    <p>Dela Cruz, Vinzon, Somoza, Senina - 2022 &copy</p>
+    <div class="p-3 text-center footer">
+        <p>Dela Cruz, Vinzon, Somoza, Senina - 2022 &copy</p>
     </div>
 </body>
 </html>
