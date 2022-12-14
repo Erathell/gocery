@@ -15,7 +15,8 @@
 }
 
 .secondary{
-    background-color: #322348;;
+    background-color: #322348;
+    color: white;
 }
 
 .mb-n12 {
@@ -49,5 +50,10 @@
     bottom: 0;
     background-color: #563D7C; 
     color: white;
+    width: 100%;
+}
+
+.text-center {
+    justify-content: center;
     width: 100%;
 }
