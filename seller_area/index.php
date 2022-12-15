@@ -11,7 +11,7 @@
     <!-- Font Awesome Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
        <!-- CSS file -->
-       <link rel="stylesheet" href="../styles.css">
+     <link rel="stylesheet" href="../styles.css">
 </head>
 
 <body>
@@ -44,7 +44,7 @@
                     <p class="text-light text-center">Seller Name</p>
                 </div>
                 <div class="button text-center ms-auto me-auto">
-                        <button type="button" class="btn btn-green m-2"><a href="add_product.php" class="nav-link">Add Product</a></button>
+                        <button type="button" class="btn btn-green m-2"><a href="index.php?add_product" class="nav-link">Add Product</a></button>
                         <button type="button" class="btn btn-green m-2"><a href="index.php?add_category" class="nav-link">Add Category</a></button>
                         <button type="button" class="btn btn-green m-2"><a href="#" class="nav-link">View Products</a></button>
                         <button type="button" class="btn btn-green m-2"><a href="#" class="nav-link">View Transactions</a></button>
@@ -58,11 +58,14 @@
                 if(isset($_GET['add_category'])){
                     include('add_category.php');
                 }
+                elseif(isset($_GET['add_product'])){
+                    include('add_product.php');
+                }
             ?>
 
         </div>
     <!-- Bootstrap JS Link -->
-    <div class="p-3 text-center footer">
+    <div class=" p-3 text-center footer">
         <p>Dela Cruz, Vinzon, Somoza, Senina - 2022 &copy</p>
     </div>
 </body>
