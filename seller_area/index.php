@@ -46,7 +46,7 @@
                 <div class="button text-center ms-auto me-auto">
                         <button type="button" class="btn btn-green m-2"><a href="index.php?add_product" class="nav-link">Add Product</a></button>
                         <button type="button" class="btn btn-green m-2"><a href="index.php?add_category" class="nav-link">Add Category</a></button>
-                        <button type="button" class="btn btn-green m-2"><a href="#" class="nav-link">View Products</a></button>
+                        <button type="button" class="btn btn-green m-2"><a href="index.php?view_products" class="nav-link">View Products</a></button>
                         <button type="button" class="btn btn-green m-2"><a href="#" class="nav-link">View Transactions</a></button>
                         <button type="button" class="btn btn-green m-2"><a href="#" class="nav-link">Edit Profile</a></button>
                         <button type="button" class="btn btn-green m-2"><a href="#" class="nav-link">Log Out</a></button> 
@@ -60,6 +60,9 @@
                 }
                 elseif(isset($_GET['add_product'])){
                     include('add_product.php');
+                }
+                elseif(isset($_GET['view_products'])){
+                    include('view_products.php');
                 }
             ?>
 
