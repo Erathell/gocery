@@ -47,7 +47,7 @@
 
 .footer {
     position: absolute;
-    bottom: 0;
+    bottom: -110px;
     background-color: #563D7C; 
     color: white;
     width: 100%;
