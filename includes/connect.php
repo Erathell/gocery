@@ -1,10 +1,7 @@
 <?php
 
     $con=new mysqli('localhost', 'root','', 'gocery');
-    if($con){
-        echo 'connection successful';
-    } else{
+    if(!$con){
         die(mysqli_error($con));
     }
-
 ?>

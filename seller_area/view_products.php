@@ -1,3 +1,7 @@
+<?php
+    include('../includes/connect.php')
+?>
+
 <h1 class='text-center'>Products</h1>
 <div class="row">
         <div class="col-md-15">
