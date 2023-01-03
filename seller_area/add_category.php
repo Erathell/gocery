@@ -1,5 +1,13 @@
 <?php
-    include('../includes/connect.php')
+    include('../includes/connect.php');
+    if(isset($_POST['insert_category'])){
+        $category_title=$_POST['category_title'];
+        $insert_query="insert into `categories` (category_title) values ('$category_title')";
+        $result=mysqli_query($con, $insert_query);
+        if($result){
+            echo "<script>alert('Category has been added successfully')</script>";
+        }
+    }
 ?>
 
 <form action="" method="post" class="my-5">
