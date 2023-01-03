@@ -10,7 +10,7 @@
         </div>
         <!-- decription -->
         <div class="form-outline mb-4 w-50 m-auto">
-            <label for="decription" class="form-label">Product Decription</label>
+            <label for="decription" class="form-label">Product Description</label>
             <input type="text" name="decription" id="decription" class="form-control" placeholder="Enter Product Decription" autocomplete="off" required>
         </div>
         <!-- keywords -->
