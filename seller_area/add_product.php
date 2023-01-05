@@ -17,10 +17,12 @@
             <input type="text" name="decription" id="decription" class="form-control" placeholder="Enter Product Decription" autocomplete="off" required>
         </div>
         <!-- keywords -->
+        <!--
         <div class="form-outline mb-4 w-50 m-auto">
             <label for="keywords" class="form-label">Product Keywords</label>
             <input type="text" name="keywords" id="keywords" class="form-control" placeholder="Enter Product Keywords" autocomplete="off" required>
         </div>
+        -->
         <!-- categories -->
         <div class="form-outline mb-4 w-50 m-auto"><select name="product_category" id="#" class="form-select">Product Keywords
                 <option value="">Select Category</option>
