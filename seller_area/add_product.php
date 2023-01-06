@@ -24,7 +24,7 @@
         </div>
         -->
         <!-- categories -->
-        <div class="form-outline mb-4 w-50 m-auto"><select name="product_category" id="#" class="form-select">Product Keywords
+        <div class="form-outline mb-4 w-50 m-auto"><select name="product_category" id="#" class="form-select">
                 <option value="">Select Category</option>
                 <option value="">Category1</option>
                 <option value="">Category1</option>
