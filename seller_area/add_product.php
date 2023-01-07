@@ -32,7 +32,7 @@
                 while($row = mysqli_fetch_assoc($result_query)){
                     $category_title = $row['category_title'];
                     $category_id = $row['category_id'];
-                    echo "<option value=''>$category_title</option>";
+                    echo "<option value='$category_id'>$category_title</option>";
                 }
 
                 ?>
