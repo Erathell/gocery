@@ -1,5 +1,35 @@
 <?php
-    include('../includes/connect.php')
+    include('../includes/connect.php');
+    if(isset($_POST['insert_product'])){
+    $product_title = $_POST['product_name'];
+    $product_description = $_POST['description'];
+    $product_category = $_POST['product_category'];
+    $product_price = $_POST['price'];
+    $product_status = 'true';
+
+    //accessing images
+    $product_image = $_FILES['product_image']['name'];
+
+    //accessing image tmp name
+
+    $temp_product_image = $_FILES['product_image']['tmp_name'];
+
+    if($product_title =='' or  $product_description =='' or $product_category =='' or $product_price =='' or $product_image ==''){
+        echo "<script>alert('Please fill all the fields') </script>";
+        exit();
+    }
+    else{
+        move_uploaded_file($temp_product_image, "../product_images/$product_image");
+
+        //insert query
+
+        $insert_product = "insert into `products`(name,product_description,category_id,product_image,product_price,date,status) values('$product_title','$product_description','$product_category','$product_image', '$product_price',NOW(),'$product_status')";
+        $result_query = mysqli_query($con, $insert_product);
+        if($result_query){
+            echo "<script>alert('Product Successfully Added!') </script>";
+        }
+    }
+    }
 ?>
 
 <div class="container mt-3">
@@ -11,10 +41,10 @@
             <label for="product_name" class="form-label">Product Name</label>
             <input type="text" name="product_name" id="product_name" class="form-control" placeholder="Enter Product Name" autocomplete="off" required>
         </div>
-        <!-- decription -->
+        <!-- description -->
         <div class="form-outline mb-4 w-50 m-auto">
             <label for="decription" class="form-label">Product Description</label>
-            <input type="text" name="decription" id="decription" class="form-control" placeholder="Enter Product Decription" autocomplete="off" required>
+            <input type="text" name="description" id="description" class="form-control" placeholder="Enter Product Description" autocomplete="off" required>
         </div>
         <!-- keywords -->
         <!--
@@ -41,8 +71,8 @@
         </div>
         <!-- image -->
         <div class="form-outline mb-4 w-50 m-auto">
-            <label for="product-image" class="form-label">Product Image</label>
-            <input type="file" name="product-image" id="product_image" class="form-control" required>
+            <label for="product_image" class="form-label">Product Image</label>
+            <input type="file" name="product_image" id="product_image" class="form-control" required>
         </div>
         <!-- price -->
         <div class="form-outline mb-4 w-50 m-auto">
