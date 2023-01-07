@@ -26,15 +26,17 @@
         <!-- categories -->
         <div class="form-outline mb-4 w-50 m-auto"><select name="product_category" id="#" class="form-select">
                 <option value="">Select Category</option>
-                <option value="">Category1</option>
-                <option value="">Category1</option>
-                <option value="">Category1</option>
-                <option value="">Category1</option>
-                <option value="">Category1</option>
-                <option value="">Category1</option>
-                <option value="">Category1</option>
-                <option value="">Category1</option>
-                <option value="">Category1</option>
+                <?php
+                $select_query = "Select * from `categories`";
+                $result_query = mysqli_query($con, $select_query);
+                while($row = mysqli_fetch_assoc($result_query)){
+                    $category_title = $row['category_title'];
+                    $category_id = $row['category_id'];
+                    echo "<option value=''>$category_title</option>";
+                }
+
+                ?>
+                
             </select>
         </div>
         <!-- image -->
