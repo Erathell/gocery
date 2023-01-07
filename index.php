@@ -1,3 +1,7 @@
+<?php
+    include('includes/connect.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,109 +72,36 @@
         <div class="col-md-10">
             <!-- products -->
             <div class="row">
-                <div class="col-md-4 mb-2">
-                <div class="card" style="width: 90%">
-                    <img src="images/bear-brand-milk-320.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" style="background-color:#42C84F; border-color: #42C84F;" class="btn btn-primary">Add to Cart</a>
-                        <a href="#" class="btn btn-secondary">View More</a>
-
+                <!--fetching products-->
+                <?php
+                $select_query = "Select * from `products`";
+                $result_query = mysqli_query($con, $select_query);
+                while($row = mysqli_fetch_assoc($result_query)){
+                    $product_id =$row['product_id'];
+                    $product_title = $row['name'];
+                    $product_description = $row['product_description'];
+                    $product_category = $row['category_id'];
+                    $product_image = $row['product_image'];
+                    $product_price = $row['product_price'];
+                    echo "<div class='col-md-4 mb-2'>
+                    <div class='card' style='width: 90%'>
+                        <img src='product_images/$product_image' class='card-img-top' alt='$product_title'>
+                        <div class='card-body'>
+                            <h5 class='card-title'>$product_title</h5>
+                            <p class='card-text'>$product_description</p>
+                            <a href='#' style='background-color:#42C84F; border-color: #42C84F;' class='btn btn-primary'>Add to Cart</a>
+                            <a href='#' class='btn btn-secondary'>View More</a>
+                        </div>
                     </div>
-                    </div>
-                </div>
-                <div class="col-md-4  mb-2">
-                <div class="card" style="width: 90%;">
-                    <img src="images/jack-daniels.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" style="background-color:#42C84F; border-color: #42C84F;" class="btn btn-primary">Add to Cart</a>
-                        <a href="#" class="btn btn-secondary">View More</a>
-
-                    </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-2">
-                <div class="card" style="width: 90%;">
-                <img src="images/tender-juicy.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" style="background-color:#42C84F; border-color: #42C84F;" class="btn btn-primary">Add to Cart</a>
-                    <a href="#" class="btn btn-secondary">View More</a>
-                </div>
-                </div>
-                </div>
-                <div class="col-md-4 mb-2">
-                <div class="card" style="width: 90%;">
-                <img src="images/tender-juicy.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" style="background-color:#42C84F; border-color: #42C84F;" class="btn btn-primary">Add to Cart</a>
-                    <a href="#" class="btn btn-secondary">View More</a>
-                </div>
-                </div>
-                </div>
-                <div class="col-md-4 mb-2">
-                <div class="card" style="width: 90%;">
-                <img src="images/tender-juicy.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" style="background-color:#42C84F; border-color: #42C84F;" class="btn btn-primary">Add to Cart</a>
-                    <a href="#" class="btn btn-secondary">View More</a>
-                </div>
-                </div>
-                </div>
-                <div class="col-md-4 mb-2">
-                <div class="card" style="width: 90%;">
-                <img src="images/tender-juicy.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" style="background-color:#42C84F; border-color: #42C84F;" class="btn btn-primary">Add to Cart</a>
-                    <a href="#" class="btn btn-secondary">View More</a>
-                </div>
-                </div>
-                </div>
-                <div class="col-md-4 mb-2">
-                <div class="card" style="width: 90%;">
-                <img src="images/pancit-canton.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" style="background-color:#42C84F; border-color: #42C84F;" class="btn btn-primary">Add to Cart</a>
-                    <a href="#" class="btn btn-secondary">View More</a>
-                </div>
-                </div>
-                </div>
-                <div class="col-md-4 mb-2">
-                <div class="card" style="width: 90%;">
-                <img src="images/magnum.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" style="background-color:#42C84F; border-color: #42C84F;" class="btn btn-primary">Add to Cart</a>
-                    <a href="#" class="btn btn-secondary">View More</a>
-                </div>
-                </div>
-                </div>
-                <div class="col-md-4 mb-2">
-                <div class="card" style="width: 90%;">
-                <img src="images/pineapple-juice.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" style="background-color:#42C84F; border-color: #42C84F;" class="btn btn-primary">Add to Cart</a>
-                    <a href="#" class="btn btn-secondary">View More</a>
-                </div>
-                </div>
-                </div>
+                </div>";}
+                ?>
+            <!--row end -->
             </div>
+        <!--col end -->
         </div>
+
+
+
         <div class="col-md-2 p-0" style="background-color: #322348;">
             <ul class="navbar-nav me-auto text-center" >
                 <li class="nav-item" style="background-color: #563D7C;">
