@@ -62,7 +62,7 @@
         </nav>
     </div>
         <!-- third child -->
-        <div class="bg-light pt-4 pb-1 mb-2">
+        <div class="bg-light pt-4 pb-1">
             <h3 class="text-center">Available Products</h3>
             <p class="text-center">Grocery items at the click of your mouse</p>
         </div>
@@ -72,7 +72,7 @@
     <div class="row">
         <div class="col-md-10">
             <!-- products -->
-            <div class="row">
+            <div class="row m-5">
                 <!--fetching products-->
                 <?php
                     get_prod();
