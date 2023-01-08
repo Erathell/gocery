@@ -53,7 +53,9 @@
                 </div>
             </div>
         </div>
-        <div class="container">
+
+        <!-- fourth child -->
+        <div class="container my-3">
             <?php 
                 if(isset($_GET['add_category'])){
                     include('add_category.php');

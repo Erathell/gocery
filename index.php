@@ -108,43 +108,27 @@
                     <a href="#" class="nav-link text-light"><h3><strong>Categories</strong></h3></a>
                 </li>
                 <!-- categories -->
-                <li class="nav-item" >
-                    <a href="#" class="nav-link text-light">Category1</a>
-                </li>
-                <li class="nav-item ">
-                    <a href="#" class="nav-link text-light">Category2</a>
-                </li>
-                <li class="nav-item ">
-                    <a href="#" class="nav-link text-light">Category3</a>
-                </li>
-                <li class="nav-item ">
-                    <a href="#" class="nav-link text-light">Category4</a>
-                </li>
-                <li class="nav-item ">
-                    <a href="#" class="nav-link text-light">Category5</a>
-                </li>
-                <li class="nav-item ">
-                    <a href="#" class="nav-link text-light">Category6</a>
-                </li>
-                <li class="nav-item ">
-                    <a href="#" class="nav-link text-light">Category7</a>
-                </li>
-                <li class="nav-item ">
-                    <a href="#" class="nav-link text-light">Category8</a>
-                </li>
-                <li class="nav-item ">
-                    <a href="#" class="nav-link text-light">Category9</a>
-                </li>
-                <li class="nav-item ">
-                    <a href="#" class="nav-link text-light">Category10</a>
-                </li>
+                <?php
+                $select_categories="Select * from `categories`";
+                $result_categories=mysqli_query($con, $select_categories);
+                while($row_data=mysqli_fetch_assoc($result_categories)){
+                    $category_title=$row_data['category_title'];
+                    $category_id=$row_data['category_id'];
+                    echo "<li class='nav-item' >
+                    <a href='index.php?category=$category_id' class='nav-link text-light'>$category_title</a>
+                </li> ";
+                }
+                    
+                ?>
+                
+
             </ul>
             
         </div>
     </div>
         
     <!-- last child -->
-    <div class="p-3 text-center footer">
+    <div  class="p-3 text-center footer">
     <p>Dela Cruz, Vinzon, Somoza, Senina - 2022 &copy</p>
     </div>
 
