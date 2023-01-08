@@ -144,7 +144,7 @@
     </div>
         
     <!-- last child -->
-    <div style="background-color: #563D7C; color: white;" class="p-3 text-center">
+    <div class="p-3 text-center footer">
     <p>Dela Cruz, Vinzon, Somoza, Senina - 2022 &copy</p>
     </div>
 

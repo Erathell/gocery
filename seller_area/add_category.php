@@ -20,7 +20,7 @@
 ?>
 
 <form action="" method="post" class="my-5">
-    <div class="input-group w-90 h-90 mb-2">
+    <div class="input-group w-90 mb-2">
         <span class="input-group-text secondary" id="basic-addon1"> <i class="fa-regular fa-clipboard"></i></span>
         <input type="text" class="form-control" placeholder="Insert Category" name ="category_title" aria-describedby="basic-addon1">
     </div>

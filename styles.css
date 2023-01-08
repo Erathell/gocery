@@ -46,8 +46,9 @@
 
 
 .footer {
-    position: absolute;
-    bottom:100;
+    position: fixed;
+    bottom:0;
+    left: 0;
     background-color: #563D7C; 
     color: white;
     width: 100%;
