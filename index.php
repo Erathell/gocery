@@ -30,7 +30,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" style="color: white;" href="#"><i class="fa-solid fa-house fa-xl"></i><strong> Home</strong></a>
+                    <a class="nav-link active" aria-current="page" style="color: white;" href="index.php"><i class="fa-solid fa-house fa-xl"></i><strong> Home</strong></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" style="color: white;" href="#"><i class="fa-solid fa-user fa-xl"></i><strong> Register</strong></a>
@@ -75,8 +75,8 @@
             <div class="row">
                 <!--fetching products-->
                 <?php
-                    getProducts()
-                
+                    get_prod();
+                    get_uniq_cat();
                 ?>
             <!--row end -->
             </div>
@@ -92,7 +92,7 @@
                 </li>
                 <!-- categories -->
                 <?php
-                    getCategories();
+                    get_cat();
                 ?>
                 
 
