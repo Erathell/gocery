@@ -77,6 +77,10 @@
             <label for="price" class="form-label">Product Price</label>
             <input type="text" name="price" id="price" class="form-control" placeholder="Enter Product Price" autocomplete="off" required>
         </div>
+        <div class="form-outline mb-4 w-50 m-auto">
+            <label for="price" class="form-label">Stock</label>
+            <input type="text" name="stock" id="stock" class="form-control" placeholder="Enter Product Stock" autocomplete="off" required>
+        </div>
         <!-- submit -->
         <div class="form-outline mb-4 d-flex justify-content-center ">
             <button type="submit" name="insert_product" class="insert_product btn btn-green" value="Insert Product">Insert Product</button>
