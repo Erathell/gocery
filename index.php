@@ -74,7 +74,7 @@
             <div class="row">
                 <!--fetching products-->
                 <?php
-                $select_query = "Select * from `products`";
+                $select_query = "Select * from `products` order by rand()";
                 $result_query = mysqli_query($con, $select_query);
                 while($row = mysqli_fetch_assoc($result_query)){
                     $product_id =$row['product_id'];
