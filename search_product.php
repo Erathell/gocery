@@ -75,7 +75,7 @@
             <div class="row m-5">
                 <!--fetching products-->
                 <?php
-                    get_prod();
+                    search_prod();
                     get_uniq_cat();
                 ?>
             <!--row end -->
