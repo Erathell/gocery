@@ -18,10 +18,11 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
     <!-- navbar -->
         <div class="container-fluid p-0">
             <!-- first child -->
-            <nav class="navbar fixed-top navbar-expand-lg" style="background-color: #563D7C;">
+            <nav class="navbar sticky-nav navbar-expand-lg" style="background-color: #563D7C;">
             <div class="container-fluid">
                 <img src="images/logo.png" alt="logo" class="logo">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,7 +61,6 @@
                     </li>
                 </ul>
             </nav>
-        </div>
             <!-- third child -->
             <div class="bg-light pt-4 pb-1">
                 <h3 class="text-center">Available Products</h3>
@@ -99,10 +99,12 @@
                 </ul>
                 
             </div>
+        </div>
+
 
             
         <!-- last child -->
-        <div  class="p-3 text-center footer">
+        <div  class="p-3 text-center footer sticky-foot">
         <p>Dela Cruz, Vinzon, Somoza, Senina - 2022 &copy</p>
         </div>
     </div>

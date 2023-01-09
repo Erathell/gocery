@@ -18,8 +18,9 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
         <!-- navbar -->
-        <div class="container-fluid p-0">
+        <div class=" main container-fluid p-0">
             <!-- first child -->
             <nav class="navbar sticky-nav navbar-expand-lg" style="background-color: #563D7C;">
             <div class="container-fluid">
@@ -60,48 +61,48 @@
                     </li>
                 </ul>
             </nav>
-            <!-- third child -->
-            <div class="bg-light pt-4 pb-1">
-                <h3 class="text-center">Available Products</h3>
-                <p class="text-center">Grocery items at the click of your mouse</p>
-            </div>
-        
-        
-        <!-- fourth child -->
-        <div class="row">
-            <div class="col-md-10">
-                <!-- products -->
-                <div class="row m-5">
-                    <!--fetching products-->
-                    <?php
-                        get_prod();
-                        get_uniq_cat();
-                    ?>
-                <!--row end -->
+                <!-- third child -->
+                <div class="bg-light pt-4 pb-1">
+                    <h3 class="text-center">Available Products</h3>
+                    <p class="text-center">Grocery items at the click of your mouse</p>
                 </div>
-            <!--col end -->
-            </div>
+            
+            
+            <!-- fourth child -->
+            <div class="row">
+                <div class="col-md-10">
+                    <!-- products -->
+                    <div class="row m-5">
+                        <!--fetching products-->
+                        <?php
+                            get_prod();
+                            get_uniq_cat();
+                        ?>
+                    <!--row end -->
+                    </div>
+                <!--col end -->
+                </div>
 
 
 
-            <div class="col-md-2 p-0" style="background-color: #322348;">
-                <ul class="navbar-nav me-auto text-center" >
-                    <li class="nav-item" style="background-color: #563D7C;">
-                        <a href="#" class="nav-link text-light"><h3><strong>Categories</strong></h3></a>
-                    </li>
-                    <!-- categories -->
-                    <?php
-                        get_cat();
-                    ?>
+                <div class="col-md-2 p-0" style="background-color: #322348;">
+                    <ul class="navbar-nav me-auto text-center" >
+                        <li class="nav-item" style="background-color: #563D7C;">
+                            <a href="#" class="nav-link text-light"><h3><strong>Categories</strong></h3></a>
+                        </li>
+                        <!-- categories -->
+                        <?php
+                            get_cat();
+                        ?>
+                        
+
+                    </ul>
                     
-
-                </ul>
-                
+                </div>
             </div>
-        </div>
     
         </div>
-            
+     
     <!-- last child -->
     <div  class="p-3 text-center footer">
     <p>Dela Cruz, Vinzon, Somoza, Senina - 2022 &copy</p>
