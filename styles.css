@@ -5,7 +5,15 @@
 }
 
 .logo{
-    width: 10%;
+    width: 20vh;
+}
+
+.sticky-nav {
+    position:-webkit-sticky;
+    position:sticky;
+    display: flex;
+    top: 0;
+    z-index: 9;
 }
 
 .card-img-top{
@@ -46,7 +54,7 @@
 
 
 .footer {
-    margin-top: auto;
+
     background-color: #563D7C; 
     color: white;
     
