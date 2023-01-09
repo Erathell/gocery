@@ -19,8 +19,9 @@
 </head>
 <body>
 
-        <!-- navbar -->
+        
         <div class=" main container-fluid p-0">
+            <!-- navbar -->
             <!-- first child -->
             <nav class="navbar sticky-nav navbar-expand-lg" style="background-color: #563D7C;">
             <div class="container-fluid">

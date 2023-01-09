@@ -68,3 +68,11 @@
     justify-content: center;
     width: 100%;
 }
+
+.text-grey {
+    color: grey;
+}
+
+.products-sect {
+    height: 1000px;
+}

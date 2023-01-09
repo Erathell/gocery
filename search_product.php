@@ -18,9 +18,9 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
+    
     <!-- navbar -->
-        <div class="container-fluid p-0">
+        <div class="main container-fluid p-0">
             <!-- first child -->
             <nav class="navbar sticky-nav navbar-expand-lg" style="background-color: #563D7C;">
             <div class="container-fluid">
@@ -61,15 +61,8 @@
                     </li>
                 </ul>
             </nav>
-            <!-- third child -->
-            <div class="bg-light pt-4 pb-1">
-                <h3 class="text-center">Available Products</h3>
-                <p class="text-center">Grocery items at the click of your mouse</p>
-            </div>
-        
-        
-        <!-- fourth child -->
-        <div class="row">
+            <!-- third child -->    
+        <div class="row products-sect">
             <div class="col-md-10">
                 <!-- products -->
                 <div class="row m-5">
@@ -100,15 +93,11 @@
                 
             </div>
         </div>
-
-
-            
-        <!-- last child -->
-        <div  class="p-3 text-center footer sticky-foot">
-        <p>Dela Cruz, Vinzon, Somoza, Senina - 2022 &copy</p>
-        </div>
     </div>
-
+        <!-- last child -->
+        <div  class="p-3 text-center footer ">
+            <p>Dela Cruz, Vinzon, Somoza, Senina - 2022 &copy</p>
+        </div>
     <!-- JS link -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
