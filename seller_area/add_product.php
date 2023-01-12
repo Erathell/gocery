@@ -5,7 +5,7 @@
     $product_description = $_POST['description'];
     $product_category = $_POST['product_category'];
     $product_price = $_POST['price'];
-    $product_stock = ['stock'];
+    $product_stock = $_POST['stock'];
     $product_status = 'true';
     
     
