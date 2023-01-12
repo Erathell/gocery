@@ -5,7 +5,10 @@
     $product_description = $_POST['description'];
     $product_category = $_POST['product_category'];
     $product_price = $_POST['price'];
+    $product_stock = ['stock'];
     $product_status = 'true';
+    
+    
 
     //accessing images
     $product_image = $_FILES['product_image']['name'];
@@ -14,7 +17,7 @@
 
     $temp_product_image = $_FILES['product_image']['tmp_name'];
 
-    if($product_title =='' or  $product_description =='' or $product_category =='' or $product_price =='' or $product_image ==''){
+    if($product_title =='' or  $product_description =='' or $product_category =='' or $product_price =='' or $product_image =='' or $product_stock == ''){
         echo "<script>alert('Please fill all the fields') </script>";
         exit();
     }
@@ -23,7 +26,7 @@
 
         //insert query
 
-        $insert_product = "insert into `products`(name,product_description,category_id,product_image,product_price,date,status) values('$product_title','$product_description','$product_category','$product_image', '$product_price',NOW(),'$product_status')";
+        $insert_product = "insert into `products`(name,product_description,category_id,product_image,product_price,date,status,product_stock) values('$product_title','$product_description','$product_category','$product_image', '$product_price',NOW(),'$product_status',$product_stock)";
         $result_query = mysqli_query($con, $insert_product);
         if($result_query){
             echo "<script>alert('Product Successfully Added!') </script>";
@@ -78,8 +81,8 @@
             <input type="text" name="price" id="price" class="form-control" placeholder="Enter Product Price" autocomplete="off" required>
         </div>
         <div class="form-outline mb-4 w-50 m-auto">
-            <label for="price" class="form-label">Stock</label>
-            <input type="text" name="stock" id="stock" class="form-control" placeholder="Enter Product Stock" autocomplete="off" required>
+            <label for="stock" class="form-label">Stock</label>
+            <input type="number" name="stock" id="stock" class="form-control" placeholder="Enter Product Stock" autocomplete="off" required>
         </div>
         <!-- submit -->
         <div class="form-outline mb-4 d-flex justify-content-center ">
