@@ -42,18 +42,9 @@
             $category_id=$_GET['category'];
             
         $select_query = "Select * from `products` where category_id=$category_id";
-        $select_query_cat = "Select * from `categories` where category_id=$category_id";
         $result_query = mysqli_query($con, $select_query);
-        $result_query_cat = mysqli_query($con, $select_query_cat);
         $num_rows=mysqli_num_rows($result_query);
-        $row_cat = mysqli_fetch_assoc($result_query_cat);
-        
 
-        if($num_rows==0){
-            echo "<h2 class='text-center text-danger'> No items for this category";
-        }else{
-        $category_name = $row_cat['category_title'];
-        echo "<h2 class='text-center text-uppercase fw-bold'>$category_name</h2>";
         while($row = mysqli_fetch_assoc($result_query)){
             $product_id =$row['product_id'];
             $product_title = $row['name'];
@@ -61,7 +52,6 @@
             $product_category = $row['category_id'];
             $product_image = $row['product_image'];
             $product_price = $row['product_price'];
-            $category_name = $row_cat['category_title'];
             echo
             "<div class='col-md-4 mb-2'>
             <div class='card' style='width: 90%'>
