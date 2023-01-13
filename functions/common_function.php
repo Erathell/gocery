@@ -53,7 +53,7 @@
             echo "<h2 class='text-center text-danger'> No items for this category";
         }
         $category_name = $row_cat['category_title'];
-        echo "<h2 class='text-center'>$category_name</h2>";
+        echo "<h2 class='text-center text-uppercase fw-bold'>$category_name</h2>";
         while($row = mysqli_fetch_assoc($result_query)){
             $product_id =$row['product_id'];
             $product_title = $row['name'];
@@ -87,7 +87,7 @@
             $category_title=$row_data['category_title'];
             $category_id=$row_data['category_id'];
             echo "<li class='nav-item' >
-            <a href='index.php?category=$category_id' class='nav-link text-light'>$category_title</a>
+            <a href='index.php?category=$category_id' class='nav-link text-uppercase fw-bold text-light mt-2 categories'>$category_title</a>
         </li> ";
         }
     }

@@ -54,7 +54,9 @@
 }
 
 
-
+.categories:hover{
+    background-color: #FF6E41;
+}
 .ms-20 {
     margin-left: 200px !important;
 }
