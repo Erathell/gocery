@@ -51,6 +51,7 @@
                 </div>
             </div>
             </nav>
+
             <!-- second child -->
             <nav class="navbar navbar-expand-lg p-2" style="background-color: #322348;">
                 <ul class="navbar-nav me-auto">
@@ -76,7 +77,7 @@
                     <div class="row m-5">
                         <!--fetching products-->
                         <?php
-                            
+                            cart();
                             get_prod();
                             get_uniq_cat();
                             

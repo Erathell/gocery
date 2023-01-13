@@ -22,9 +22,9 @@
                 <img src='product_images/$product_image' class='card-img-top' alt='$product_title'>
                 <div class='card-body'>
                     <h4 class='card-title'>$product_title</h5>
-                    <h5>₱   $product_price</h3>
+                    <h5>₱$product_price</h3>
                     <p class='card-text'>$product_description</p>
-                    <a href='#' style='background-color:#42C84F; border-color: #42C84F;' class='btn btn-green'>Add to Cart</a>
+                    <a href='index.php?add_to_cart=$product_id' style='background-color:#42C84F; border-color: #42C84F;' class='btn btn-green'>Add to Cart</a>
                     <a href='product_details.php?product_id=$product_id' class='btn btn-secondary'>View More</a>
                 </div>
             </div>
@@ -70,7 +70,7 @@
                 <div class='card-body'>
                     <h5 class='card-title'>$product_title</h5>
                     <p class='card-text'>$product_description</p>
-                    <a href='#' style='background-color:#42C84F; border-color: #42C84F;' class='btn btn-primary'>Add to Cart</a>
+                    <a href='index.php?add_to_cart=$product_id' style='background-color:#42C84F; border-color: #42C84F;' class='btn btn-green'>Add to Cart</a>
                     <a href='#' class='btn btn-secondary'>View More</a>
                 </div>
             </div>
@@ -124,7 +124,7 @@
                         <div class='card-body'>
                             <h5 class='card-title'>$product_title</h5>
                             <p class='card-text'>$product_description</p>
-                            <a href='#' style='background-color:#42C84F; border-color: #42C84F;' class='btn btn-primary'>Add to Cart</a>
+                            <a href='index.php?add_to_cart=$product_id' style='background-color:#42C84F; border-color: #42C84F;' class='btn btn-green'>Add to Cart</a>
                             <a href='#' class='btn btn-secondary'>View More</a>
                         </div>
                     </div>
@@ -189,7 +189,23 @@
     // Cart Function
 
     function cart(){
-
+        if(isset($_GET['add_to_cart'])){
+            global $con;
+            $get_ip = getIPAddress();
+            $get_product_id=$_GET['add_to_cart'];
+            $select_query="Select * from `cart` where ip_address= '$get_ip' and product_id=$get_product_id";
+            $result_query = mysqli_query($con, $select_query);
+            $num_rows=mysqli_num_rows($result_query);
+            if($num_rows>0){
+                
+                echo"<script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'>swal('Hello world!');</script>";
+            }else{
+                $insert_query="insert into `cart` (product_id, ip_address, quantity) values ($get_product_id, '$get_ip', 0)";
+                $result_query = mysqli_query($con, $insert_query);
+                echo"<script>window.open('index.php', '_self')</script>";
+            }
+            
+        }
     }
      
 ?>
