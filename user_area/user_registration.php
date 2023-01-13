@@ -53,7 +53,7 @@
                     </div>
                     <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
                     
-                    <p class="small fw-bold mt-2 pt-1 mb-0">Already have an account? <a href="user_login">Login</a></p>
+                    <p class="small fw-bold mt-2 pt-1 mb-0">Already have an account? <a href="user_login.php">Login</a></p>
                 </form>
             </div>
         </div>
