@@ -25,7 +25,6 @@
                             <h5 class='card-title'>$product_title</h5>
                             <p class='card-text'>$product_description</p>
                             <a href='#' style='background-color:#42C84F; border-color: #42C84F;' class='btn btn-primary'>Edit Product</a>
-                            
                         </div>
                     </div>
                 </div>";}
