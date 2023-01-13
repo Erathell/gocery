@@ -23,7 +23,7 @@
                 <div class='card-body'>
                     <h5 class='card-title'>$product_title</h5>
                     <p class='card-text'>$product_description</p>
-                    <a href='#' style='background-color:#42C84F; border-color: #42C84F;' class='btn btn-primary'>Add to Cart</a>
+                    <a href='#' style='background-color:#42C84F; border-color: #42C84F;' class='btn btn-green'>Add to Cart</a>
                     <a href='product_details.php?product_id=$product_id' class='btn btn-secondary'>View More</a>
                 </div>
             </div>
@@ -158,8 +158,8 @@
                         <div class='card-body'>
                             <h5 class='card-title'>$product_title</h5>
                             <p class='card-text'>$product_description</p>
-                            <a href='#' style='background-color:#42C84F; border-color: #42C84F;' class='btn btn-primary'>Add to Cart</a>
-                            <a href='#' class='btn btn-secondary'>View More</a>
+                            <a href='#' style='background-color:#42C84F; border-color: #42C84F;' class='btn btn-green'>Add to Cart</a>
+                            
                         </div>
                     </div>
                 </div>";}
