@@ -3,10 +3,10 @@
 ?>
 
 <h1 class='text-center'>Products</h1>
-<div class="row">
+<div class="row mt-4">
 <div class="col-md-10">
             <!-- products -->
-            <div class="row">
+            <div class="row view-prod-row">
                 <!--fetching products-->
                 <?php
                 $select_query = "Select * from `products` order by name";
@@ -19,7 +19,7 @@
                     $product_image = $row['product_image'];
                     $product_price = $row['product_price'];
                     echo "<div class='col-md-4 mb-2'>
-                    <div class='card' style='width: 90%'>
+                    <div class='card' >
                         <img src='../product_images/$product_image' class='card-img-top' alt='$product_title'>
                         <div class='card-body'>
                             <h5 class='card-title'>$product_title</h5>

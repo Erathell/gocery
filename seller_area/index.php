@@ -34,7 +34,7 @@
     </div>
         <!-- second child -->
         <div class="mb-n12 secondary text-white">
-            <h3 class="text-center p-2">Manage Details</h3>
+            <h3 class="text-center p-3 pt-3">Manage Details</h3>
         </div>
 
         <!-- third child -->

@@ -29,7 +29,13 @@
         $insert_product = "insert into `products`(name,product_description,category_id,product_image,product_price,date,status,product_stock) values('$product_title','$product_description','$product_category','$product_image', '$product_price',NOW(),'$product_status',$product_stock)";
         $result_query = mysqli_query($con, $insert_product);
         if($result_query){
-            echo "<script>alert('Product Successfully Added!') </script>";
+            echo "<script>Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Product added succesfully',
+                showConfirmButton: false,
+                timer: 1500})
+                </script>";
         }
     }
     }

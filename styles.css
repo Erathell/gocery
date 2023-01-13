@@ -57,6 +57,14 @@
 .categories:hover{
     background-color: #FF6E41;
 }
+
+
+.nav-button{
+    color: white;
+}
+.nav-button:hover{
+    color: #42C84F;
+}
 .ms-20 {
     margin-left: 200px !important;
 }
@@ -78,4 +86,8 @@
 
 .products-sect {
     height: 1000px;
+}
+
+.view-prod-row {
+    justify-content: center;
 }
