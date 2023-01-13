@@ -45,6 +45,7 @@
         $result_query = mysqli_query($con, $select_query);
         $num_rows=mysqli_num_rows($result_query);
 
+
         while($row = mysqli_fetch_assoc($result_query)){
             $product_id =$row['product_id'];
             $product_title = $row['name'];
@@ -68,7 +69,6 @@
         </div>";}
         }
         }
-    }
 
 
     function get_cat(){
