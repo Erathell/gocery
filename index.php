@@ -79,8 +79,7 @@
                             
                             get_prod();
                             get_uniq_cat();
-                            $ip = getIPAddress();  
-                            echo 'User Real IP Address - '.$ip; 
+                            
                         ?>
                     <!--row end -->
                     </div>

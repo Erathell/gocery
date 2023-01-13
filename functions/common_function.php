@@ -21,7 +21,8 @@
             <div class='card' style='width: 90%'>
                 <img src='product_images/$product_image' class='card-img-top' alt='$product_title'>
                 <div class='card-body'>
-                    <h5 class='card-title'>$product_title</h5>
+                    <h4 class='card-title'>$product_title</h5>
+                    <h5>₱   $product_price</h3>
                     <p class='card-text'>$product_description</p>
                     <a href='#' style='background-color:#42C84F; border-color: #42C84F;' class='btn btn-green'>Add to Cart</a>
                     <a href='product_details.php?product_id=$product_id' class='btn btn-secondary'>View More</a>
@@ -156,9 +157,10 @@
                     <div class='card' style='width: 90%'>
                         <img src='product_images/$product_image' class='card-img-top' alt='$product_title'>
                         <div class='card-body'>
-                            <h5 class='card-title'>$product_title</h5>
+                        <h5 class='card-title'>$product_title</h5>
+                            <h4>$product_price</h4>
                             <p class='card-text'>$product_description</p>
-                            <a href='#' style='background-color:#42C84F; border-color: #42C84F;' class='btn btn-green'>Add to Cart</a>
+                            <a href='index.php?add_to_cart=$product_id' style='background-color:#42C84F; border-color: #42C84F;' class='btn btn-green'>Add to Cart</a>
                             
                         </div>
                     </div>
@@ -182,6 +184,12 @@
                  $ip = $_SERVER['REMOTE_ADDR'];  
          }  
          return $ip;  
-    }  
+    } 
+    
+    // Cart Function
+
+    function cart(){
+
+    }
      
 ?>
