@@ -51,6 +51,8 @@
         if($num_rows==0){
             echo "<h2 class='text-center text-danger'> No items for this category";
         }
+        $category_name = $row_cat['category_title'];
+        echo "<h2 class='text-center'>$category_name</h2>";
         while($row = mysqli_fetch_assoc($result_query)){
             $product_id =$row['product_id'];
             $product_title = $row['name'];
@@ -59,9 +61,8 @@
             $product_image = $row['product_image'];
             $product_price = $row['product_price'];
             $category_name = $row_cat['category_title'];
-            echo "
-            <h2 class='text-center'>$category_name</h2>
-            <div class='col-md-4 mb-2'>
+            echo
+            "<div class='col-md-4 mb-2'>
             <div class='card' style='width: 90%'>
                 
                 <img src='product_images/$product_image' class='card-img-top' alt='$product_title'>
