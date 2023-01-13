@@ -63,10 +63,7 @@
                 </ul>
             </nav>
                 <!-- third child -->
-                <div class="bg-light pt-4 pb-1">
-                    <h3 class="text-center">Available Products</h3>
-                    <p class="text-center">Grocery items at the click of your mouse</p>
-                </div>
+               
             
             
             <!-- fourth child -->
@@ -74,57 +71,9 @@
                 <div class="col-md-10">
                     <!-- products -->
                     <div class="row m-5">
-
-                        <div class="col-md-4">
-                            <div class='card' style='width: 90%'>
-                                <img src='product_images/apple.jpg' class='card-img-top' alt='$product_title'>
-                                <div class='card-body'>
-                                    <h5 class='card-title'>$product_title</h5>
-                                    <p class='card-text'>$product_description</p>
-                                    <a href='#' style='background-color:#42C84F; border-color: #42C84F;' class='btn btn-primary'>Add to Cart</a>
-                                    <a href='product_details.php?product_id=$product_id' class='btn btn-secondary'>View More</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-8">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h4 class="text-center mb-5">Related Products</h4>
-                                </div>
-                                <div class="col-md-6">
-                                <div class="col-md-8">
-                                    <div class='card' style='width: 100%'>
-                                        <img src='product_images/apple.jpg' class='card-img-top' alt='$product_title'>
-                                        <div class='card-body'>
-                                            <h5 class='card-title'>$product_title</h5>
-                                            <p class='card-text'>$product_description</p>
-                                            <a href='#' style='background-color:#42C84F; border-color: #42C84F;' class='btn btn-primary'>Add to Cart</a>
-                                            <a href='product_details.php?product_id=$product_id' class='btn btn-secondary'>View More</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                </div>
-                                <div class="col-md-6">
-                                <div class="col-md-8">
-                                    <div class='card' style='width: 100%'>
-                                        <img src='product_images/apple.jpg' class='card-img-top' alt='$product_title'>
-                                        <div class='card-body'>
-                                            <h5 class='card-title'>$product_title</h5>
-                                            <p class='card-text'>$product_description</p>
-                                            <a href='#' style='background-color:#42C84F; border-color: #42C84F;' class='btn btn-primary'>Add to Cart</a>
-                                            <a href='product_details.php?product_id=$product_id' class='btn btn-secondary'>View More</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                </div>
-                            </div>
-                        </div>
-
                         <!--fetching products-->
                         <?php
+                            view_details();
                             get_uniq_cat();
                         ?>
                     <!--row end -->

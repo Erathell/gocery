@@ -143,7 +143,7 @@
 
             if(!isset($_GET['category'])){
                 $product_id=$_GET['product_id'];
-                $select_query = "Select * from `products` order by rand()";
+                $select_query = "Select * from `products` where product_id=$product_id";
                 $result_query = mysqli_query($con, $select_query);
                 while($row = mysqli_fetch_assoc($result_query)){
                     $product_id =$row['product_id'];
