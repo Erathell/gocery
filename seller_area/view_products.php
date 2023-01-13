@@ -3,10 +3,10 @@
 ?>
 
 <h1 class='text-center'>Products</h1>
-<div class="row mt-4">
+<div class="row mt-4 view-prod-row">
 <div class="col-md-10">
             <!-- products -->
-            <div class="row view-prod-row">
+            <div class="row ">
                 <!--fetching products-->
                 <?php
                 $select_query = "Select * from `products` order by name";
