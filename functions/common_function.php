@@ -197,12 +197,25 @@
             $result_query = mysqli_query($con, $select_query);
             $num_rows=mysqli_num_rows($result_query);
             if($num_rows>0){
+                echo "<script>Swal.fire({
+                    icon: 'warning',
+                    title: 'Item already in the cart!',
+                    text: 'Select other items or proceed to Cart',
+                    confirmButtonColor: '#42C84F'
+                  }).then(function(){window.location = 'index.php'});</script>";
+
                 
-                echo"<script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'>swal('Hello world!');</script>";
+                
             }else{
                 $insert_query="insert into `cart` (product_id, ip_address, quantity) values ($get_product_id, '$get_ip', 0)";
                 $result_query = mysqli_query($con, $insert_query);
-                echo"<script>window.open('index.php', '_self')</script>";
+                echo"<script>Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Item added succefully',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })</script>";
             }
             
         }
