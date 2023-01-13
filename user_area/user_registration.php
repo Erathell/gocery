@@ -21,21 +21,39 @@
         <div class="row d-flex align-items-center justify-content-center">
             <div class="col-lg-12 col-xl-6">
                 <form action="" method="post" enctype="multipart/form-data">
+                    <!--username field-->
                     <div class="form-floating mb-4">
                         <input type="text" class="form-control" id="floatingInput" placeholder="Enter Username" autocomplete="off" required name="floatingInput"/>
-                        <label for="floatingInput" class="form-label">User Name</label>
+                        <label for="floatingInput" class="form-label">Username</label>
                     </div>
-
+                    <!--email field-->
                     <div class="form-floating mb-4">
-                        <input type="email" class="form-control" id="floatingInput" placeholder="Enter Email" autocomplete="off" required name="floatingInput"/>
-                        <label for="floatingInput" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="floatingInputValue" placeholder="name@example.com" autocomplete="off" required name="floatingInputValue"/>
+                        <label for="floatingInputValue" class="form-label">Email</label>
                     </div>
-
+                    <!--password field-->
                     <div class="form-floating mb-4">
-                        <input type="password" class="form-control" id="floatingPassword" placeholder="Enter Email" autocomplete="off" required name="floatingPassword"/>
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Enter Password" autocomplete="off" required name="floatingPassword"/>
                         <label for="floatingPassword" class="form-label">Enter Your Password</label>
                     </div>
-
+                    <!--confirm password field-->
+                    <div class="form-floating mb-4">
+                        <input type="password" class="form-control" id="confirm_floatingPassword" placeholder="Confirm Password" autocomplete="off" required name="confirm_floatingPassword"/>
+                        <label for="confirm_floatingPassword" class="form-label">Cofirm Your Password</label>
+                    </div>
+                    <!--address field-->
+                    <div class="form-floating mb-4">
+                        <input type="text" class="form-control" id="user_address" placeholder="Enter Address" autocomplete="off" required name="user_address"/>
+                        <label for="user_address" class="form-label">Address</label>
+                    </div>
+                    <!--contact field-->
+                    <div class="form-floating mb-4">
+                        <input type="text" class="form-control" id="user_contact" placeholder="Enter Contact Number" autocomplete="off" required name="user_contact"/>
+                        <label for="user_contact" class="form-label">Contact Number</label>
+                    </div>
+                    <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
+                    
+                    <p>Already have an account? <a href="user_login">Login</a></p>
                 </form>
             </div>
         </div>
