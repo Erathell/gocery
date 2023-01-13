@@ -21,8 +21,8 @@
             <div class='card' style='width: 90%'>
                 <img src='product_images/$product_image' class='card-img-top' alt='$product_title'>
                 <div class='card-body'>
-                    <h4 class='card-title'>$product_title</h5>
-                    <h5>₱$product_price</h3>
+                    <h4 class='card-title'>$product_title</h4>
+                    <h5>₱$product_price</h5>
                     <p class='card-text'>$product_description</p>
                     <a href='index.php?add_to_cart=$product_id' style='background-color:#42C84F; border-color: #42C84F;' class='btn btn-green'>Add to Cart</a>
                     <a href='product_details.php?product_id=$product_id' class='btn btn-secondary'>View More</a>
@@ -68,10 +68,11 @@
                 
                 <img src='product_images/$product_image' class='card-img-top' alt='$product_title'>
                 <div class='card-body'>
-                    <h5 class='card-title'>$product_title</h5>
+                    <h4 class='card-title'>$product_title</h4>
                     <p class='card-text'>$product_description</p>
+                    <h5>₱$product_price</h5>
                     <a href='index.php?add_to_cart=$product_id' style='background-color:#42C84F; border-color: #42C84F;' class='btn btn-green'>Add to Cart</a>
-                    <a href='#' class='btn btn-secondary'>View More</a>
+                    <a href='product_details.php?product_id=$product_id' class='btn btn-secondary'>View More</a>
                 </div>
             </div>
         </div>";}
@@ -122,10 +123,11 @@
                     <div class='card' style='width: 90%'>
                         <img src='product_images/$product_image' class='card-img-top' alt='$product_title'>
                         <div class='card-body'>
-                            <h5 class='card-title'>$product_title</h5>
+                        <h4 class='card-title'>$product_title</h4>
                             <p class='card-text'>$product_description</p>
+                            <h5>₱$product_price</h5>
                             <a href='index.php?add_to_cart=$product_id' style='background-color:#42C84F; border-color: #42C84F;' class='btn btn-green'>Add to Cart</a>
-                            <a href='#' class='btn btn-secondary'>View More</a>
+                            <a href='product_details.php?product_id=$product_id' class='btn btn-secondary'>View More</a>
                         </div>
                     </div>
                 </div>";
@@ -153,18 +155,24 @@
                     $product_category = $row['category_id'];
                     $product_image = $row['product_image'];
                     $product_price = $row['product_price'];
-                    echo "<div class='col-md-4 mb-2'>
-                    <div class='card' style='width: 90%'>
-                        <img src='product_images/$product_image' class='card-img-top' alt='$product_title'>
-                        <div class='card-body'>
-                        <h5 class='card-title'>$product_title</h5>
-                            <h4>$product_price</h4>
-                            <p class='card-text'>$product_description</p>
+                    echo "<div class='col-md-4 mb-2 text-center'>
+
+                    <div class='text-center' style='width: 100%'>
+                        <img src='product_images/$product_image' class='img-detailed' alt='$product_title'>
+                        
+                        <h4 class='card-title'>$product_title</h4>
+                        <p class='card-text'>$product_description</p>
+                        <h5>₱$product_price</h5>
                             <a href='index.php?add_to_cart=$product_id' style='background-color:#42C84F; border-color: #42C84F;' class='btn btn-green'>Add to Cart</a>
-                            
-                        </div>
+                        
                     </div>
-                </div>";}
+                </div>
+                
+                <div class='col-md-4 text-center'>
+                    <h3>Related Items</h3>
+                
+                </div>
+                ";}
             }
         }
     }
