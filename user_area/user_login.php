@@ -43,7 +43,7 @@
 </head>
 
 
-<body class="text-center bg-purple-light">
+<body class="text-center bg-purple-light login">
     
 <main class="form-signin">
     <form>
