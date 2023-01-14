@@ -55,7 +55,7 @@
         <label for="floatingInput">Email address</label>
         </div>
         <div class="form-floating">
-        <input type="password text-dark" class="form-control" id="floatingPassword" placeholder="Password">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
         <label for="floatingPassword">Password</label>
         </div>
 
@@ -65,7 +65,7 @@
         </label>
         </div>
         <button class="w-100 btn btn-lg btn-green" type="submit">Sign in</button>
-        
+        <p class="small fw-bold mt-2 pt-1 mb-0 text-light">Don't have an account? <a class="text-info" href="user_registration.php">Register</a></p>
     </form>
     </main>
 
