@@ -37,10 +37,12 @@
                         <a class="nav-link nav-button" href="./user_area/user_registration.php"><i class="fa-solid fa-user fa-xl "></i><strong> Register</strong></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" style="color: white;"><i class="fa-solid fa-cart-shopping fa-xl"></i><strong><sup>1</sup> Cart</strong></a>
+                        <a class="nav-link nav-button" href="cart.php"><i class="fa-solid fa-cart-shopping fa-xl "></i><strong><sup> <?php
+                            cart_number();
+                        ?></sup> Cart</strong></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" style="color: white;" href="#"><i class="fa-solid fa-hand-holding-dollar fa-xl"></i><strong> Total Price</strong> </a>
+                    <a class="nav-link nav-button" href="#"><i class="fa-solid fa-hand-holding-dollar fa-xl "></i><strong> Total Price: ₱ <?php total_cart_price() ?></strong> </a>
                     </li>
                 </ul>
                 <form class="d-flex" action="search_product.php" method="get">
