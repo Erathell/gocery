@@ -51,7 +51,7 @@
 
         if($num_rows==0){
             echo "<h2 class='text-center text-danger'> No items for this category";
-        }
+        } else {
         $category_name = $row_cat['category_title'];
         echo "<h2 class='text-center text-uppercase fw-bold'>$category_name</h2>";
         while($row = mysqli_fetch_assoc($result_query)){
@@ -76,6 +76,7 @@
                 </div>
             </div>
         </div>";}
+            }
         }
     }
 
