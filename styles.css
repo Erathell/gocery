@@ -146,3 +146,6 @@ body {
 }
 
 
+.btn-rounded {
+    border-radius: 25px !important;
+}

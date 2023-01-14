@@ -20,8 +20,7 @@
 </head>
 <body>
 
-        
-        <div class=" main container-fluid p-0">
+        <div class="main container-fluid p-0">
             <!-- navbar -->
             <!-- first child -->
             <nav class="navbar sticky-nav navbar-expand-lg" style="background-color: #563D7C;">
@@ -62,54 +61,51 @@
                 </ul>
             </nav>
                 <!-- third child -->
-                <div class="bg-light pt-4 pb-1">
-                    <h3 class="text-center">Available Products</h3>
-                    <p class="text-center">Grocery items at the click of your mouse</p>
-                </div>
-            
-            
-            <!-- fourth child -->
-            <div class="row">
-                <div class="col-md-10">
-                    <!-- products -->
-                    <div class="row m-5">
-                        <!--fetching products-->
-                        <?php
-                            cart();
-                            get_prod();
-                            get_uniq_cat();
-                            
-                        ?>
-                    <!--row end -->
-                    </div>
-                <!--col end -->
-                </div>
-
-
-
-                <div class="col-md-2 p-0" style="background-color: #322348;">
-                    <ul class="navbar-nav me-auto text-center" >
-                        <li class="nav-item" style="background-color: #563D7C;">
-                            <a href="#" class="nav-link text-light"><h3><strong>Categories</strong></h3></a>
-                        </li>
-                        <!-- categories -->
-                        <?php
-                            get_cat();
-                        ?>
-                        
-
-                    </ul>
+                <div class="bg-light pt-4 pb-1 mb-4">
+                    <h3 class="text-center">Shopping Cart</h3>
                     
                 </div>
+            
+            
+            <!-- fourth child table -->
+            <div class="container">
+                <div class="row">
+                    <table class="table table-bordered text-center"> 
+                        <thead>
+                            <tr>
+                                <th>Product Title</th>
+                                <th>Product Image</th>
+                                <th>Quantity</th>
+                                <th>Total Price</th>
+                                <th>Remove</th>
+                                <th>Operations</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <td>Sus</td>
+                            <td><img src="./product_images/among-us-twerk.gif" width="100"alt="sus"></td>
+                            <td><input type="text" name="" id=""></td>
+                            <td>9000</td>
+                            <td><input type="checkbox"></td>
+                            <td>
+                                <p>Update</p>
+                                <p>Remove</p>
+                            </td>
+                        </tbody>
+                    </table>
+                    <!-- subtotal -->
+                    <div>
+                        <h4 class="px-3">Subtotal: <strong>9000</strong></h4>
+                        <a href="index.php"><button type="button" class="btn btn-green btn-rounded">Continue Shopping</button></a>
+                    </div>
+                </div>
             </div>
-    
-        </div>
      
     <!-- last child -->
+    
+    </div>
     <div  class="p-3 text-center footer">
     <p>Dela Cruz, Vinzon, Somoza, Senina - 2022 &copy</p>
-    </div>
-
 
     <!-- JS link -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
