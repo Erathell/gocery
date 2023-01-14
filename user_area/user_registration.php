@@ -61,7 +61,7 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                   <i class="fa-solid fa-house fa-lg me-3 fa-fw1"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="password" id="form3Example4cd" class="form-control" placeholder="Enter your address"/>
+                      <input type="text" id="form3Example4cd" class="form-control" placeholder="Enter your address"/>
                       
                     </div>
                   </div>
@@ -69,7 +69,7 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                   <i class="fa-solid fa-phone fa-lg me-3 fa-fw1"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="password" id="form3Example4cd" class="form-control" placeholder="Enter your contact number"/>
+                      <input type="number" id="form3Example4cd" class="form-control" placeholder="Enter your contact number"/>
                       
                     </div>
                   </div>
