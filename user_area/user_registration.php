@@ -16,7 +16,7 @@
 
 
 <body class="text-center login" data-new-gr-c-s-check-loaded="14.1093.0" data-gr-ext-installed>
-<section class="vh-100 vw-100" style="background-color: #eee;">
+<section class="vh-100 vw-100" style="background-color: #563D7C;">
   <div class="container h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-lg-12 col-xl-11">
@@ -52,7 +52,12 @@
                       
                     </div>
                   </div>
-
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="password" id="form3Example4cd" class="form-control" placeholder="Repeat your password"/>
+                    </div>
+                  </div>
                   <div class="d-flex flex-row align-items-center mb-4">
                   <i class="fa-solid fa-house fa-lg me-3 fa-fw1"></i>
                     <div class="form-outline flex-fill mb-0">
