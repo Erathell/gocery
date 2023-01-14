@@ -43,29 +43,29 @@
 </head>
 
 
-<body class="text-center">
+<body class="text-center bg-purple-light">
     
 <main class="form-signin">
     <form>
         <img class="mb-4" src="../images/logo.png" alt="not working" width="100%" >
-        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+        <h1 class="h3 mb-3 fw-md text-light">Please sign in</h1>
 
-        <div class="form-floating">
+        <div class="form-floating mb-2">
         <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
         <label for="floatingInput">Email address</label>
         </div>
         <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+        <input type="password text-dark" class="form-control" id="floatingPassword" placeholder="Password">
         <label for="floatingPassword">Password</label>
         </div>
 
         <div class="checkbox mb-3">
-        <label>
-            <input type="checkbox" value="remember-me"> Remember me
+        <label class="text-light">
+            <input  type="checkbox" value="remember-me"> Remember me
         </label>
         </div>
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-        <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+        <button class="w-100 btn btn-lg btn-green" type="submit">Sign in</button>
+        
     </form>
     </main>
 
