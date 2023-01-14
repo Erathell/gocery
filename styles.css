@@ -149,3 +149,9 @@ body {
 .btn-rounded {
     border-radius: 25px !important;
 }
+
+.cart_img{
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}

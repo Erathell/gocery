@@ -69,38 +69,64 @@
             
             <!-- fourth child table -->
             <div class="container">
-                <div class="row">
-                    <table class="table table-bordered text-center"> 
-                        <thead>
-                            <tr>
-                                <th>Product Title</th>
-                                <th>Product Image</th>
-                                <th>Quantity</th>
-                                <th>Total Price</th>
-                                <th>Remove</th>
-                                <th>Operations</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <td>Sus</td>
-                            <td><img src="./product_images/among-us-twerk.gif" width="100"alt="sus"></td>
-                            <td><input type="text" name="" id=""></td>
-                            <td>9000</td>
-                            <td><input type="checkbox"></td>
-                            <td>
-                                <p>Update</p>
-                                <p>Remove</p>
-                            </td>
-                        </tbody>
-                    </table>
-                    <!-- subtotal -->
-                    <div>
-                        <h4 class="px-3">Subtotal: <strong>9000</strong></h4>
-                        <a href="index.php"><button type="button" class="btn btn-green btn-rounded">Continue Shopping</button></a>
+            <a href="index.php"><button type="button" class="btn btn-green btn-rounded mb-3">Continue Shopping</button></a>
+                <form action="" method="POST"></form>    
+                    <div class="row">
+                            <table class="table table-bordered text-center"> 
+                                <thead>
+                                    <tr>
+                                        <th>Product Title</th>
+                                        <th>Product Image</th>
+                                        <th>Quantity</th>
+                                        <th>Total Price</th>
+                                        <th>Remove</th>
+                                        <th colspan="2">Operations</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- PHP Dynamic Data Display-->
+                                    <?php
+                                        global $con;
+                                        $total_price=0;
+                                        $get_ip = getIPAddress();
+                                        $cart_query="Select * from `cart` where ip_address= '$get_ip'";
+                                        $result_cart=mysqli_query($con,$cart_query);
+                                        while($row=mysqli_fetch_array($result_cart)){
+                                            $product_id=$row['product_id'];
+                                            $select_products="Select * from `products` where product_id=$product_id";
+                                            $result_products=mysqli_query($con,$select_products);
+                                            while($row_product_price=mysqli_fetch_array($result_products)){
+                                                $product_price=array($row_product_price['product_price']);
+                                                $price_table=$row_product_price['product_price'];
+                                                $product_title=$row_product_price['name'];
+                                                $product_image=$row_product_price['product_image'];
+                                                $product_values=array_sum($product_price);
+                                                $total_price+=$product_values;                            
+                                    ?>
+                                    <tr>
+                                        <td><?php echo $product_title?></td>
+                                        <td><img src="./product_images/<?php echo $product_image ?>" class="cart_img" alt="sus"></td>
+                                        <td><input type="text" name="" id="" class="form-input w-50"></td>
+                                        <td>₱ <?php echo $price_table?></td>
+                                        <td><input type="checkbox"></td>
+                                        <td>
+                                            <a href="#"><button type="button" class="btn btn-warning btn-rounded me-3">Update</button></a>
+                                            <a href="#"><button type="button" class="btn btn-danger btn-rounded">Delete</button></a>
+                                            
+                                        </td>
+                                    </tr>
+                                <?php }
+                                } ?>
+                                </tbody>
+                            </table>
+                            <!-- subtotal -->
+                            <div class="d-flex align-items-end flex-column">
+                                <h4 class="pb-2">Subtotal: <strong>₱ <?php echo $total_price?></strong></h4>
+                                <a href="#"><button type="button" class="btn btn-green btn-rounded">Proceed to checkout</button></a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-     
+                </form>                
     <!-- last child -->
     
     </div>
