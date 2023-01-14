@@ -215,7 +215,7 @@
                 
                 
             }else{
-                $insert_query="insert into `cart` (product_id, ip_address, quantity) values ($get_product_id, '$get_ip', 0)";
+                $insert_query="insert into `cart` (product_id, ip_address, quantity) values ($get_product_id, '$get_ip', 1)";
                 $result_query = mysqli_query($con, $insert_query);
                 echo"<script>Swal.fire({
                     position: 'top-end',
@@ -269,4 +269,5 @@
             }
             echo $total_price;
         }
+        
 ?>
