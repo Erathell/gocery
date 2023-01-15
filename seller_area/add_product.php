@@ -92,7 +92,7 @@
         </div>
         <!-- submit -->
         <div class="form-outline mb-4 d-flex justify-content-center ">
-            <button type="submit" name="insert_product" class="insert_product btn btn-green" value="Insert Product">Insert Product</button>
+            <button type="submit" name="insert_product" class="form-control btn btn-green" value="Insert Product">Insert Product</button>
         </div>
 
     </form>
