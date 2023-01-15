@@ -156,7 +156,6 @@
                     $product_category = $row['category_id'];
                     $product_image = $row['product_image'];
                     $product_price = $row['product_price'];
-
                     echo "<div class='col-md-4 mb-2 text-center'>
 
                     <div class='text-center' style='width: 100%'>
@@ -169,42 +168,11 @@
                         
                     </div>
                 </div>
+                
+                <div class='col-md-4 text-center'>
+                    <h3>Related Items</h3>       
+                </div>
                 ";}
-
-                echo "<div class='col-md-4 text-center'>
-                <h3>Related Items</h3>          
-            </div>";
-            echo "<div class='row'>";
-            $related_query="Select * from `products` where category_id=$product_category ";
-            $related_result=mysqli_query($con, $related_query);
-            while($row_related=mysqli_fetch_assoc($related_result)){
-                    $related_id=$row_related['product_id'];
-                    $related_name=$row_related['name'];
-                    $related_desc=$row_related['product_description'];
-                    $related_image=$row_related['product_image'];
-                    $related_price=$row_related['product_price'];
-
-                    
-                
-                echo"
-
-                
-                    <div class='col-sm mb-2 text-center'>
-
-                        <div class='text-center' style='width: 100%'>
-                        <img src='product_images/$related_image' class='img-detailed' alt='$related_name'>
-                        <h4 class='card-title'>$related_name</h4>
-                        <p class='card-text'>$related_desc</p>
-                        <h5>₱$related_price</h5>
-                            <a href='index.php?add_to_cart=$related_id' style='background-color:#42C84F; border-color: #42C84F;' class='btn btn-green'>Add to Cart</a>
-                            <a href='product_details.php?product_id=$related_id' class='btn btn-secondary'>View More</a>    
-                        </div>
-                    </div>
-                ";
-            }
-            echo"</div>";
-
-            
             }
         }
     }

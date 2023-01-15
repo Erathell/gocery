@@ -26,13 +26,6 @@
             echo "<script>window.open('cart.php','_self')</script>";
         }
     }
-
-    if(isset($_POST['delete_all'])){
-        mysqli_query($con, "DELETE FROM `cart` WHERE ip_address='$get_ip'");
-
-    }
-
-    
     
 ?>
 
@@ -102,13 +95,8 @@
             
             <!-- fourth child table -->
             <div class="container">
-            
-            <form action="" method="post">
-            
-            <div class=" d-flex justify-content-between">
             <a href="index.php"><button type="button" class="btn btn-green btn-rounded mb-3">Continue Shopping</button></a>
-            <button type="submit" name="delete_all" class="btn btn-danger btn-rounded mb-3">Delete All</button>  
-            </div>
+                
                     <div class="row">
                             <table class="table table-bordered text-center"> 
                                 <thead>
@@ -145,7 +133,7 @@
                                         <td><?php echo $product_title?></td>
                                         <td><img src="./product_images/<?php echo $product_image ?>" class="cart_img" alt="sus"></td>
                                         <td>
-                                        
+                                        <form action="" method="post">
                                             <input type="hidden" name="cart_id" class="form-input w-50" value = <?php echo $row['product_id'] ?>>
                                             <input type="number" name="qty" class="form-input w-50" value = <?php echo $row['quantity'] ?>></td> 
                                         <td>₱ <?php echo $sub_total = $row_product_price['product_price'] * $row['quantity']?></td>
