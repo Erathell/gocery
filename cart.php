@@ -113,13 +113,13 @@
                                         <td><?php echo $product_title?></td>
                                         <td><img src="./product_images/<?php echo $product_image ?>" class="cart_img" alt="sus"></td>
                                         <td><input type="text" name="qty" id="" class="form-input w-50" ></td> <?php
-                                            $get_ip = getIPAddress();
-                                            if(isset($_POST['update_cart'])){
-                                                $quantities=$_POST['qty'];
-                                                $update_cart="update `cart` set quantity=$quantities where ip_address='$get_ip'";
-                                                $result=mysqli_query($con, $update_cart);
-                                                $total_price=$total_price*$quantities;
-                                            }
+                                            // $get_ip = getIPAddress();
+                                            // if(isset($_POST['update_cart'])){
+                                            //     $quantities=$_POST['qty'];
+                                            //     $update_cart="update `cart` set quantity=$quantities where ip_address='$get_ip'";
+                                            //     $result=mysqli_query($con, $update_cart);
+                                            //     $total_price=$total_price*$quantities;
+                                            // }
                                          ?>
                                         <td>₱ <?php echo $price_table?></td>
                                         <td><input type="checkbox" name="removeitem[]" value="<?php echo $product_id ?>"></td>
@@ -138,15 +138,51 @@
                                 </tbody>
                             </table>
                             <!-- subtotal -->
-                            <div class="d-flex align-items-end flex-column">
-                                <h4 class="pb-2">Subtotal: <strong>₱ <?php echo $total_price?></strong></h4>
-                                <a href="#"><button type="button" class="btn btn-green btn-rounded">Proceed to checkout</button></a>
-                            </div>
+                            <?php 
+                            
+                            $get_ip = getIPAddress();
+                            $cart_query="Select * from `cart` where ip_address= '$get_ip'";
+                            $result_cart=mysqli_query($con,$cart_query);
+                            $result_count=mysqli_num_rows($result_cart);
+                            if($result_count>0){
+                                echo "<div class='d-flex align-items-end flex-column'>
+                                <h4 class='pb-2'>Subtotal: <strong>₱ $total_price</strong></h4>
+                                <a href='#'><button type='button' class='btn btn-green btn-rounded'>Proceed to checkout</button></a>
+                            </div>";
+                            }
+                            
+                            ?>
+                            
                         </div>
                     </div>
                 </form>      
                 
                 <!-- remove product function -->
+
+                <?php 
+                    function update_cart_item() {
+                        global $con;
+                        global $total_price;
+                        $get_ip = getIPAddress();
+                        if(isset($_POST['update_cart'])){
+                            $quantities=$_POST['qty'];
+                            $update_cart="update `cart` set quantity=$quantities where ip_address='$get_ip'";
+                            $result=mysqli_query($con, $update_cart);
+                            $total_price=$total_price*$quantities;
+
+                            foreach($_POST['removeitem'] as $remove_id){
+                                echo $remove_id;
+                                $query="Delete from `cart` where product_id=$remove_id";
+                                $query_results=mysqli_query($con, $query);
+                                if($query_results){
+                                    echo "<script>window.open('cart.php','_self')</script>";
+                                }
+                            }
+                        }
+                    } echo $update_item=update_cart_item();
+                
+                ?>
+
                 <?php 
                     function remove_cart_item() {
                         global $con;
