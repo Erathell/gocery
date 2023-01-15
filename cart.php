@@ -15,7 +15,7 @@
             title: 'Quantity Updated',
             showConfirmButton: false,
             timer: 1500
-          })</script>";
+        })</script>";
     }
     // remove function
     if(isset($_POST['remove_cart'])){
@@ -24,6 +24,7 @@
         $run_delete=mysqli_query($con, $delete_query);
         if($run_delete){
             echo "<script>window.open('cart.php','_self')</script>";
+            
         }
     }
     
