@@ -1,6 +1,15 @@
 <?php
     include('includes/connect.php');
     include('functions/common_function.php');
+    $get_ip = getIPAddress();
+    if(isset($_POST['update_cart'])){
+        $quantities=$_POST['qty'];
+        $cart_id = $_POST['cart_id'];
+        $update_cart="update `cart` set quantity=$quantities where product_id=$cart_id";
+        $result=mysqli_query($con, $update_cart);
+        
+        echo "<script>alert('update success')</script>";
+    }
 ?>
 
 <!DOCTYPE html>
@@ -107,21 +116,13 @@
                                         <td><?php echo $product_title?></td>
                                         <td><img src="./product_images/<?php echo $product_image ?>" class="cart_img" alt="sus"></td>
                                         <td>
-                                            <input type="hidden" name="cart_id" class="form-input w-50" value = <?php echo $row['quantity'] ?>>
-                                            <input type="number" name="qty" class="form-input w-50" value = <?php echo $row['quantity'] ?>></td> <?php
-                                            $get_ip = getIPAddress();
-                                            // if(isset($_POST['update_cart'])){
-                                            //     $quantities=$_POST['qty'];
-                                            //     $update_cart="update `cart` set quantity=$quantities where ip_address='$get_ip' and product_id=2";
-                                            //     $result=mysqli_query($con, $update_cart);
-                                            //     $total_price=$total_price*$quantities;
-                                            // }
-                                         ?>
-                                        <td>₱ <?php echo $sub_total = number_format($row_product_price['product_price'] * $row['quantity'])?></td>
+                                            <input type="hidden" name="cart_id" class="form-input w-50" value = <?php echo $row['product_id'] ?>>
+                                            <input type="number" name="qty" class="form-input w-50" value = <?php echo $row['quantity'] ?>></td> 
+                                        <td>₱ <?php echo $sub_total = $row_product_price['product_price'] * $row['quantity']?></td>
                                         <td><input type="checkbox" name="removeitem[]" value="<?php echo $product_id?>"></td>
                                         <td>
                                             <button type="submit" value="updatecart" name="update_cart" class="btn btn-warning btn-rounded me-3">Update</button>
-                                            <button type="submit" value="Remove Cart"name="remove_cart" class="btn btn-danger btn-rounded">Delete</button>        
+                                            <button type="submit" value="Remove Cart"name="removeitem" class="btn btn-danger btn-rounded">Delete</button>        
                                         </td>
                                     </tr>
                                 <?php
