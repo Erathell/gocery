@@ -112,7 +112,7 @@
                                     <tr>
                                         <td><?php echo $product_title?></td>
                                         <td><img src="./product_images/<?php echo $product_image ?>" class="cart_img" alt="sus"></td>
-                                        <td><input type="text" name="qty" id="" class="form-input w-50" ></td> <?php
+                                        <td><input type="number" min="1" name="qty" id="" class="form-input w-50" ></td> <?php
                                             // $get_ip = getIPAddress();
                                             // if(isset($_POST['update_cart'])){
                                             //     $quantities=$_POST['qty'];
@@ -166,14 +166,12 @@
                         $get_ip = getIPAddress();
                         if(isset($_POST['update_cart'])){
                             $quantities=$_POST['qty'];
-                            $update_cart="update `cart` set quantity=$quantities where ip_address='$get_ip'";
-                            $result=mysqli_query($con, $update_cart);
-                            $total_price=$total_price*$quantities;
 
                             foreach($_POST['removeitem'] as $remove_id){
                                 echo $remove_id;
-                                $query="Delete from `cart` where product_id=$remove_id";
+                                $query="update `cart` set quantity=$quantities where ip_address='$get_ip' AND product_id=$remove_id";
                                 $query_results=mysqli_query($con, $query);
+                                
                                 if($query_results){
                                     echo "<script>window.open('cart.php','_self')</script>";
                                 }
