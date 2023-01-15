@@ -9,7 +9,13 @@
         $cart_id = $_POST['cart_id'];
         $update_cart="update `cart` set quantity=$quantities where product_id=$cart_id and ip_address='$get_ip'";
         $result=mysqli_query($con, $update_cart);
-        
+        echo "<script>Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Quantity Updated',
+            showConfirmButton: false,
+            timer: 1500
+          })</script>";
     }
     // remove function
     if(isset($_POST['remove_cart'])){
@@ -20,6 +26,7 @@
             echo "<script>window.open('cart.php','_self')</script>";
         }
     }
+    
 ?>
 
 <!DOCTYPE html>
@@ -98,7 +105,6 @@
                                         <th>Product Image</th>
                                         <th>Quantity</th>
                                         <th>Total Price</th>
-                                        <th>Remove</th>
                                         <th colspan="2">Operations</th>
                                     </tr>
                                 </thead>
@@ -110,6 +116,7 @@
                                         $get_ip = getIPAddress();
                                         $cart_query="Select * from `cart` where ip_address= '$get_ip'";
                                         $result_cart=mysqli_query($con,$cart_query);
+                                        
                                         while($row=mysqli_fetch_array($result_cart)){
                                             $product_id=$row['product_id'];
                                             $select_products="Select * from `products` where product_id=$product_id";
@@ -130,9 +137,9 @@
                                             <input type="hidden" name="cart_id" class="form-input w-50" value = <?php echo $row['product_id'] ?>>
                                             <input type="number" name="qty" class="form-input w-50" value = <?php echo $row['quantity'] ?>></td> 
                                         <td>₱ <?php echo $sub_total = $row_product_price['product_price'] * $row['quantity']?></td>
-                                        <td><input type="checkbox" name="removeitem[]" value="<?php echo $product_id?>"></td>
+
                                         <td>
-                                            <button type="submit" value="updatecart" name="update_cart" class="btn btn-warning btn-rounded me-3">Update</button>
+                                            <button type="submit" value="updatecart" name="update_cart" class="btn btn-warning btn-rounded m-2">Update</button>
                                             <button type="submit" value="Remove Cart"name="remove_cart" class="btn btn-danger btn-rounded">Delete</button>      
                                             </form>    
                                         </td>
