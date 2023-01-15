@@ -1,3 +1,6 @@
+<?php include('../includes/connect.php');
+include('../functions/common_function.php');?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,16 +49,16 @@
 <body class="text-center bg-purple-light login">
     
 <main class="form-signin">
-    <form>
+    <form action="" method="post" enctype="multipart/form-data">
         <img class="mb-4" src="../images/logo.png" alt="not working" width="100%" >
         <h1 class="h3 mb-3 fw-md text-light">Please sign in</h1>
 
         <div class="form-floating mb-2">
-        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="user_email">
         <label for="floatingInput">Email address</label>
         </div>
         <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="user_password">
         <label for="floatingPassword">Password</label>
         </div>
 
@@ -64,7 +67,7 @@
             <input  type="checkbox" value="remember-me"> Remember me
         </label>
         </div>
-        <button class="w-100 btn btn-lg btn-green" type="submit">Sign in</button>
+        <button class="w-100 btn btn-lg btn-green" type="submit" name="login">Sign in</button>
         <p class="small fw-bold mt-2 pt-1 mb-0 text-light">Don't have an account? <a class="text-info" href="user_registration.php">Register</a></p>
     </form>
     </main>
@@ -74,3 +77,38 @@
   </body>
 
 </html>
+
+<?php
+if (isset($_POST['login'])) {
+  $user_email = $_POST['user_email'];
+  $user_password = $_POST['user_password'];
+
+
+  $select_query = "Select * from `customer` where email='$user_email'";
+  $result = mysqli_query($con, $select_query);
+  $rows_count = mysqli_num_rows($result);
+  $row_data = mysqli_fetch_assoc($result);
+  $user_ip = getIPAddress();
+
+  //cart item
+  $select_query_cart = "Select * from `cart` where ip_address='$user_ip'";
+  $select_cart = mysqli_query($con, $select_query_cart);
+  $rows_count_cart = mysqli_num_rows($select_cart);
+
+  if($rows_count>0){
+      if(password_verify($user_password,$row_data['password'])){
+        //echo "<script>alert('Login successfuly')</script>";
+        if($rows_count==1 and $rows_count_cart==0){
+          echo "<script>alert('Login successfuly')</script>";
+          echo "<script>window.open('cart.php','_self')</script>";
+        }
+      }else{
+        echo "<script>alert('Invalid Credentials')</script>";
+      }
+
+  }else{
+    echo "<script>alert('Invalid Credentials')</script>";
+  }
+
+}     
+?>
