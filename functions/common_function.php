@@ -157,7 +157,7 @@
                     $product_image = $row['product_image'];
                     $product_price = $row['product_price'];
 
-                    echo "<div class='col-md-4 mb-5 text-center'>
+                    echo "<div class='col-md-4 mb-2 text-center'>
 
                     <div class='text-center' style='width: 100%'>
                         <img src='product_images/$product_image' class='img-detailed' alt='$product_title'>
@@ -175,7 +175,7 @@
                 <h3>Related Items</h3>          
             </div>";
             echo "<div class='row'>";
-            $related_query="Select * from `products` where category_id=$product_category and name<>'$product_title'";
+            $related_query="Select * from `products` where category_id=$product_category ";
             $related_result=mysqli_query($con, $related_query);
             while($row_related=mysqli_fetch_assoc($related_result)){
                     $related_id=$row_related['product_id'];
