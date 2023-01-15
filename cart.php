@@ -2,13 +2,23 @@
     include('includes/connect.php');
     include('functions/common_function.php');
     $get_ip = getIPAddress();
+
+    // update function
     if(isset($_POST['update_cart'])){
         $quantities=$_POST['qty'];
         $cart_id = $_POST['cart_id'];
         $update_cart="update `cart` set quantity=$quantities where product_id=$cart_id and ip_address='$get_ip'";
         $result=mysqli_query($con, $update_cart);
         
-        echo "<script>alert('update success')</script>";
+    }
+    // remove function
+    if(isset($_POST['remove_cart'])){
+        $cart_id = $_POST['cart_id'];
+        $delete_query="Delete from `cart` where product_id=$cart_id";
+        $run_delete=mysqli_query($con, $delete_query);
+        if($run_delete){
+            echo "<script>window.open('cart.php','_self')</script>";
+        }
     }
 ?>
 
@@ -151,29 +161,6 @@
                             
                         </div>
                     </div>
-                    
-                
-                <!-- remove product function -->
-                <?php 
-                    function remove_cart_item() {
-                        global $con;
-                        
-                        if(isset($_POST['remove_cart'])){
-                            echo "working";
-                            foreach($_POST['removeitem'] as $remove_id){
-                                echo $remove_id;
-                                $delete_query="Delete from `cart` where product_id=$remove_id";
-                                $run_delete=mysqli_query($con, $delete_query);
-                                if($run_delete){
-                                    echo "<script>window.open('cart.php','_self')</script>";
-                                }
-                            }
-                        } else {
-                            echo "<script> </script>";
-                        }
-                    } echo $remove_item=remove_cart_item();
-                
-                ?>
                 </form>                
     <!-- last child -->
     
