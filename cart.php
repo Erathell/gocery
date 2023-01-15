@@ -103,29 +103,20 @@
                                                 $product_values=array_sum($product_price);
                                                 $total_price+=$product_values;                            
                                     ?>
-                                    <tr><td><input type="checkbox" name="removeitem[]" value="<?php echo $product_id?>"></td>
+                                    <tr>
                                         <td><?php echo $product_title?></td>
                                         <td><img src="./product_images/<?php echo $product_image ?>" class="cart_img" alt="sus"></td>
                                         <td><input type="text" name="qty" id="" class="form-input w-50" ></td> <?php
                                             $get_ip = getIPAddress();
                                             if(isset($_POST['update_cart'])){
                                                 $quantities=$_POST['qty'];
-                                                $update_cart="update `cart` set quantity=$quantities where ip_address='$get_ip'";
+                                                $update_cart="update `cart` set quantity=$quantities where ip_address='$get_ip' and product_id=2";
                                                 $result=mysqli_query($con, $update_cart);
                                                 $total_price=$total_price*$quantities;
-
-                                                foreach($_POST['removeitem'] as $remove_id){
-                                                    echo $remove_id;
-                                                    $query="Delete from `cart` where product_id=$remove_id";
-                                                    $query_results=mysqli_query($con, $query);
-                                                    if($query_results){
-                                                        echo "<script>window.open('cart.php','_self')</script>";
-                                                    }
-                                                }
                                             }
                                          ?>
                                         <td>₱ <?php echo $price_table?></td>
-                                        
+                                        <td><input type="checkbox" name="removeitem[]" value="<?php echo $product_id?>"></td>
                                         <td>
                                             <button type="submit" value="updatecart" name="update_cart" class="btn btn-warning btn-rounded me-3">Update</button>
                                             <button type="submit" value="Remove Cart"name="remove_cart" class="btn btn-danger btn-rounded">Delete</button>        
