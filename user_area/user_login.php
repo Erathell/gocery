@@ -99,8 +99,8 @@ if (isset($_POST['login'])) {
       if(password_verify($user_password,$row_data['password'])){
         //echo "<script>alert('Login successfuly')</script>";
         if($rows_count==1 and $rows_count_cart==0){
-          echo "<script>alert('Login successfuly')</script>";
-          echo ;
+          echo "<script>alert('Login successfuly');window.location.href='/gocery/index.php'</script>";
+          
         }
       }else{
         echo "<script>alert('Invalid Credentials')</script>";
