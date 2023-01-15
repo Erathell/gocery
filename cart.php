@@ -2,7 +2,7 @@
     include('includes/connect.php');
     include('functions/common_function.php');
     $get_ip = getIPAddress();
-    
+    hi
     // update function
     if(isset($_POST['update_cart'])){
         $quantities=$_POST['qty'];
