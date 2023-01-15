@@ -13,7 +13,7 @@
                 text: 'Category already exists!',
                 confirmButtonColor: '#42C84F'
                 
-              })</script>";
+            })</script>";
         }else{
 
             $insert_query="insert into `categories` (category_title) values ('$category_title')";
