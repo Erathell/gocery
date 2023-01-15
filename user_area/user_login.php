@@ -100,7 +100,7 @@ if (isset($_POST['login'])) {
         //echo "<script>alert('Login successfuly')</script>";
         if($rows_count==1 and $rows_count_cart==0){
           echo "<script>alert('Login successfuly')</script>";
-          echo "<script>window.open('cart.php','_self')</script>";
+          echo ;
         }
       }else{
         echo "<script>alert('Invalid Credentials')</script>";
