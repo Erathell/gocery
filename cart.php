@@ -5,7 +5,7 @@
     if(isset($_POST['update_cart'])){
         $quantities=$_POST['qty'];
         $cart_id = $_POST['cart_id'];
-        $update_cart="update `cart` set quantity=$quantities where product_id=$cart_id";
+        $update_cart="update `cart` set quantity=$quantities where product_id=$cart_id and ip_address='$get_ip'";
         $result=mysqli_query($con, $update_cart);
         
         echo "<script>alert('update success')</script>";
@@ -79,7 +79,7 @@
             <!-- fourth child table -->
             <div class="container">
             <a href="index.php"><button type="button" class="btn btn-green btn-rounded mb-3">Continue Shopping</button></a>
-                <form action="" method="post">
+                
                     <div class="row">
                             <table class="table table-bordered text-center"> 
                                 <thead>
@@ -116,13 +116,15 @@
                                         <td><?php echo $product_title?></td>
                                         <td><img src="./product_images/<?php echo $product_image ?>" class="cart_img" alt="sus"></td>
                                         <td>
+                                        <form action="" method="post">
                                             <input type="hidden" name="cart_id" class="form-input w-50" value = <?php echo $row['product_id'] ?>>
                                             <input type="number" name="qty" class="form-input w-50" value = <?php echo $row['quantity'] ?>></td> 
                                         <td>₱ <?php echo $sub_total = $row_product_price['product_price'] * $row['quantity']?></td>
                                         <td><input type="checkbox" name="removeitem[]" value="<?php echo $product_id?>"></td>
                                         <td>
                                             <button type="submit" value="updatecart" name="update_cart" class="btn btn-warning btn-rounded me-3">Update</button>
-                                            <button type="submit" value="Remove Cart"name="removeitem" class="btn btn-danger btn-rounded">Delete</button>        
+                                            <button type="submit" value="Remove Cart"name="remove_cart" class="btn btn-danger btn-rounded">Delete</button>      
+                                            </form>    
                                         </td>
                                     </tr>
                                 <?php
@@ -149,7 +151,7 @@
                             
                         </div>
                     </div>
-                </form>      
+                    
                 
                 <!-- remove product function -->
                 <?php 
@@ -166,6 +168,8 @@
                                     echo "<script>window.open('cart.php','_self')</script>";
                                 }
                             }
+                        } else {
+                            echo "<script> </script>";
                         }
                     } echo $remove_item=remove_cart_item();
                 
