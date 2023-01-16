@@ -1,6 +1,7 @@
 <?php
     include('includes/connect.php');
     include('functions/common_function.php');
+    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -54,12 +55,27 @@
             <!-- second child -->
             <nav class="navbar navbar-expand-lg p-2" style="background-color: #322348;">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" style="color: white;" href="#">Welcome Guest</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" style="color: white;" href="./user_area/user_login.php">Login</a>
-                    </li>
+                <?php
+                if(!isset($_SESSION['name'])){
+                    echo "<li class='nav-item'>
+                    <a class='nav-link' style='color: white;' href='#'>Welcome Guest</a>
+                </li>";
+                }else{
+                    echo "<li class='nav-item'>
+                    <a class='nav-link' style='color: white;' href='#'>Welcome ".$_SESSION['name']."</a>
+                </li>";
+                }
+                
+                if(!isset($_SESSION['name'])){
+                    echo "<li class='nav-item'>
+                    <a class='nav-link' style='color: white;' href='./user_area/user_login.php'>Login</a>
+                </li>";
+                }else{
+                    echo "<li class='nav-item'>
+                    <a class='nav-link' style='color: white;' href=''>Logout</a>
+                </li>";
+                }
+                ?>
                 </ul>
             </nav>
                 <!-- third child -->
