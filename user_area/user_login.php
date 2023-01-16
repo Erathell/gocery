@@ -101,10 +101,22 @@ if (isset($_POST['login'])) {
       if(password_verify($user_password,$row_data['password'])){
         if($rows_count==1 and $rows_count_cart==0){
           $_SESSION['name'] = $user_email;
-          echo "<script>alert('Login successfuly');window.location.href='/gocery/index.php'</script>";
+          echo "<script>Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Login successfuly',
+            showConfirmButton: false,
+            timer: 1500
+          }).then(function(){window.location = '/gocery/index.php'})</script>";
         }
         else{
-          "<script>alert('Login successfuly');window.location.href='/gocery/index.php'</script>";
+          echo "<script>Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Login successfuly',
+            showConfirmButton: false,
+            timer: 1500
+          }).then(function(){window.location = '/gocery/index.php'})</script>";
         }
       }
       else{
