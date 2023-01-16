@@ -76,7 +76,7 @@
                 </li>";
                 }else{
                     echo "<li class='nav-item'>
-                    <a class='nav-link' style='color: white;' href='./user_area/user_logout.php'>Logout</a>
+                    <a class='nav-link' style='color: white;' href='#'>Logout</a>
                 </li>";
                 }
                 ?>
