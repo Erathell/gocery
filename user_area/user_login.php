@@ -1,5 +1,7 @@
 <?php include('../includes/connect.php');
-include('../functions/common_function.php');?>
+include('../functions/common_function.php');
+session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +9,7 @@ include('../functions/common_function.php');?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User-Registration</title>
+    <title>User-Login</title>
     <!-- bootstrap CSS link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <!-- font awesome link -->
@@ -83,7 +85,6 @@ if (isset($_POST['login'])) {
   $user_email = $_POST['user_email'];
   $user_password = $_POST['user_password'];
 
-
   $select_query = "Select * from `customer` where email='$user_email'";
   $result = mysqli_query($con, $select_query);
   $rows_count = mysqli_num_rows($result);
@@ -94,21 +95,18 @@ if (isset($_POST['login'])) {
   $select_query_cart = "Select * from `cart` where ip_address='$user_ip'";
   $select_cart = mysqli_query($con, $select_query_cart);
   $rows_count_cart = mysqli_num_rows($select_cart);
-
   if($rows_count>0){
+    $_SESSION['name']= $user_email;
       if(password_verify($user_password,$row_data['password'])){
+        $_SESSION['name'] = $user_email;
         //echo "<script>alert('Login successfuly')</script>";
         if($rows_count==1 and $rows_count_cart==0){
-          echo "<script>alert('Login successfuly');window.location.href='/gocery/index.php'</script>";
-          
-        }
+          $_SESSION['name'] = $user_email;
+          echo "<script>alert('Login successfuly');window.open/gocery/index.php'</script>"; }
       }else{
-        echo "<script>alert('Invalid Credentials')</script>";
-      }
-
+        echo "<script>alert('Invalid Credentials')</script>";}
   }else{
-    echo "<script>alert('Invalid Credentials')</script>";
-  }
+    echo "<script>alert('Invalid Credentials')</script>";}
 
 }     
 ?>
