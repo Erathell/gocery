@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include('../includes/connect.php');
     include('../functions/common_function.php');
     if(isset($_POST['user_register'])){
@@ -50,6 +51,7 @@
   $result_cart = mysqli_query($con, $select_cart_items);
   $rows_count_cart = mysqli_num_rows($result_cart);
   if($rows_count_cart>0){
+    //$_SESSION['name'] = $user_fullname;
     echo "<script> alert('You have items in your cart')</script>";
   }  
 
