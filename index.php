@@ -1,7 +1,7 @@
 <?php
     include('./includes/connect.php');
     include('./functions/common_function.php');
-    session_start();
+    @session_start();
 ?>
 
 <!DOCTYPE html>
@@ -76,7 +76,7 @@
                 </li>";
                 }else{
                     echo "<li class='nav-item'>
-                    <a class='nav-link' style='color: white;' href='#'>Logout</a>
+                    <a class='nav-link' style='color: white;' href='./user_area/user_logout.php'>Logout</a>
                 </li>";
                 }
                 ?>
