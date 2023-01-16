@@ -85,8 +85,6 @@ if (isset($_POST['login'])) {
   $user_email = $_POST['user_email'];
   $user_password = $_POST['user_password'];
 
-
-
   $select_query = "Select * from `customer` where email='$user_email'";
   $result = mysqli_query($con, $select_query);
   $rows_count = mysqli_num_rows($result);
@@ -101,12 +99,15 @@ if (isset($_POST['login'])) {
   if($rows_count>0){
     $_SESSION['name']= $user_email;
       if(password_verify($user_password,$row_data['password'])){
-        //echo "<script>alert('Login successfuly')</script>";
         if($rows_count==1 and $rows_count_cart==0){
           $_SESSION['name'] = $user_email;
           echo "<script>alert('Login successfuly');window.location.href='/gocery/index.php'</script>";
         }
-      }else{
+        else{
+          "<script>alert('Login successfuly');window.location.href='/gocery/index.php'</script>";
+        }
+      }
+      else{
         echo "<script>alert('Invalid Credentials')</script>";
       }
 
