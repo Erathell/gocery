@@ -90,15 +90,19 @@ if (isset($_POST['login'])) {
   $name_query = "Select name from `customer` where email like '%$user_email%'";
   $result_name = mysqli_query($con,$name_query);
   $name_data = mysqli_fetch_assoc($result_name);
-  $name = $name_data['name'];
+  //$name = $name_data['name'];
+  if (isset($name_data['name'])) {
+    $name = $name_data['name'];}
+    
 
+  
 
   $select_query = "Select * from `customer` where email='$user_email'";
   $result = mysqli_query($con, $select_query);
   $rows_count = mysqli_num_rows($result);
   $row_data = mysqli_fetch_assoc($result);
 
-
+  
   //cart item
   $select_query_cart = "Select * from `cart` where ip_address='$user_ip'";
   $select_cart = mysqli_query($con, $select_query_cart);
@@ -107,32 +111,57 @@ if (isset($_POST['login'])) {
   if($rows_count>0){
     $_SESSION['name']= $name;
       if(password_verify($user_password,$row_data['password'])){
-        if($rows_count==1 and $rows_count_cart==0){
+        $_SESSION['name']= $name;
+      if ($user_email == $row_data['email']) {
+        if ($rows_count == 1 and $rows_count_cart == 0) {
           $_SESSION['name'] = $name;
           echo "<script>Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Login successfuly',
-            showConfirmButton: false,
-            timer: 1500
-          }).then(function(){window.location = '/gocery/index.php'})</script>";
-        }
-        else{
+              position: 'center',
+              icon: 'success',
+              title: 'Login successfuly',
+              showConfirmButton: false,
+              timer: 1500
+            }).then(function(){window.location = '/gocery/index.php'})</script>";
+        } 
+        else {
+          $_SESSION['name']= $name;
           echo "<script>Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Login successfuly',
-            showConfirmButton: false,
-            timer: 1500
-          }).then(function(){window.location = '/gocery/index.php'})</script>";
+              position: 'center',
+              icon: 'success',
+              title: 'Login successfuly',
+              showConfirmButton: false,
+              timer: 1500
+            }).then(function(){window.location = '/gocery/index.php'})</script>";
         }
       }
       else{
-        echo "<script>alert('Invalid Credentials')</script>";
+        echo "<script>Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Invalid Email or Password ',
+          showConfirmButton: false,
+          timer: 1500
+      })</script>";
       }
-
-  }else{
-    echo "<script>alert('Invalid Credentials')</script>";
+      }
+      else{
+        echo "<script>Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Invalid Email or Password ',
+          showConfirmButton: false,
+          timer: 1500
+      })</script>";
+      }
+  }
+  else{
+    echo "<script>Swal.fire({
+      position: 'center',
+      icon: 'error',
+      title: 'Invalid Email or Password ',
+      showConfirmButton: false,
+      timer: 1500
+  })</script>";
   }
 }   
 ?>
