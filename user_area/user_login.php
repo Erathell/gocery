@@ -81,15 +81,23 @@ session_start();
 </html>
 
 <?php
+
 if (isset($_POST['login'])) {
   $user_email = $_POST['user_email'];
   $user_password = $_POST['user_password'];
+  $user_ip = getIPAddress();
+
+  $name_query = "Select name from `customer` where email like '%$user_email%'";
+  $result_name = mysqli_query($con,$name_query);
+  $name_data = mysqli_fetch_assoc($result_name);
+  $name = $name_data['name'];
+
 
   $select_query = "Select * from `customer` where email='$user_email'";
   $result = mysqli_query($con, $select_query);
   $rows_count = mysqli_num_rows($result);
   $row_data = mysqli_fetch_assoc($result);
-  $user_ip = getIPAddress();
+
 
   //cart item
   $select_query_cart = "Select * from `cart` where ip_address='$user_ip'";
@@ -97,10 +105,10 @@ if (isset($_POST['login'])) {
   $rows_count_cart = mysqli_num_rows($select_cart);
 
   if($rows_count>0){
-    $_SESSION['name']= $user_email;
+    $_SESSION['name']= $name;
       if(password_verify($user_password,$row_data['password'])){
         if($rows_count==1 and $rows_count_cart==0){
-          $_SESSION['name'] = $user_email;
+          $_SESSION['name'] = $name;
           echo "<script>Swal.fire({
             position: 'center',
             icon: 'success',
