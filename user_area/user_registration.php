@@ -42,14 +42,14 @@
     }
     }
 
-  // //selecting cart items
-  // $select_cart_items = "Select * from `cart` where ip_address = '$user_ip'";
-  // $result_cart = mysqli_query($con, $select_cart_items);
-  // $rows_count_cart = mysqli_num_rows($result_cart);
-  // if($rows_count_cart>0){
-  // $_SESSION['name'] = $user_fullname;
-  // echo "<script> alert('You have items in your cart')</script>";
-  // } 
+  //selecting cart items
+  $select_cart_items = "Select * from `cart` where ip_address = '$user_ip'";
+  $result_cart = mysqli_query($con, $select_cart_items);
+  $rows_count_cart = mysqli_num_rows($result_cart);
+  if($rows_count_cart>0){
+    $_SESSION['name'];
+  echo "<script> alert('You have items in your cart')</script>";
+  } 
   
   }
 
@@ -96,14 +96,12 @@
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                       <input type="email" id="user_email" class="form-control" placeholder="Enter your email address" name="user_email" required autocomplete="off"/>
-                      <?php
-                      if(isset($ne_error)):
-                      ?>
+                      
+                      <?php if(isset($ne_error)):?>
                       <span><?php echo $ne_error;?></span>
                       <?php endif?>
                     </div>
                   </div>
-
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
