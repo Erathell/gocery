@@ -93,7 +93,7 @@ if (isset($_POST['login'])) {
   //$name = $name_data['name'];
   if (isset($name_data['name'])) {
     $name = $name_data['name'];}
-    
+  global $name;
 
   
 

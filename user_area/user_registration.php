@@ -2,57 +2,7 @@
     session_start();
     include('../includes/connect.php');
     include('../functions/common_function.php');
-    if(isset($_POST['user_register'])){
-      $user_fullname = $_POST['user_fullname'];
-      $user_email = $_POST['user_email'];
-      $user_password = $_POST['user_password'];
-      $hash_password = password_hash($user_password,PASSWORD_DEFAULT);
-      $conf_user_password = $_POST['conf_user_password'];
-      $user_address = $_POST['user_address'];
-      $contact_num = $_POST['contact_num'];
-      $user_ip = getIPAddress();
-      //select query
-
-    $select_query_email = "Select * from `customer` where  email='$user_email'";
-    $result = mysqli_query($con, $select_query_email);
-    $rows_count = mysqli_num_rows($result);
-
-    if($rows_count != 0){
-      $ne_error='Email aldready taken';
-    }
-    else if($user_password != $conf_user_password){
-    $password_not_match = 'Password do not match';
-    }
-    else{
-    //insert_query
-    $insert_query = "insert into `customer`(name,address,contact_num,email,password,user_ip) values('$user_fullname','$user_address',$contact_num,'$user_email','$hash_password','$user_ip')";
-    $sql_execute = mysqli_query($con, $insert_query);
-    if ($sql_execute) {
-      echo "<script>Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Product added succesfully',
-        showConfirmButton: false,
-        timer: 1500})
-        </script>";
-      echo "<script>window.open('user_login.php','_self')</script>";
-    } 
-    else {
-      die(mysqli_error($con));
-    }
-    }
-
-  //selecting cart items
-  $select_cart_items = "Select * from `cart` where ip_address = '$user_ip'";
-  $result_cart = mysqli_query($con, $select_cart_items);
-  $rows_count_cart = mysqli_num_rows($result_cart);
-  if($rows_count_cart>0){
-    $_SESSION['name'];
-  echo "<script> alert('You have items in your cart')</script>";
-  } 
-  
-  }
-
+    
 ?>
 
 <!DOCTYPE html>
@@ -71,6 +21,55 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body class="text-center login" data-new-gr-c-s-check-loaded="14.1093.0" data-gr-ext-installed>
+  <?php
+        if(isset($_POST['user_register'])){
+          $user_fullname = $_POST['user_fullname'];
+          $user_email = $_POST['user_email'];
+          $user_password = $_POST['user_password'];
+          $hash_password = password_hash($user_password,PASSWORD_DEFAULT);
+          $conf_user_password = $_POST['conf_user_password'];
+          $user_address = $_POST['user_address'];
+          $contact_num = $_POST['contact_num'];
+          $user_ip = getIPAddress();
+          //select query
+
+        $select_query_email = "Select * from `customer` where  email='$user_email'";
+        $result = mysqli_query($con, $select_query_email);
+        $rows_count = mysqli_num_rows($result);
+
+        if($rows_count != 0){
+          $ne_error='Email aldready taken';
+        }
+        else if($user_password != $conf_user_password){
+        $password_not_match = 'Password do not match';
+        }
+        else{
+        //insert_query
+        $insert_query = "insert into `customer`(name,address,contact_num,email,password,user_ip) values('$user_fullname','$user_address',$contact_num,'$user_email','$hash_password','$user_ip')";
+        $sql_execute = mysqli_query($con, $insert_query);
+        if ($sql_execute) {
+          echo "<script>Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Registration Successful',
+            showConfirmButton: false,
+            timer: 1500
+          }).then(function(){window.location = 'user_login.php'})</script>";
+        } 
+        else {
+          die(mysqli_error($con));
+        }
+        }
+        //selecting cart items
+        // $select_cart_items = "Select * from `cart` where ip_address = '$user_ip'";
+        // $result_cart = mysqli_query($con, $select_cart_items);
+        // $rows_count_cart = mysqli_num_rows($result_cart);
+        // if($rows_count_cart>0){
+        //   $_SESSION['name'];
+        // echo "<script> alert('You have items in your cart')</script>";
+        // } 
+}
+?>
 <section class="vh-100 vw-100" style="background-color: #563D7C;">
   <div class="container h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -156,11 +155,11 @@
     </div>
   </div>
 </section>
-    
+
     <!-- JS link -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     
 </body>
-    
+
 </html>
 
