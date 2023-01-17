@@ -34,9 +34,13 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" style="color: white;" href="index.php"><i class="fa-solid fa-house fa-xl"></i><strong> Home</strong></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-button" href="./user_area/user_registration.php"><i class="fa-solid fa-user fa-xl "></i><strong> Register</strong></a>
-                    </li>
+                    <?php
+                    if(!isset($_SESSION['name'])){
+                        echo "<li class='nav-item'>
+                        <a class='nav-link' style='color: white;' href='./user_area/user_registration.php'><i class='fa-solid fa-user fa-xl'></i><strong> Register</strong></a>
+                    </li>";
+                    }
+                    ?>
                     <li class="nav-item">
                         <a class="nav-link nav-button" href="cart.php"><i class="fa-solid fa-cart-shopping fa-xl "></i><strong><sup> <?php
                             cart_number();
