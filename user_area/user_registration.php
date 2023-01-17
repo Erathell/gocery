@@ -12,27 +12,22 @@
       $contact_num = $_POST['contact_num'];
       $user_ip = getIPAddress();
       //select query
-    $select_query = "Select * from `customer` where name = '$user_fullname' or email='$user_email'";
-    $result = mysqli_query($con, $select_query);
+
+    $select_query_email = "Select * from `customer` where  email='$user_email'";
+    $result = mysqli_query($con, $select_query_email);
     $rows_count = mysqli_num_rows($result);
-    if($rows_count>0){
-      echo "<script>Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Name or Email aldready exist',
-        </script>";
+
+    if($rows_count != 0){
+      $ne_error='Email aldready taken';
     }
-    elseif($user_password != $conf_user_password){
-      echo "<script>Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Password Do not Match',
-        </script>";
+    else if($user_password != $conf_user_password){
+    $password_not_match = 'Password do not match';
     }
-      //insert_query
+    else{
+    //insert_query
     $insert_query = "insert into `customer`(name,address,contact_num,email,password,user_ip) values('$user_fullname','$user_address',$contact_num,'$user_email','$hash_password','$user_ip')";
     $sql_execute = mysqli_query($con, $insert_query);
-    if($sql_execute){
+    if ($sql_execute) {
       echo "<script>Swal.fire({
         position: 'center',
         icon: 'success',
@@ -41,20 +36,21 @@
         timer: 1500})
         </script>";
       echo "<script>window.open('user_login.php','_self')</script>";
-    }
-    else{
+    } 
+    else {
       die(mysqli_error($con));
     }
+    }
 
-    //selecting cart items
-  $select_cart_items = "Select * from `cart` where ip_address = '$user_ip'";
-  $result_cart = mysqli_query($con, $select_cart_items);
-  $rows_count_cart = mysqli_num_rows($result_cart);
-  if($rows_count_cart>0){
-    //$_SESSION['name'] = $user_fullname;
-    echo "<script> alert('You have items in your cart')</script>";
-  }  
-
+  // //selecting cart items
+  // $select_cart_items = "Select * from `cart` where ip_address = '$user_ip'";
+  // $result_cart = mysqli_query($con, $select_cart_items);
+  // $rows_count_cart = mysqli_num_rows($result_cart);
+  // if($rows_count_cart>0){
+  // $_SESSION['name'] = $user_fullname;
+  // echo "<script> alert('You have items in your cart')</script>";
+  // } 
+  
   }
 
 ?>
@@ -91,7 +87,7 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="text" id="user_fullname" class="form-control" placeholder="Enter your full name" name="user_fullname" required/>
+                      <input type="text" id="user_fullname" class="form-control" placeholder="Enter your full name" name="user_fullname" required autocomplete="off"/>
                   
                     </div>
                   </div>
@@ -99,46 +95,49 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="email" id="user_email" class="form-control" placeholder="Enter your email address" name="user_email" required/>
-                      
+                      <input type="email" id="user_email" class="form-control" placeholder="Enter your email address" name="user_email" required autocomplete="off"/>
+                      <?php
+                      if(isset($ne_error)):
+                      ?>
+                      <span><?php echo $ne_error;?></span>
+                      <?php endif?>
                     </div>
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="password" id="user_password" class="form-control" placeholder="Enter your password" name="user_password" required/>
-                      
+                      <input type="password" id="user_password" class="form-control" placeholder="Enter your password" name="user_password" required autocomplete="off"/>
                     </div>
                   </div>
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="password" id="conf_user_password" class="form-control" placeholder="Repeat your password" name="conf_user_password" required/>
+                      <input type="password" id="conf_user_password" class="form-control" placeholder="Repeat your password" name="conf_user_password" required autocomplete="off"/>
+                      <?php
+                      if(isset($password_not_match)):
+                      ?>
+                      <span><?php echo $password_not_match;?></span>
+                      <?php endif?>
                     </div>
                   </div>
                   <div class="d-flex flex-row align-items-center mb-4">
                   <i class="fa-solid fa-house fa-lg me-3 fa-fw1"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="text" id="user_address" class="form-control" placeholder="Enter your address" name="user_address" required/>
-                      
+                      <input type="text" id="user_address" class="form-control" placeholder="Enter your address" name="user_address" required autocomplete="off"/>
                     </div>
                   </div>
-
                   <div class="d-flex flex-row align-items-center mb-4">
                   <i class="fa-solid fa-phone fa-lg me-3 fa-fw1"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="number" id="contact_num" class="form-control" placeholder="Enter your contact number" name="contact_num" required/>
-                      
+                      <input type="number" id="contact_num" class="form-control" placeholder="Enter your contact number" name="contact_num" required autocomplete="off"/>
                     </div>
                   </div>
-
                   <div class="form-check d-flex justify-content-center mb-5">
                     <label class="form-check-label" for="form2Example3">
                       Already have an account? <a class="fw-bold text-info" href="user_login.php">Login</a>
                     </label>
                   </div>
-
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                     <button type="submit" class="btn btn-green" name="user_register">Register</button>
                   </div>
