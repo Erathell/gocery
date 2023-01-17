@@ -91,7 +91,7 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="text" id="user_fullname" class="form-control" placeholder="Enter your full name" name="user_fullname"/>
+                      <input type="text" id="user_fullname" class="form-control" placeholder="Enter your full name" name="user_fullname" required/>
                   
                     </div>
                   </div>
@@ -99,7 +99,7 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="email" id="user_email" class="form-control" placeholder="Enter your email address" name="user_email"/>
+                      <input type="email" id="user_email" class="form-control" placeholder="Enter your email address" name="user_email" required/>
                       
                     </div>
                   </div>
@@ -107,20 +107,20 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="password" id="user_password" class="form-control" placeholder="Enter your password" name="user_password"/>
+                      <input type="password" id="user_password" class="form-control" placeholder="Enter your password" name="user_password" required/>
                       
                     </div>
                   </div>
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="password" id="conf_user_password" class="form-control" placeholder="Repeat your password" name="conf_user_password"/>
+                      <input type="password" id="conf_user_password" class="form-control" placeholder="Repeat your password" name="conf_user_password" required/>
                     </div>
                   </div>
                   <div class="d-flex flex-row align-items-center mb-4">
                   <i class="fa-solid fa-house fa-lg me-3 fa-fw1"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="text" id="user_address" class="form-control" placeholder="Enter your address" name="user_address"/>
+                      <input type="text" id="user_address" class="form-control" placeholder="Enter your address" name="user_address" required/>
                       
                     </div>
                   </div>
@@ -128,7 +128,7 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                   <i class="fa-solid fa-phone fa-lg me-3 fa-fw1"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="number" id="contact_num" class="form-control" placeholder="Enter your contact number" name="contact_num"/>
+                      <input type="number" id="contact_num" class="form-control" placeholder="Enter your contact number" name="contact_num" required/>
                       
                     </div>
                   </div>
