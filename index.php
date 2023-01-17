@@ -44,9 +44,7 @@
                             cart_number();
                         ?></sup> Cart</strong></a>
                     </li>
-                    <li class="nav-item nav-button">
-                        <a class="nav-link nav-button" href="#"><i class="fa-solid fa-hand-holding-dollar fa-xl "></i><strong> Total Price: ₱ <?php total_cart_price() ?></strong> </a>
-                    </li>
+                    
                 </ul>
                 <form class="d-flex" action="search_product.php" method="get">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search_data">
@@ -66,6 +64,7 @@
                 </li>";
                 }else{
                     echo "<li class='nav-item'>
+                    
                     <a class='nav-link' style='color: white;' href='#'>Welcome ".$_SESSION['name']."</a>
                 </li>";
                 }
