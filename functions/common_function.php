@@ -1,3 +1,5 @@
+
+
 <?php
 
     //include('../includes/connect.php');
@@ -271,5 +273,34 @@
                 echo "$total_price";
         }
         
+
+      // get user order details
+    function get_oder_details() {
+        global $con;
+        $username=$_SESSION['name'];
+        $get_details = "Select * from `customer` where name = '$username'";
+        $result_query = mysqli_query($con, $get_details);
+        while($row_query=mysqli_fetch_array($result_query)){
+            $user_id = $row_query['customer_id'];
+            if(!isset($_Get['edit_account'])){
+                if(!isset($_Get['my_orders'])){
+                $get_orders = "Select * from `transaction` where customer_id = '$user_id' and order_status = 'pending'";
+                $result_order_query = mysqli_query($con, $get_orders);
+                $row_count = mysqli_num_rows($result_order_query);
+                if($row_count>0){
+                    echo "<h3 class = 'text-light text-center my-2' >You have <span class= 'text- danger'>$row_count</span> pending orders</h3>";
+                    echo "<p class= 'text-center'><a class ='text-decoration-none text-light p-0' href = './user_area/user_profile.php?my_orders'> Order Details</a></p>";
+                }
+                else{
+                    echo "<h3 class = 'text-light text-center my-2' >You have <span class= 'text- danger'>Zero</span> pending orders</h3>";
+                    echo "<p class= 'text-center'><a class ='text-decoration-none text-light p-0' href = '/index.php'> Explore Products</a></p>";
+
+                }
+                }
+            }
+        }
+
+
+    }  
         
 ?>
