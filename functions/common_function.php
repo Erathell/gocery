@@ -156,7 +156,7 @@
                     $product_category = $row['category_id'];
                     $product_image = $row['product_image'];
                     $product_price = $row['product_price'];
-                    echo "<div class='col-md-4 mb-2 text-center'>
+                    echo "<div class='col-md-4 mb-2 '>
 
                     <div class='text-center' style='width: 100%'>
                         <img src='product_images/$product_image' class='img-detailed' alt='$product_title'>
