@@ -93,19 +93,31 @@
             </nav>
                 <!-- third child -->
                 <div class="bg-light pt-4 pb-1">
-                    <h3 class="text-center">Available Products</h3>
-                    <p class="text-center">Grocery items at the click of your mouse</p>
+                    <h3 class="text-center">Customer Dashboard</h3>
+                    
                 </div>
             
             <!-- fourth child -->
                 <div class="row">
-                    <div class="col-md-2 p-0">
-                        <ul class="rounded navbar-nav bg-purple-light text-center">
+                    <div class="col-md-2  ms-4 mt-3">
+                        <ul class="rounded-4 navbar-nav bg-purple-light text-center">
                             <li class="nav-item p-3">
                                 <h4 class="text-light"> <i class="fa-solid fa-circle-user fa-xl"></i>  Your Profile</h4>
                             </li>
                             <li class="nav-item p-3">
-                                <img src="../product_images/among-us-twerk.gif" class="profile-img" alt="sus">
+                                <img src="../product_images/among-us-twerk.gif" class="profile-img m-1 rounded-circle" alt="sus">
+                            </li>
+                            <li class="nav-item nav-link p-3 text-start fs-5">
+                                <a class="nav-link nav-button" aria-current="page" href="#"> <i class="fa-solid fa-circle-user fa-xl"></i>  <strong>Pending Orders</strong></a>
+                                
+                            </li>
+                            <li class="nav-item nav-link p-3 text-start fs-5">
+                                <a class="nav-link nav-button" aria-current="page" href="#"> <i class="fa-solid fa-circle-user fa-xl"></i>  <strong>Edit Account</strong></a>
+                                
+                            </li>
+                            <li class="nav-item nav-link p-3 text-start fs-5">
+                                <a class="nav-link nav-button" aria-current="page" href="#"> <i class="fa-solid fa-circle-user fa-xl"></i>  <strong>Orders</strong> </a>
+  
                             </li>
                         </ul>
                     </div>
