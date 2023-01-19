@@ -104,7 +104,7 @@
 
             
             $search_value=$_GET['search_data'];
-            $search_query="Select * from `products` where product_keywords like '%$search_value%'";
+            $search_query="Select * from `products` where product_keywords like '%$search_value%'or name like '$search_value'";
             $result_query = mysqli_query($con, $search_query);
             $num_rows=mysqli_num_rows($result_query);
             
@@ -210,10 +210,7 @@
                     title: 'Item already in the cart!',
                     text: 'Select other items or proceed to Cart',
                     confirmButtonColor: '#42C84F'
-                  }).then(function(){window.location = 'index.php'});</script>";
-
-                
-                
+                  }).then(function(){window.location = 'index.php'});</script>";       
             }else{
                 $insert_query="insert into `cart` (product_id, ip_address, quantity) values ($get_product_id, '$get_ip', 1)";
                 $result_query = mysqli_query($con, $insert_query);
