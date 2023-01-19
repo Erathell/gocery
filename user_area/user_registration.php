@@ -95,10 +95,10 @@
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                       <input type="email" id="user_email" class="form-control" placeholder="Enter your email address" name="user_email" required autocomplete="off"/>
-                      
                       <?php if(isset($ne_error)):?>
                       <span><?php echo $ne_error;?></span>
                       <?php endif?>
+                      
                     </div>
                   </div>
                   <div class="d-flex flex-row align-items-center mb-4">
