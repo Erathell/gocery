@@ -186,10 +186,17 @@
                             $result_cart=mysqli_query($con,$cart_query);
                             $result_count=mysqli_num_rows($result_cart);
                             if($result_count>0){
-                                echo "<div class='d-flex align-items-end flex-column'>
-                                <h4 class='pb-2'>Subtotal: <strong>₱ $total_price</strong></h4>
-                                <a href='./user_area/order.php?user_id=$user_id'><button type='button' class='btn btn-green btn-rounded'>Proceed to checkout</button></a>
-                            </div>";
+                                if(isset($_SESSION['name'])){
+                                    echo "<div class='d-flex align-items-end flex-column'>
+                                    <h4 class='pb-2'>Subtotal: <strong>₱ $total_price</strong></h4>
+                                    <a href='./user_area/order.php?user_id=$user_id'><button type='button' class='btn btn-green btn-rounded'>Proceed to checkout</button></a>
+                                </div>";
+                                } else  {
+                                    echo "<div class='d-flex align-items-end flex-column'>
+                                    <h4 class='pb-2'>Subtotal: <strong>₱ $total_price</strong></h4>
+                                    <a href='./user_area/user_login.php'><button type='button' class='btn btn-green btn-rounded'>Proceed to checkout</button></a>
+                                </div>";
+                                }
                             }
                             
                             ?>
