@@ -43,7 +43,7 @@
         $result_delete=mysqli_query($con, $empty_cart);
 
         if($result_orders){
-            echo "<script>window.open('profile.php', '_self')</script>";
+            echo "<script>window.open('user_profile.php', '_self')</script>";
         }
         
         echo $total_price;
