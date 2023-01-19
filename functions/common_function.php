@@ -250,21 +250,26 @@
 
         function total_cart_price() {
             global $con;
-            $total_price=0;
-            $get_ip = getIPAddress();
-            $cart_query="Select * from `cart` where ip_address= '$get_ip'";
-            $result_cart=mysqli_query($con,$cart_query);
-            while($row=mysqli_fetch_array($result_cart)){
-                $product_id=$row['product_id'];
-                $select_products="Select * from `products` where product_id=$product_id";
-                $result_products=mysqli_query($con,$select_products);
-                while($row_product_price=mysqli_fetch_array($result_products)){
+            $get_ip_address = getIPAddress();
+            $total_price = 0;
+            $cart_query_price = "Select * from `cart` where ip_address='$get_ip_address'";
+            $result_cart_price=mysqli_query($con, $cart_query_price);
+            while($row_price=mysqli_fetch_array($result_cart_price)){
+                $product_id=$row_price['product_id'];
+                $select_product="Select * from `products` where product_id=$product_id";
+                $run_price=mysqli_query($con, $select_product);
+                while($row_product_price=mysqli_fetch_array($run_price)){
                     $product_price=array($row_product_price['product_price']);
                     $product_values=array_sum($product_price);
-                    $total_price+=$product_values;
+                    $get_cart="select * from `cart` where product_id=$product_id";
+                    $run_cart=mysqli_query($con,$get_cart);
+                    $get_item_quantity=mysqli_fetch_array($run_cart);
+                    $quantity=$get_item_quantity['quantity'];
+                    $total_price+=$product_values*$quantity;
+                    }
                 }
-            }
-            echo $total_price;
+                echo "$total_price";
         }
+        
         
 ?>
