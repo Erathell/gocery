@@ -49,7 +49,7 @@
                         ?></sup> Cart</strong></a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link nav-button" href="#"><i class="fa-solid fa-hand-holding-dollar fa-xl "></i><strong> Total Price: ₱ <?php total_cart_price() ?></strong> </a>
+                    <span class="nav-link nav-button"><i class=" fa-solid fa-hand-holding-dollar fa-xl "></i><strong> Total Price: ₱ <?php total_cart_price() ?></strong></span>
                     </li>
                 </ul>
                 <form class="d-flex" action="search_product.php" method="get">
