@@ -47,7 +47,14 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
+        <?php
+            $user_ip=getIPAddress();
+            $get_user= "select * from `customer` where user_ip='$user_ip'";
+            $result=mysqli_query($con,$get_user);
+            $run_query=mysqli_fetch_array($result);
+            $user_id=$run_query['customer_id'];
 
+        ?>
         <div class="main container-fluid p-0">
             <!-- navbar -->
             <!-- first child -->
@@ -72,7 +79,7 @@
                     <li class="nav-item">
                         <a class="nav-link nav-button" href="cart.php"><i class="fa-solid fa-cart-shopping fa-xl "></i><strong><sup> <?php
                             cart_number();
-                        ?></sup>Cart</strong></a>
+                        ?></sup> Cart</strong></a>
                     </li>
 
                 </ul>
@@ -181,7 +188,7 @@
                             if($result_count>0){
                                 echo "<div class='d-flex align-items-end flex-column'>
                                 <h4 class='pb-2'>Subtotal: <strong>₱ $total_price</strong></h4>
-                                <a href='#'><button type='button' class='btn btn-green btn-rounded'>Proceed to checkout</button></a>
+                                <a href='./user_area/order.php?user_id=$user_id'><button type='button' class='btn btn-green btn-rounded'>Proceed to checkout</button></a>
                             </div>";
                             }
                             
