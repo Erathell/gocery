@@ -41,7 +41,11 @@
                         echo "<li class='nav-item'>
                         <a class='nav-link' style='color: white;' href='./user_area/user_registration.php'><i class='fa-solid fa-user fa-xl'></i><strong> Register</strong></a>
                     </li>";
-                    }
+                    }else {
+                        echo "<li class='nav-item'>
+                        <a class='nav-link' style='color: white;' href='./user_area/user_profile.php'><i class='fa-solid fa-user fa-xl'></i><strong> My Account</strong></a>
+                    </li>";
+                }
                     ?>
                     <li class="nav-item">
                         <a class="nav-link nav-button" href="cart.php"><i class="fa-solid fa-cart-shopping fa-xl "></i><strong><sup> <?php
