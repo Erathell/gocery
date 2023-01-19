@@ -108,20 +108,23 @@
                                 <img src="../product_images/among-us-twerk.gif" class="profile-img m-1 rounded-circle" alt="sus">
                             </li>
                             <li class="nav-item nav-link p-3 text-start fs-5">
-                                <a class="nav-link nav-button" aria-current="page" href="#"> <i class="fa-solid fa-circle-user fa-xl"></i>  <strong>Pending Orders</strong></a>
+                                <a class="nav-link nav-button" aria-current="page" href="?get_oder_details" > <i class="fa-solid fa-circle-user fa-xl"></i>  <strong>Pending Orders</strong></a>
                                 
                             </li>
                             <li class="nav-item nav-link p-3 text-start fs-5">
-                                <a class="nav-link nav-button" aria-current="page" href="#"> <i class="fa-solid fa-circle-user fa-xl"></i>  <strong>Edit Account</strong></a>
+                                <a class="nav-link nav-button" aria-current="page" href="user_profile.php?edit_account"> <i class="fa-solid fa-circle-user fa-xl"></i>  <strong>Edit Account</strong></a>
                                 
                             </li>
                             <li class="nav-item nav-link p-3 text-start fs-5">
-                                <a class="nav-link nav-button" aria-current="page" href="#"> <i class="fa-solid fa-circle-user fa-xl"></i>  <strong>Orders</strong> </a>
-  
+                                <a class="nav-link nav-button" aria-current="page" href="user_profile.php?my_orders"> <i class="fa-solid fa-circle-user fa-xl"></i>  <strong>Orders</strong> </a>
                             </li>
                         </ul>
                     </div>
-                    <div class="col-md-10"></div>
+                    <div class="col-md-9 ms-5 mt-3 navbar-nav bg-purple-light rounded-4">
+                        <?php 
+                            get_oder_details() 
+                        ?> 
+                    </div>
 
                 </div>
 
