@@ -61,7 +61,7 @@ session_start();
         </div>
         <div class="form-floating">
         <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="user_password">
-        <label for="floatingPassword">Password</label>
+        <label for="floatingPassword">Password</label><i class="far fa-eye" id="togglePassword" style="position: absolute; top: 20px;right:16px;cursor: pointer;"></i>
         </div>
 
         <div class="checkbox mb-3">
@@ -93,16 +93,12 @@ if (isset($_POST['login'])) {
   //$name = $name_data['name'];
   if (isset($name_data['name'])) {
     $name = $name_data['name'];}
-  global $name;
-
   
-
   $select_query = "Select * from `customer` where email='$user_email'";
   $result = mysqli_query($con, $select_query);
   $rows_count = mysqli_num_rows($result);
   $row_data = mysqli_fetch_assoc($result);
 
-  
   //cart item
   $select_query_cart = "Select * from `cart` where ip_address='$user_ip'";
   $select_cart = mysqli_query($con, $select_query_cart);
@@ -165,3 +161,14 @@ if (isset($_POST['login'])) {
   }
 }   
 ?>
+
+<script>const togglePassword = document.querySelector('#togglePassword');
+  const password = document.querySelector('#floatingPassword');
+
+  togglePassword.addEventListener('click', function (e) {
+    // toggle the type attribute
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    // toggle the eye slash icon
+    this.classList.toggle('fa-eye-slash');
+});</script>  
