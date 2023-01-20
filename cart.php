@@ -233,6 +233,9 @@
                             $cart_query="Select * from `cart` where ip_address= '$get_ip'";
                             $result_cart=mysqli_query($con,$cart_query);
                             $result_count=mysqli_num_rows($result_cart);
+                            if(isset($_SESSION['customer_id'])){
+                                $user_id=$_SESSION['customer_id'];
+                            }
                             if($result_count>0){
                                 if(isset($_SESSION['name'])){
                                     echo "<div class='d-flex align-items-end flex-column'>
