@@ -92,10 +92,10 @@ if (isset($_POST['login'])) {
   $name_data = mysqli_fetch_assoc($result_name);
   //$name = $name_data['name'];
   if (isset($name_data['name'])) {
-    $name = $name_data['name'];}
+    $name = $name_data['name'];
+    $customer_id = $name_data['customer_id'];}
   
-    if (isset($name_data['customer_id'])) {
-      $customer_id = $name_data['customer_id'];}
+  
 
   
   
