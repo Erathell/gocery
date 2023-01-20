@@ -94,8 +94,8 @@ if (isset($_POST['login'])) {
   if (isset($name_data['name'])) {
     $name = $name_data['name'];}
   
-    if (isset($customer_id['customer_id'])) {
-      $customer_id = $customer_id['customer_id'];}
+    if (isset($name_data['customer_id'])) {
+      $customer_id = $name_data['customer_id'];}
 
   
   
