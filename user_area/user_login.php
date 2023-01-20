@@ -171,4 +171,4 @@ if (isset($_POST['login'])) {
     password.setAttribute('type', type);
     // toggle the eye slash icon
     this.classList.toggle('fa-eye-slash');
-});</script>  
+});</script>
