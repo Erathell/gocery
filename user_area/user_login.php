@@ -87,22 +87,22 @@ if (isset($_POST['login'])) {
   $user_password = $_POST['user_password'];
   $user_ip = getIPAddress();
 
-  $name_query = "Select * from `customer` where email like '%$user_email%'";
-  $result_name = mysqli_query($con,$name_query);
-  $name_data = mysqli_fetch_assoc($result_name);
-  //$name = $name_data['name'];
-  if (isset($name_data['name'])) {
-    $name = $name_data['name'];
-    $customer_id = $name_data['customer_id'];}
-  
-  
 
+  // $name_query = "Select * from `customer` where email like '%$user_email%'";
+  // $result_name = mysqli_query($con,$name_query);
+  // $name_data = mysqli_fetch_assoc($result_name);
+  //$name = $name_data['name'];
   
   
   $select_query = "Select * from `customer` where email='$user_email'";
   $result = mysqli_query($con, $select_query);
   $rows_count = mysqli_num_rows($result);
   $row_data = mysqli_fetch_assoc($result);
+
+   //fetching name and customer id
+  if (isset($row_data['name'])) {
+    $name = $row_data['name'];
+    $customer_id = $row_data['customer_id'];}
 
   //cart item
   $select_query_cart = "Select * from `cart` where ip_address='$user_ip'";
