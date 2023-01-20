@@ -80,6 +80,15 @@
                     
                 }
             }
+
+            if(isset($_POST['remove_all'])){ 
+                $delete_query="Delete from `cart` where ip_address='$user_ip'";
+                $run_delete=mysqli_query($con, $delete_query);
+                if($run_delete){
+                    echo "<script>window.open('cart.php','_self')</script>";
+                    
+                }
+            }
         ?>
         <div class="main container-fluid p-0">
             <!-- navbar -->
@@ -149,8 +158,8 @@
             
             <!-- fourth child table -->
             <div class="container">
-            <a href="index.php"><button type="button" class="btn btn-green btn-rounded mb-3">Continue Shopping</button></a>
                 
+            
                     <div class="row">
                             <table class="table table-bordered text-center"> 
                                 <thead>
@@ -163,6 +172,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                <div class="d-flex justify-content-between">
+                                    <a href="index.php"><button type="button" class="btn btn-green btn-rounded mb-3">Continue Shopping</button></a>
+                                    <form action="" method="post">
+                                        <button type="submit" name="remove_all" class="btn btn-danger btn-rounded mb-3">Empty Cart</button>
+                                    </form>
+                                    
+                                </div>
                                     <!-- PHP Dynamic Data Display-->
                                     <?php
                                         global $con;
@@ -184,10 +200,12 @@
                                                                             
                                     ?>
                                     <tr>
+                                        
+                                    <form action="" method="post">
                                         <td><?php echo $product_title?></td>
                                         <td><img src="./product_images/<?php echo $product_image ?>" class="cart_img" alt="sus"></td>
                                         <td>
-                                        <form action="" method="post">
+                                        
                                             <button type="submit" value="updatecart" name="minus_one" class="btn btn-green btn-rounded m-2"><i class="fa-solid fa-minus fa-xl"></i></button>
                                             <input type="hidden" name="cart_id" class="form-input w-50" value = <?php echo $row['product_id'] ?>>
                                             <input type="number" name="qty" class="form-input w-50" value = <?php echo $row['quantity'] ?>>
