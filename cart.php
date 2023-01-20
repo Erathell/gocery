@@ -5,34 +5,14 @@
     session_start();
     
     // update function
-    if(isset($_POST['update_cart'])){
-        $quantities=$_POST['qty'];
-        $cart_id = $_POST['cart_id'];
-        $update_cart="update `cart` set quantity=$quantities where product_id=$cart_id and ip_address='$get_ip'";
-        $result=mysqli_query($con, $update_cart);
-        echo "<script>Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Quantity Updated',
-            showConfirmButton: false,
-            timer: 1500
-        })</script>";
-    }
-    // remove function
-    if(isset($_POST['remove_cart'])){
-        $cart_id = $_POST['cart_id'];
-        $delete_query="Delete from `cart` where product_id=$cart_id";
-        $run_delete=mysqli_query($con, $delete_query);
-        if($run_delete){
-            echo "<script>window.open('cart.php','_self')</script>";
-            
-        }
-    }
+    
     
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -47,13 +27,59 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
+<?php
+
+
+?>
         <?php
             $user_ip=getIPAddress();
             $get_user= "select * from `customer` where user_ip='$user_ip'";
             $result=mysqli_query($con,$get_user);
             $run_query=mysqli_fetch_array($result);
             $user_id=$run_query['customer_id'];
+            
+            if(isset($_POST['update_cart'])){
+                $quantities=$_POST['qty'];
+                $cart_id = $_POST['cart_id'];
+                $update_cart="update `cart` set quantity=$quantities where product_id=$cart_id and ip_address='$get_ip'";
+                $result=mysqli_query($con, $update_cart);
+                echo "<script>Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Quantity Updated',
+                    showConfirmButton: false,
+                    timer: 1500
+                })</script>";
+            }
+            
+            // plus function
+            if(isset($_POST['plus_one'])){
+                $quantities=$_POST['qty'];
+                $cart_id = $_POST['cart_id'];
+                $update_cart="update `cart` set quantity=$quantities+1 where product_id=$cart_id and ip_address='$get_ip'";
+                $result=mysqli_query($con, $update_cart);
+                
+            }
 
+            // minus function
+            if(isset($_POST['minus_one'])){
+                $quantities=$_POST['qty'];
+                $cart_id = $_POST['cart_id'];
+                $update_cart="update `cart` set quantity=$quantities-1 where product_id=$cart_id and ip_address='$get_ip'";
+                $result=mysqli_query($con, $update_cart);
+                
+            }
+
+            // remove function
+            if(isset($_POST['remove_cart'])){
+                $cart_id = $_POST['cart_id'];
+                $delete_query="Delete from `cart` where product_id=$cart_id";
+                $run_delete=mysqli_query($con, $delete_query);
+                if($run_delete){
+                    echo "<script>window.open('cart.php','_self')</script>";
+                    
+                }
+            }
         ?>
         <div class="main container-fluid p-0">
             <!-- navbar -->
@@ -162,8 +188,12 @@
                                         <td><img src="./product_images/<?php echo $product_image ?>" class="cart_img" alt="sus"></td>
                                         <td>
                                         <form action="" method="post">
+                                            <button type="submit" value="updatecart" name="minus_one" class="btn btn-green btn-rounded m-2"><i class="fa-solid fa-minus fa-xl"></i></button>
                                             <input type="hidden" name="cart_id" class="form-input w-50" value = <?php echo $row['product_id'] ?>>
-                                            <input type="number" name="qty" class="form-input w-50" value = <?php echo $row['quantity'] ?>></td> 
+                                            <input type="number" name="qty" class="form-input w-50" value = <?php echo $row['quantity'] ?>>
+                                            <button type="submit" value="updatecart" name="plus_one" class="btn btn-green btn-rounded-1 m-2"><i class="fa-solid fa-plus fa-xl"></i></button>
+                                        </td> 
+                                            
                                         <td>₱ <?php echo $sub_total = $row_product_price['product_price'] * $row['quantity']?></td>
 
                                         <td>
