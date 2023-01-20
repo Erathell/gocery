@@ -65,9 +65,10 @@
             if(isset($_POST['minus_one'])){
                 $quantities=$_POST['qty'];
                 $cart_id = $_POST['cart_id'];
-                $update_cart="update `cart` set quantity=$quantities-1 where product_id=$cart_id and ip_address='$get_ip'";
-                $result=mysqli_query($con, $update_cart);
-                
+                if($quantities>1){
+                    $update_cart="update `cart` set quantity=$quantities-1 where product_id=$cart_id and ip_address='$get_ip'";
+                    $result=mysqli_query($con, $update_cart);
+                }
             }
 
             // remove function
