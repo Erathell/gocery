@@ -87,12 +87,17 @@ if (isset($_POST['login'])) {
   $user_password = $_POST['user_password'];
   $user_ip = getIPAddress();
 
-  $name_query = "Select name from `customer` where email like '%$user_email%'";
+  $name_query = "Select * from `customer` where email like '%$user_email%'";
   $result_name = mysqli_query($con,$name_query);
   $name_data = mysqli_fetch_assoc($result_name);
   //$name = $name_data['name'];
   if (isset($name_data['name'])) {
     $name = $name_data['name'];}
+  
+    if (isset($customer_id['customer_id'])) {
+      $customer_id = $customer_id['customer_id'];}
+
+  
   
   $select_query = "Select * from `customer` where email='$user_email'";
   $result = mysqli_query($con, $select_query);
@@ -106,11 +111,14 @@ if (isset($_POST['login'])) {
 
   if($rows_count>0){
     $_SESSION['name']= $name;
+    $_SESSION['customer_id'] = $customer_id;
       if(password_verify($user_password,$row_data['password'])){
         $_SESSION['name']= $name;
+        $_SESSION['customer_id'] = $customer_id;
       if ($user_email == $row_data['email']) {
         if ($rows_count == 1 and $rows_count_cart == 0) {
           $_SESSION['name'] = $name;
+          $_SESSION['customer_id'] = $customer_id;
           echo "<script>Swal.fire({
               position: 'center',
               icon: 'success',
@@ -121,6 +129,7 @@ if (isset($_POST['login'])) {
         } 
         else {
           $_SESSION['name']= $name;
+          $_SESSION['customer_id'] = $customer_id;
           echo "<script>Swal.fire({
               position: 'center',
               icon: 'success',
