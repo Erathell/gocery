@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    @session_start();
     include('../includes/connect.php');
     include('../functions/common_function.php');
     
@@ -36,9 +36,8 @@
         $select_query_email = "Select * from `customer` where  email='$user_email'";
         $result = mysqli_query($con, $select_query_email);
         $rows_count = mysqli_num_rows($result);
+      $name_data = mysqli_fetch_assoc($result);
         
-
-
         if($rows_count != 0){
           $ne_error='Email aldready taken';
         }
@@ -46,7 +45,7 @@
         $password_not_match = 'Password do not match';
         }
         else{
-        $_SESSION['name'];
+        
         //insert_query
         $insert_query = "insert into `customer`(name,address,contact_num,email,password,user_ip) values('$user_fullname','$user_address',$contact_num,'$user_email','$hash_password','$user_ip')";
         $sql_execute = mysqli_query($con, $insert_query);
@@ -57,7 +56,7 @@
             title: 'Registration Successful',
             showConfirmButton: false,
             timer: 1500
-          }).then(function(){window.location = ''})</script>";
+          }).then(function(){window.location = '/gocery/index.php'})</script>";
         } 
         else {
           die(mysqli_error($con));
