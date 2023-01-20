@@ -109,6 +109,7 @@ if (isset($_POST['login'])) {
   $select_cart = mysqli_query($con, $select_query_cart);
   $rows_count_cart = mysqli_num_rows($select_cart);
 
+  //checking for user existence
   if($rows_count>0){
     $_SESSION['name']= $name;
     $_SESSION['customer_id'] = $customer_id;
