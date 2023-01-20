@@ -32,11 +32,13 @@
           $contact_num = $_POST['contact_num'];
           $user_ip = getIPAddress();
           //select query
-
+        
+          
         $select_query_email = "Select * from `customer` where  email='$user_email'";
         $result = mysqli_query($con, $select_query_email);
         $rows_count = mysqli_num_rows($result);
-      $name_data = mysqli_fetch_assoc($result);
+        $name_data = mysqli_fetch_assoc($result);
+
         
         if($rows_count != 0){
           $ne_error='Email aldready taken';
@@ -49,7 +51,15 @@
         //insert_query
         $insert_query = "insert into `customer`(name,address,contact_num,email,password,user_ip) values('$user_fullname','$user_address',$contact_num,'$user_email','$hash_password','$user_ip')";
         $sql_execute = mysqli_query($con, $insert_query);
+
+        $name_query = "Select * from `customer` where name like '%$user_fullname%'";
+        $result_name = mysqli_query($con,$name_query);
+        $name_data = mysqli_fetch_assoc($result_name);
+        //$name = $name_data['name'];
+        if (isset($name_data['name'])) {
+          $name = $name_data['name'];}  
         if ($sql_execute) {
+          $_SESSION['name'] = $name;
           echo "<script>Swal.fire({
             position: 'center',
             icon: 'success',
