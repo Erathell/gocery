@@ -9,7 +9,7 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User-Registration</title>
+    <title>Seller Login</title>
     <!-- bootstrap CSS link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <!-- font awesome link -->
@@ -70,7 +70,7 @@ session_start();
         </label>
         </div>
         <button class="w-100 btn btn-lg btn-green" type="submit" name="login">Sign in</button>
-        <p class="small fw-bold mt-2 pt-1 mb-0 text-light">Don't have an account? <a class="text-info" href="user_registration.php">Register</a></p>
+        
     </form>
     </main>
 

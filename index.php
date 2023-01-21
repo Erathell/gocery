@@ -89,7 +89,7 @@
                 }
                 ?>
                 </ul>
-                <button class="btn btn-green">Seller Center</button>
+                <a class="nav-link" href="./seller_area/seller_login.php"><button class="btn btn-green" >Seller Center</button></a>
             </nav>
                 <!-- third child -->
                 <div class="bg-light pt-4 pb-1">
