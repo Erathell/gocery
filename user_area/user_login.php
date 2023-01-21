@@ -123,7 +123,7 @@ if (isset($_POST['login'])) {
           echo "<script>Swal.fire({
               position: 'center',
               icon: 'success',
-              title: 'Login successfuly',
+              title: 'Login successfuly ',
               showConfirmButton: false,
               timer: 1500
             }).then(function(){window.location = '/gocery/index.php'})</script>";
