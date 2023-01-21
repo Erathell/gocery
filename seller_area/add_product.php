@@ -44,7 +44,7 @@
 <div class="container mt-3">
     <h1 class="text-center">Add Products</h1>
     <!-- form -->
-    <form action="" method="post" enctype="multipart/form-data">
+    <form class="d-flex flex-column align-items-center" action="" method="post" enctype="multipart/form-data">
         <!-- title -->
         <div class="form-outline mb-4 w-50 m-auto">
             <label for="product_name" class="form-label">Product Name</label>
@@ -91,7 +91,7 @@
             <input type="number" name="stock" id="stock" class="form-control" placeholder="Enter Product Stock" autocomplete="off" required>
         </div>
         <!-- submit -->
-        <div class="form-outline mb-4 d-flex justify-content-center ">
+        <div class="form-outline mb-4 d-flex justify-content-center w-50">
             <button type="submit" name="insert_product" class="form-control btn btn-green" value="Insert Product">Insert Product</button>
         </div>
 

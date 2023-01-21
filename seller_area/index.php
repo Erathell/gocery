@@ -67,6 +67,9 @@
                 elseif(isset($_GET['view_products'])){
                     include('view_products.php');
                 }
+                elseif(isset($_GET['edit_profile'])){
+                    include('edit_seller.php');
+                }
             ?>
 
         </div>
