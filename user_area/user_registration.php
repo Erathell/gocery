@@ -30,7 +30,15 @@
           $conf_user_password = $_POST['conf_user_password'];
           $user_address = $_POST['user_address'];
           $contact_num = $_POST['contact_num'];
-          $customer_img= $_POST['customer_img'];
+          
+          // accessing image
+          $customer_img= $_FILES['customer_img']['name'];
+
+          // accessing image temp
+          $customer_img_tmp= $_FILES['customer_img']['tmp_name'];
+
+          move_uploaded_file($customer_img_tmp, "../user_images/$customer_img");
+
           $user_ip = getIPAddress();
           //select query
         
@@ -50,7 +58,7 @@
         else{
         
         //insert_query
-        $insert_query = "insert into `customer`(name,address,contact_num,email,password,user_ip) values('$user_fullname','$user_address',$contact_num,'$user_email','$hash_password','$user_ip')";
+        $insert_query = "insert into `customer`(name,address,contact_num,email,password,user_ip, customer_img) values('$user_fullname','$user_address',$contact_num,'$user_email','$hash_password','$user_ip', '$customer_img')";
         $sql_execute = mysqli_query($con, $insert_query);
 
         //selecting name for session
@@ -147,7 +155,7 @@
                   </div>
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fa-solid fa-lg me-3 fa-fw fa-image"></i>
-                    <input name="customer_img"type="file" class="form-control">
+                    <input name="customer_img" type="file" class="form-control">
                   </div>
                   <div class="form-check d-flex justify-content-center mb-5">
                     <label class="form-check-label" for="form2Example3">
