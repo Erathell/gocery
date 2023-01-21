@@ -54,8 +54,11 @@
             
             // plus function
             if(isset($_POST['plus_one'])){
+                
                 $quantities=$_POST['qty'];
                 $cart_id = $_POST['cart_id'];
+                
+                if($quantities<$product_stock){}
                 $update_cart="update `cart` set quantity=$quantities+1 where product_id=$cart_id and ip_address='$get_ip'";
                 $result=mysqli_query($con, $update_cart);
                 
@@ -169,6 +172,7 @@
                                         <th>Product Image</th>
                                         <th>Quantity</th>
                                         <th>Total Price</th>
+                                        <th>Stock</th>
                                         <th colspan="2">Operations</th>
                                     </tr>
                                 </thead>
@@ -198,6 +202,7 @@
                                                 $product_title=$row_product_price['name'];
                                                 $product_image=$row_product_price['product_image'];
                                                 $product_values=array_sum($product_price);
+                                                $product_stock=$row_product_price['product_stock'];
                                                                             
                                     ?>
                                     <tr>
@@ -214,7 +219,11 @@
                                         </td> 
                                             
                                         <td>₱ <?php echo $sub_total = $row_product_price['product_price'] * $row['quantity']?></td>
-
+                                        <td>
+                                            <?php 
+                                                echo $product_stock;
+                                            ?>
+                                        </td>           
                                         <td>
                                             <button type="submit" value="updatecart" name="update_cart" class="btn btn-warning btn-rounded m-2">Update</button>
                                             <button type="submit" value="Remove Cart"name="remove_cart" class="btn btn-danger btn-rounded">Delete</button>      
