@@ -275,7 +275,7 @@
         
 
       // get user order details
-    function get_oder_details() {
+    function get_order_details() {
         global $con;
         $username=$_SESSION['name'];
         $get_details = "Select * from `customer` where name = '$username'";

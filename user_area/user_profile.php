@@ -122,7 +122,7 @@
                     </div>
                     <div class="col-md-9 ms-5 mt-3 navbar-nav bg-purple-light rounded-4">
                         <?php 
-                            get_oder_details() 
+                            get_order_details() 
                         ?> 
                     </div>
 
