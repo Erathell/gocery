@@ -86,6 +86,7 @@
                 }
                 ?>
                 </ul>
+                <button class="btn btn-green me-2">Seller Center</button>
             </nav>
             <!-- third child -->    
         <div class="row products-sect">

@@ -89,6 +89,7 @@
                 }
                 ?>
                 </ul>
+                <button class="btn btn-green">Seller Center</button>
             </nav>
                 <!-- third child -->
                 <div class="bg-light pt-4 pb-1">
