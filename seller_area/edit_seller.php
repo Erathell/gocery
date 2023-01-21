@@ -3,7 +3,7 @@
 ?>
 
 
-<div class="container text-light">
+<div class="container text-">
     <div class="ms-5 my-2">
         <h1>Edit Profile</h1>
     </div>
@@ -23,42 +23,48 @@
         
         <h3>Personal info</h3>
         
-        <form class="form-horizontal" role="form">
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Full Name:</label>
-            <div class="col-lg-8">
+        <form class="form-group" role="form">
+          <div class="form-group row">
+            <label class="col-lg-2 control-label fw-bold">Full Name:</label>
+            <div class="col-lg-8 mb-2">
               <input class="form-control" type="text" value="Jane">
             </div>
-            <div class="form-group">
-            <label class="col-lg-3 control-label">Address:</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="text" value="United States of Sus">
+          </div>
+
+
+            <div class="form-group row">
+                <label class="col-lg-2 control-label fw-bold">Address:</label>
+                <div class="col-lg-8 mb-2">
+                <input class="form-control" type="text" value="United States of Sus">
+            </div>
             </div>
 
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Email:</label>
-            <div class="col-lg-8">
+          <div class="form-group row">
+            <label class="col-md-2 control-label fw-bold">Email:</label>
+            <div class="col-lg-8 mb-2">
               <input class="form-control" type="text" value="janesemail@gmail.com">
             </div>
           </div>
 
           
-          </div>
-          <div class="form-group">
-            <label class="col-md-3 control-label">Password:</label>
-            <div class="col-md-8">
+          
+          <div class="form-group row">
+            <label class="col-md-2 control-label fw-bold">Password:</label>
+            <div class="col-md-8 mb-2">
               <input class="form-control" type="password" value="11111122333">
             </div>
           </div>
-          <div class="form-group">
-            <label class="col-md-3 control-label">Confirm password:</label>
-            <div class="col-md-8">
+          <div class="form-group row">
+            <label class="col-md-2 control-label fw-bold">Confirm password:</label>
+            <div class="col-md-8 mb-2">
               <input class="form-control" type="password" value="11111122333">
             </div>
           </div>
-          <div class="form-group">
-            <label class="col-md-3 control-label"></label>
-            <div class="col-md-8">
+
+
+          <div class="form-group row">
+            <label class="col-md-3 control-label fw-bold"></label>
+            <div class="col-md-8 mb-2">
               <input type="button" class="btn btn-green" value="Save Changes">
               <span></span>
               <input type="reset" class="btn btn-light" value="Cancel">

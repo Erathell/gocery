@@ -202,13 +202,14 @@
         
             if(isset($_GET['add_to_cart'])){
                 global $con;
-                $get_ip = getIPAddress();
-                $get_product_id=$_GET['add_to_cart'];
-                $select_query="Select * from `cart` where ip_address= '$get_ip' and product_id=$get_product_id";
-                $result_query = mysqli_query($con, $select_query);
-                $num_rows=mysqli_num_rows($result_query);
                 if(isset($_SESSION['customer_id'])){
                     $customer_id = $_SESSION['customer_id'];
+                $get_ip = getIPAddress();
+                $get_product_id=$_GET['add_to_cart'];
+                $select_query="Select * from `cart` where ip_address= '$get_ip' and product_id=$get_product_id and customer_id=$customer_id";
+                $result_query = mysqli_query($con, $select_query);
+                $num_rows=mysqli_num_rows($result_query);
+                
                 if($num_rows>0){
                     echo "<script>Swal.fire({
                         icon: 'warning',
@@ -246,12 +247,13 @@
             }else{
                 global $con;
                 $get_ip = getIPAddress();
-                $select_query="Select * from `cart` where ip_address= '$get_ip'";
+                $select_query="Select * from `cart` where ip_address= '$get_ip' AND customer_id = $customer_id";
                 $result_query = mysqli_query($con, $select_query);
                 $count_cart_items=mysqli_num_rows($result_query);
             }
+            echo $count_cart_items;
         }
-        echo $count_cart_items;
+        
     }
         
      

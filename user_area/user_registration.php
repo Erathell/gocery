@@ -144,6 +144,10 @@
                       <input type="number" id="contact_num" class="form-control" placeholder="Enter your contact number" name="contact_num" required autocomplete="off"/>
                     </div>
                   </div>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fa-solid fa-lg mb-4 fa-image"></i>
+                    <input type="file" class="form-control">
+                  </div>
                   <div class="form-check d-flex justify-content-center mb-5">
                     <label class="form-check-label" for="form2Example3">
                       Already have an account? <a class="fw-bold text-info" href="user_login.php">Login</a>
