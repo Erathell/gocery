@@ -70,12 +70,11 @@
                 <?php
                 if(!isset($_SESSION['name'])){
                     echo "<li class='nav-item'>
-                    <a class='nav-link' style='color: white;' href='#'>Welcome Guest</a>
+                    <span class='nav-link text-light'>Welcome Guest</span>
                 </li>";
                 }else{
                     echo "<li class='nav-item'>
-                    
-                    <a class='nav-link' style='color: white;' href='#'>Welcome ".$_SESSION['name']."</a>
+                    <span class='nav-link text-light'>Welcome ".$_SESSION['name']."</span>
                 </li>";
                 }
 
