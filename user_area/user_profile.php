@@ -108,11 +108,11 @@
                                 <img src="../product_images/among-us-twerk.gif" class="profile-img m-1 rounded-circle" alt="sus">
                             </li>
                             <li class="nav-item nav-link p-3 text-start fs-5">
-                                <a class="nav-link nav-button" aria-current="page" href="?get_oder_details" > <i class="fa-solid fa-circle-user fa-xl"></i>  <strong>Pending Orders</strong></a>
+                                <a class="nav-link nav-button" aria-current="page" href="user_profile.php?get_order_details" > <i class="fa-solid fa-circle-user fa-xl"></i>  <strong>Pending Orders</strong></a>
                                 
                             </li>
                             <li class="nav-item nav-link p-3 text-start fs-5">
-                                <a class="nav-link nav-button" aria-current="page" href="user_profile.php?edit_account"> <i class="fa-solid fa-circle-user fa-xl"></i>  <strong>Edit Account</strong></a>
+                                <a class="nav-link nav-button" aria-current="page" href="user_profile.php?edit_profile"> <i class="fa-solid fa-circle-user fa-xl"></i>  <strong>Edit Account</strong></a>
                                 
                             </li>
                             <li class="nav-item nav-link p-3 text-start fs-5">
@@ -121,9 +121,17 @@
                         </ul>
                     </div>
                     <div class="col-md-9 ms-5 mt-3 navbar-nav bg-purple-light rounded-4">
-                        <?php 
-                            get_order_details() 
-                        ?> 
+                                <?php 
+                            if(isset($_GET['get_order_details'])){
+                                get_order_details();
+                            }
+                            elseif(isset($_GET['edit_profile'])){
+                                include('edit_profile.php');
+                            }
+                            elseif(isset($_GET['my_orders'])){
+                                
+                            }
+                        ?>
                     </div>
 
                 </div>
