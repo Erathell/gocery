@@ -30,6 +30,7 @@
           $conf_user_password = $_POST['conf_user_password'];
           $user_address = $_POST['user_address'];
           $contact_num = $_POST['contact_num'];
+          $customer_img= $_POST['customer_img'];
           $user_ip = getIPAddress();
           //select query
         
@@ -133,20 +134,20 @@
                     </div>
                   </div>
                   <div class="d-flex flex-row align-items-center mb-4">
-                  <i class="fa-solid fa-house fa-lg me-3 fa-fw1"></i>
+                  <i class="fa-solid fa-house fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                       <input type="text" id="user_address" class="form-control" placeholder="Enter your address" name="user_address" required autocomplete="off"/>
                     </div>
                   </div>
                   <div class="d-flex flex-row align-items-center mb-4">
-                  <i class="fa-solid fa-phone fa-lg me-3 fa-fw1"></i>
+                  <i class="fa-solid fa-phone fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                       <input type="number" id="contact_num" class="form-control" placeholder="Enter your contact number" name="contact_num" required autocomplete="off"/>
                     </div>
                   </div>
                   <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fa-solid fa-lg mb-4 fa-image"></i>
-                    <input type="file" class="form-control">
+                    <i class="fa-solid fa-lg me-3 fa-fw fa-image"></i>
+                    <input name="customer_img"type="file" class="form-control">
                   </div>
                   <div class="form-check d-flex justify-content-center mb-5">
                     <label class="form-check-label" for="form2Example3">
@@ -163,8 +164,7 @@
               <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
                 <img src="../images/logo.png"
-                  class="img-fluid" alt="Sample image">
-
+                  class="img-fluid" alt="Logo">
               </div>
             </div>
           </div>
