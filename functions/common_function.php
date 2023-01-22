@@ -304,7 +304,7 @@
                 
                 if($row_count>0){
                     echo "<h3 class = 'text-light text-center my-2' >You have <span class= 'text- danger'>$row_count</span> pending orders</h3>";
-                    echo "<p class= 'text-center'><a class ='text-decoration-none text-light p-0' href = './user_area/user_profile.php?my_orders'> Order Details</a></p>";
+                    echo "<p class= 'text-center'><a class ='text-decoration-none text-light p-0' href = './user_profile.php?my_orders'> Order Details</a></p>";
                 }
                 else{
                     echo "<h3 class = 'text-light text-center my-2' >You have <span class= 'text- danger'>Zero</span> pending orders</h3>";
