@@ -131,6 +131,10 @@
                             elseif(isset($_GET['my_orders'])){
                                 
                             }
+
+                        if(isset($_GET['my_orders'])){
+                                include('user_orders.php');
+                        }
                         ?>
                     </div>
 
