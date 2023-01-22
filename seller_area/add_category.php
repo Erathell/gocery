@@ -29,6 +29,16 @@
             }
         }
     }
+
+    if(isset($_POST['remove_category'])){
+            $category_id= $_POST['category_id'];
+            $delete_query="Delete from `categories` where category_id=$category_id";
+            $run_delete=mysqli_query($con, $delete_query);
+            if($run_delete){
+                echo "<script>window.open('index.php?add_category','_self')</script>";
+            }
+
+    }
 ?>
 <h1 class="text-center">Add Categories</h1>
 <form class="d-flex flex-column align-items-center"action="" method="post" class="my-5">
@@ -40,17 +50,43 @@
         <button type="submit" class="btn btn-green text-center" placeholder="Insert Category" name ="insert_category" value="Insert Category"aria-describedby="basic-addon1">Insert Category</button>
     </div>
 </form>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-5 mx-auto">
-                <table class="table-bordered text-center col-md-2 rounded">
-                    <thead class="bg-purple-light text-light">
-                        <tr>
-                            <th>Categories</th>
-                            <th class="w-25">Remove</th>
-                        </tr>
-                    </thead>
-                </table>
-            </div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-5 mx-auto">
+            <table class="table-bordered rounded-table text-center col-md-2 rounded">
+                <thead class="bg-purple-light text-light">
+                    <tr>
+                        <th>Categories</th>
+                        <th class="w-25">Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                        global $con;
+                        $category_query="Select * from categories";
+                        $result_category=mysqli_query($con, $category_query);
+                        while($row=mysqli_fetch_array($result_category)){
+                            $category_id=$row['category_id'];
+                            $category_title=$row['category_title'];
+                            
+                    ?>
+                    <tr>
+                        <form action="" method="POST">
+                            <td><?php echo $category_title ?>
+                                <input type="hidden" name="category_id" value=<?php echo $category_id ?>>
+                            </td>
+                            <td><button type="submit" value="Remove Category" name="remove_category" class="btn btn-danger btn-rounded m-1"><i class="fa-solid fa-xmark fa-lg"></i></button></td>
+                        </form>
+                    </tr>   
+                <?php } ?>
+                </tbody>
+            </table>
         </div>
     </div>
+</div>
+
+<div>
+    <br>
+</div>
