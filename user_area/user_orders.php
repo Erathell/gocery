@@ -17,9 +17,9 @@
     $customer_id = $row_data_fetch['customer_id'];
     
     ?>
-<table class="table table-hover">
-    <thead style = "color:yellow">
-        <tr >
+<table class="table table-hover text-light">
+    <thead class="text-center">
+        <tr>
             <th scope="col">Order #</th>
             <th scope="col">Amount due</th>
             <th scope="col">Total Products</th>
@@ -29,7 +29,7 @@
         </tr>
     </thead>
 
-    <tbody style = "color:yellow">
+    <tbody class="text-center">
         <?php
         $get_order_details = "Select * from `transaction` where customer_id = '$customer_id'";
         $result_orders = mysqli_query($con, $get_order_details);
@@ -45,7 +45,7 @@
             <td>$quantity</td>
             <td>$date</td>
             <td>$order_status</td>
-            <td><a href='user_logout.php'>Confirm</a></td>
+            <td><a href='user_logout.php' class='text-decoration-none'>Confirm</a></td>
         </tr>";
         }
         ?>
