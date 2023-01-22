@@ -49,7 +49,6 @@
                 if(!isset($_SESSION['name'])){
                     echo "<li class='nav-item'>
                     <a class='nav-link nav-button' href='./user_area/user_login.php'><i class='fa-solid fa-cart-shopping fa-xl '></i><strong><sup> 0";
-                    echo "</sup> Cart</strong></a></li>";
                 
                 } else 
                 echo "<li class='nav-item'>
