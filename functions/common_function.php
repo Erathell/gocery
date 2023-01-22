@@ -10,7 +10,7 @@
 
         // condition to check isset or not
         if(!isset($_GET['category'])){
-        $select_query = "Select * from `products` order by rand()";
+        $select_query = "Select * from `products` where product_stock!=0 order by rand()";
         $result_query = mysqli_query($con, $select_query);
         while($row = mysqli_fetch_assoc($result_query)){
             $product_id =$row['product_id'];
@@ -19,6 +19,7 @@
             $product_category = $row['category_id'];
             $product_image = $row['product_image'];
             $product_price = $row['product_price'];
+            $product_stock = $row['product_stock'];
             echo "<div class='col-md-4 mb-2'>
             <div class='card' style='width: 90%'>
                 <img src='product_images/$product_image' class='card-img-top' alt='$product_title'>
@@ -26,6 +27,7 @@
                     <h4 class='card-title'>$product_title</h4>
                     <h5>₱$product_price</h5>
                     <p class='card-text'>$product_description</p>
+                    <p class='card-text'><strong>Stock: </strong>$product_stock</p>
                     <a href='index.php?add_to_cart=$product_id' style='background-color:#42C84F; border-color: #42C84F;' class='btn btn-green'>Add to Cart</a>
                     <a href='product_details.php?product_id=$product_id' class='btn btn-secondary'>View More</a>
                 </div>

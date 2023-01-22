@@ -53,7 +53,7 @@
                 
                 } else 
                 echo "<li class='nav-item'>
-                <a class='nav-link nav-button' href='cart.php'><i class='fa-solid fa-cart-shopping fa-xl '></i><strong><sup>";
+                <a class='nav-link nav-button' href='cart.php'><i class='fa-solid fa-cart-shopping fa-xl '></i><strong><sup> ";
                 echo cart_number();
                 echo "</sup> Cart</strong></a>
             </li>";

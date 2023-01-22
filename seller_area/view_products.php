@@ -1,5 +1,15 @@
 <?php
-    include('../includes/connect.php')
+    include('../includes/connect.php');
+
+
+    if(isset($_POST['remove_product'])){
+        $product_id=$_POST['product_id'];
+        $delete_query="Delete from `products` where product_id=$product_id";
+        $run_delete=mysqli_query($con,$delete_query);
+        if($run_delete){
+            echo "<script>window.open('index.php?view_products','_self')</script>";
+        }
+    }
 ?>
 
 <h1 class='text-center'>Products</h1>
@@ -18,13 +28,18 @@
                     $product_category = $row['category_id'];
                     $product_image = $row['product_image'];
                     $product_price = $row['product_price'];
+                    $product_stock = $row['product_stock'];
                     echo "<div class='col-md-4 mb-2'>
                     <div class='card' >
                         <img src='../product_images/$product_image' class='card-img-top' alt='$product_title'>
                         <div class='card-body'>
                             <h5 class='card-title'>$product_title</h5>
                             <p class='card-text'>$product_description</p>
-                            <a href='#' style='background-color:#42C84F; border-color: #42C84F;' class='btn btn-primary'>Edit Product</a>
+                            <form method='POST'>
+                                <a href='#' style='background-color:#42C84F; border-color: #42C84F;' class='btn btn-primary'>Edit Product</a>
+                                <input type='hidden' name='product_id' value=$product_id>
+                                <button type='submit' name='remove_product' class='btn btn-danger'><i class='fa-solid fa-xmark fa-lg'></i></button>
+                            </form>
                         </div>
                     </div>
                 </div>";}
