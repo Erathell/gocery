@@ -46,12 +46,19 @@
                         <a class='nav-link' style='color: white;' href='./user_area/user_profile.php'><i class='fa-solid fa-user fa-xl'></i><strong> My Account</strong></a>
                     </li>";
                 }
-                    ?>
-                    <li class="nav-item">
-                        <a class="nav-link nav-button" href="cart.php"><i class="fa-solid fa-cart-shopping fa-xl "></i><strong><sup> <?php
-                            cart_number();
-                        ?></sup> Cart</strong></a>
-                    </li>
+                if(!isset($_SESSION['name'])){
+                    echo "<li class='nav-item'>
+                    <a class='nav-link nav-button' href='./user_area/user_login.php'><i class='fa-solid fa-cart-shopping fa-xl '></i><strong><sup> 0";
+                    echo "</sup> Cart</strong></a></li>";
+                
+                } else 
+                echo "<li class='nav-item'>
+                <a class='nav-link nav-button' href='cart.php'><i class='fa-solid fa-cart-shopping fa-xl '></i><strong><sup>";
+                echo cart_number();
+                echo "</sup> Cart</strong></a>
+            </li>";
+                ?>
+                    
                     <li class="nav-item">
                     <span class="nav-link nav-button"><i class=" fa-solid fa-hand-holding-dollar fa-xl "></i><strong> Total Price: ₱ <?php total_cart_price() ?></strong></span>
                     </li>
@@ -87,6 +94,7 @@
                     <a class='nav-link' style='color: white;' href='./user_area/user_logout.php'>Logout</a>
                 </li>";
                 }
+                
                 ?>
                 </ul>
                 <a class="nav-link" href="./seller_area/seller_login.php"><button class="btn btn-green" >Seller Center</button></a>

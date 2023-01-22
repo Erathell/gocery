@@ -164,7 +164,7 @@
             
                     <div class="row">
                             <table class="table table-bordered text-center"> 
-                                <thead>
+                                <thead class="bg-purple-light text-light">
                                     <tr>
                                         <th>Product Title</th>
                                         <th>Product Image</th>

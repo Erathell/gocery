@@ -44,12 +44,19 @@
                         <a class='nav-link' style='color: white;' href='./user_area/user_profile.php'><i class='fa-solid fa-user fa-xl'></i><strong> My Account</strong></a>
                     </li>";
                 }   
+                    if(!isset($_SESSION['name'])){
+                        echo "<li class='nav-item'>
+                        <a class='nav-link nav-button' href='./user_area/user_login.php'><i class='fa-solid fa-cart-shopping fa-xl '></i><strong><sup> 0";
+                        echo "</sup> Cart</strong></a></li>";
+                    
+                    } else 
+                    echo "<li class='nav-item'>
+                    <a class='nav-link nav-button' href='cart.php'><i class='fa-solid fa-cart-shopping fa-xl '></i><strong><sup>";
+                    echo cart_number();
+                    echo "</sup> Cart</strong></a>
+                </li>";
                     ?>
-                    <li class="nav-item">
-                        <a class="nav-link nav-button" href="cart.php"><i class="fa-solid fa-cart-shopping fa-xl "></i><strong><sup> <?php
-                            cart_number();
-                        ?></sup> Cart</strong></a>
-                    </li>
+                        
                     <li class="nav-item">
                     <a class="nav-link nav-button" href="#"><i class="fa-solid fa-hand-holding-dollar fa-xl "></i><strong> Total Price: ₱ <?php total_cart_price() ?></strong> </a>
                     </li>
@@ -64,14 +71,14 @@
             <!-- second child -->
             <nav class="navbar navbar-expand-lg" style="background-color: #322348;">
                 <ul class="navbar-nav me-auto">
-                    <?php
+                <?php
                 if(!isset($_SESSION['name'])){
                     echo "<li class='nav-item'>
-                    <a class='nav-link' style='color: white;' href='#'>Welcome Guest</a>
+                    <span class='nav-link text-light'>Welcome Guest</span>
                 </li>";
                 }else{
                     echo "<li class='nav-item'>
-                    <a class='nav-link' style='color: white;' href='#'>Welcome ".$_SESSION['name']."</a>
+                    <span class='nav-link text-light'>Welcome ".$_SESSION['name']."</span>
                 </li>";
                 }
 
@@ -86,7 +93,7 @@
                 }
                 ?>
                 </ul>
-                <button class="btn btn-green me-2">Seller Center</button>
+                <a class="nav-link" href="./seller_area/seller_login.php"><button class="btn btn-green me-2" >Seller Center</button></a>
             </nav>
             <!-- third child -->    
         <div class="row products-sect">

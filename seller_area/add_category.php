@@ -39,5 +39,18 @@
     <div class="input-group w-50 mb-2 text-center">  
         <button type="submit" class="btn btn-green text-center" placeholder="Insert Category" name ="insert_category" value="Insert Category"aria-describedby="basic-addon1">Insert Category</button>
     </div>
-
 </form>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 mx-auto">
+                <table class="table-bordered text-center col-md-2 rounded">
+                    <thead class="bg-purple-light text-light">
+                        <tr>
+                            <th>Categories</th>
+                            <th class="w-25">Remove</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>

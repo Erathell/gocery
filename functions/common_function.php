@@ -252,7 +252,7 @@
                 $count_cart_items=mysqli_num_rows($result_query);
             }
             echo $count_cart_items;
-        }
+        } 
         
     }
         
