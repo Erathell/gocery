@@ -2,15 +2,39 @@
     include('../includes/connect.php');
 
 
-    if(isset($_POST['remove_product'])){
+    // if(isset($_POST['remove_product'])){
+    //       $product_id=$_POST['product_id'];
+    //       $delete_query="Delete from `products` where product_id=$product_id";
+    //       $run_delete=mysqli_query($con,$delete_query);
+    //       if($run_delete){
+    //           echo "<script>window.open('index.php?view_products','_self')</script>";
+    //       }
+
+    // }
+
+          
         
-        $product_id=$_POST['product_id'];
-        $delete_query="Delete from `products` where product_id=$product_id";
-        $run_delete=mysqli_query($con,$delete_query);
-        if($run_delete){
-            echo "<script>window.open('index.php?view_products','_self')</script>";
-        }
-    }
+        if(isset($_POST['remove_product'])){
+            
+
+
+            $product_id=$_POST['product_id'];
+            $delete_query="Delete from `products` where product_id=$product_id";
+            $run_delete=mysqli_query($con,$delete_query);
+            if($run_delete){
+                echo"<script>Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Product removed succesfully',
+                    showConfirmButton: false,
+                    timer: 1500
+                }).then(function(){window.location = 'index.php?view_products'})</script>";
+            }
+
+      }
+    
+
+
 ?>
 
 <h1 class='text-center'>Products</h1>
@@ -36,7 +60,7 @@
                         <div class='card-body'>
                             <h5 class='card-title'>$product_title</h5>
                             <p class='card-text'>$product_description</p>
-                            <form method='POST' onsubmit='return submitForm(this);'>
+                            <form method='POST' >
                                 <a href='#' style='background-color:#42C84F; border-color: #42C84F;' class='btn btn-primary'>Edit Product</a>
                                 <input type='hidden' name='product_id' value=$product_id>
                                 <button type='submit' name='remove_product' class='btn btn-danger'><i class='fa-solid fa-xmark fa-lg'></i></button>

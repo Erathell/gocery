@@ -225,7 +225,7 @@
                     echo"<script>Swal.fire({
                         position: 'top-end',
                         icon: 'success',
-                        title: 'Item added succefully',
+                        title: 'Item added succesfully',
                         showConfirmButton: false,
                         timer: 1500
                     }).then(function(){window.location = 'index.php'})</script>";
