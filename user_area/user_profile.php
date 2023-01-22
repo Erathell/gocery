@@ -22,7 +22,7 @@
 <body>
 
         
-        <div class="main container-fluid p-0">
+        <div class="main container-fluid p-0 overflow-hidden">
             <!-- navbar -->
             <!-- first child -->
             <nav class="navbar sticky-nav navbar-expand-lg bg-purple-light" >
@@ -53,7 +53,7 @@
                         ?></sup> Cart</strong></a>
                     </li>
                     <li class="nav-item">
-                    <span class="nav-link nav-button"><i class=" fa-solid fa-hand-holding-dollar fa-xl "></i><strong> Total Price: ₱ <?php total_cart_price() ?></strong></span>
+                    <span class="nav-link nav-button"><i class=" fa-solid fa-hand-holding-dollar fa-xl "></i><strong> Total Price: ₱ <?php total_cart_price()?></strong></span>
                     </li>
                 </ul>
                 <form class="d-flex" action="../search_product.php" method="get">
@@ -99,7 +99,7 @@
             
             <!-- fourth child -->
                 <div class="row">
-                    <div class="col-md-2  ms-4 mt-3">
+                    <div class="col-md-2 ms-4 mt-3">
                         <ul class="rounded-4 navbar-nav bg-purple-light text-center">
                             <li class="nav-item p-3">
                                 <h4 class="text-light"> <i class="fa-solid fa-circle-user fa-xl"></i>  Your Profile</h4>
@@ -120,7 +120,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="col-md-9 ms-3 mt-3 navbar-nav bg-purple-light rounded-4">
+                    <div class="col-md-9 ms-3 mt-3 bg-purple-light rounded-4">
                                 <?php 
                             if(isset($_GET['get_order_details'])){
                                 get_order_details();
