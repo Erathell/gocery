@@ -167,10 +167,17 @@
             
             <!-- fourth child table -->
             <div class="container">
-                
-            
+
                     <div class="row">
-                            <table class="table table-hover text-center"> 
+                    <div class="d-flex justify-content-between">
+                                    <a href="index.php"><button type="button" class="btn btn-green btn-rounded mb-3">Continue Shopping</button></a>
+                                    <form action="" method="post">
+                                        <button type="submit" name="remove_all" class="btn btn-danger btn-rounded mb-3">Empty Cart</button>
+                                    </form>
+                                    
+                                </div>
+                                <div class="card p-1">
+                            <table class="table table-hover text-center "> 
                                 <thead class="bg-purple-light text-light">
                                     <tr>
                                         <th>Product Title</th>
@@ -182,14 +189,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <div class="d-flex justify-content-between">
-                                    <a href="index.php"><button type="button" class="btn btn-green btn-rounded mb-3">Continue Shopping</button></a>
-                                    <form action="" method="post">
-                                        <button type="submit" name="remove_all" class="btn btn-danger btn-rounded mb-3">Empty Cart</button>
-                                    </form>
-                                    
-                                </div>
-                                <div class="card">
+                                
+                                
                                     <!-- PHP Dynamic Data Display-->
                                     <?php
                                         global $con;
@@ -246,6 +247,7 @@
                                 </tbody>
                             </table>
                             </div>
+                            </div>
                             <!-- subtotal -->
                             <?php 
                             
@@ -271,8 +273,7 @@
                             }
                             
                             ?>
-                            
-                        </div>
+
                     </div>
                 </form>                
     <!-- last child -->
