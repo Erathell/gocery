@@ -84,7 +84,7 @@
         <!-- price -->
         <div class="form-outline mb-4 w-50 m-auto">
             <label for="price" class="form-label">Product Price</label>
-            <input type="text" name="price" id="price" class="form-control" placeholder="Enter Product Price" autocomplete="off" required>
+            <input type="number" name="price" id="price" class="form-control" placeholder="Enter Product Price" autocomplete="off" required>
         </div>
         <div class="form-outline mb-4 w-50 m-auto">
             <label for="stock" class="form-label">Stock</label>
