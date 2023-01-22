@@ -57,9 +57,16 @@
                 
                 $quantities=$_POST['qty'];
                 $cart_id = $_POST['cart_id'];
+                if($quantities<$_POST['product_stock']){
                 $update_cart="update `cart` set quantity=$quantities+1 where product_id=$cart_id and ip_address='$get_ip'";
                 $result=mysqli_query($con, $update_cart);
-                
+                } else echo "<script>Swal.fire({
+                    position: 'top-end',
+                    icon: 'warning',
+                    title: 'Not enough stock',
+                    showConfirmButton: false,
+                    timer: 1500
+                })</script>";
             }
 
             // minus function
@@ -163,7 +170,7 @@
                 
             
                     <div class="row">
-                            <table class="table table-bordered text-center"> 
+                            <table class="table table-hover text-center"> 
                                 <thead class="bg-purple-light text-light">
                                     <tr>
                                         <th>Product Title</th>
@@ -182,6 +189,7 @@
                                     </form>
                                     
                                 </div>
+                                <div class="card">
                                     <!-- PHP Dynamic Data Display-->
                                     <?php
                                         global $con;
@@ -213,7 +221,8 @@
                                         
                                             <button type="submit" value="updatecart" name="minus_one" class="btn btn-green btn-rounded m-2"><i class="fa-solid fa-minus fa-xl"></i></button>
                                             <input type="hidden" name="cart_id" class="form-input w-50" value = <?php echo $row['product_id'] ?>>
-                                            <input type="number" name="qty" class="form-input w-50"  value = <?php echo $row['quantity'] ?>>
+                                            <input type="hidden" name="product_stock" class="form-input w-50" value = <?php echo $product_stock ?>>
+                                            <input type="number" name="qty" class="form-input w-50"  max=<?php echo $product_stock ?> value = <?php echo $row['quantity'] ?>>
                                             <button type="submit" value="updatecart" name="plus_one" class="btn btn-green btn-rounded-1 m-2"><i class="fa-solid fa-plus fa-xl"></i></button>
                                         </td> 
                                             
@@ -233,8 +242,10 @@
                                     $total_price+=$sub_total;
                                     }
                                 } ?>
+                                
                                 </tbody>
                             </table>
+                            </div>
                             <!-- subtotal -->
                             <?php 
                             

@@ -55,7 +55,9 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-5 mx-auto">
-            <table class="rounded-table table text-center  col-md-2 ">
+            <div class="card">
+
+            <table class="table-hover rounded-table table text-center  col-md-2 ">
                 <thead class="bg-purple-light text-light">
                     <tr>
                         <th>Categories</th>
@@ -83,6 +85,8 @@
                 <?php } ?>
                 </tbody>
             </table>
+                
+            </div>
         </div>
     </div>
 </div>
