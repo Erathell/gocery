@@ -55,7 +55,9 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-5 mx-auto">
-            <table class="rounded-table table text-center  col-md-2 ">
+            <div class="card">
+            <div class="card-body">
+            <table class="table table-hover text-center  col-md-2 ">
                 <thead class="bg-purple-light text-light">
                     <tr>
                         <th>Categories</th>
@@ -74,7 +76,7 @@
                     ?>
                     <tr>
                         <form action="" method="POST">
-                            <td><?php echo $category_title ?>
+                            <td class="align-middle"><?php echo $category_title ?>
                                 <input type="hidden" name="category_id" value=<?php echo $category_id ?>>
                             </td>
                             <td><button type="submit" value="Remove Category" name="remove_category" class="btn text-danger"><i class="fa-solid fa-circle-xmark fa-lg"></i></i></button></td>
@@ -83,6 +85,7 @@
                 <?php } ?>
                 </tbody>
             </table>
+            </div>
         </div>
     </div>
 </div>

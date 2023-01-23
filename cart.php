@@ -57,9 +57,16 @@
                 
                 $quantities=$_POST['qty'];
                 $cart_id = $_POST['cart_id'];
+                if($quantities<$_POST['product_stock']){
                 $update_cart="update `cart` set quantity=$quantities+1 where product_id=$cart_id and ip_address='$get_ip'";
                 $result=mysqli_query($con, $update_cart);
-                
+                } else echo "<script>Swal.fire({
+                    position: 'top-end',
+                    icon: 'warning',
+                    title: 'Not enough stock',
+                    showConfirmButton: false,
+                    timer: 1500
+                })</script>";
             }
 
             // minus function
@@ -160,10 +167,17 @@
             
             <!-- fourth child table -->
             <div class="container">
-                
-            
+
                     <div class="row">
-                            <table class="table table-bordered text-center"> 
+                    <div class="d-flex justify-content-between">
+                                    <a href="index.php"><button type="button" class="btn btn-green btn-rounded mb-3">Continue Shopping</button></a>
+                                    <form action="" method="post">
+                                        <button type="submit" name="remove_all" class="btn btn-danger btn-rounded mb-3">Empty Cart</button>
+                                    </form>
+                                    
+                                </div>
+                                <div class="card p-1">
+                            <table class="table table-hover text-center "> 
                                 <thead class="bg-purple-light text-light">
                                     <tr>
                                         <th>Product Title</th>
@@ -175,13 +189,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <div class="d-flex justify-content-between">
-                                    <a href="index.php"><button type="button" class="btn btn-green btn-rounded mb-3">Continue Shopping</button></a>
-                                    <form action="" method="post">
-                                        <button type="submit" name="remove_all" class="btn btn-danger btn-rounded mb-3">Empty Cart</button>
-                                    </form>
-                                    
-                                </div>
+                                
+                                
                                     <!-- PHP Dynamic Data Display-->
                                     <?php
                                         global $con;
@@ -207,23 +216,24 @@
                                     <tr>
                                         
                                     <form action="" method="post">
-                                        <td><?php echo $product_title?></td>
+                                        <td class="align-middle"><?php echo $product_title?></td>
                                         <td><img src="./product_images/<?php echo $product_image ?>" class="cart_img" alt="sus"></td>
-                                        <td>
+                                        <td class="align-middle">
                                         
                                             <button type="submit" value="updatecart" name="minus_one" class="btn btn-green btn-rounded m-2"><i class="fa-solid fa-minus fa-xl"></i></button>
                                             <input type="hidden" name="cart_id" class="form-input w-50" value = <?php echo $row['product_id'] ?>>
-                                            <input type="number" name="qty" class="form-input w-50"  value = <?php echo $row['quantity'] ?>>
+                                            <input type="hidden" name="product_stock" class="form-input w-50" value = <?php echo $product_stock ?>>
+                                            <input type="number" name="qty" class="form-input w-50"  max=<?php echo $product_stock ?> value = <?php echo $row['quantity'] ?>>
                                             <button type="submit" value="updatecart" name="plus_one" class="btn btn-green btn-rounded-1 m-2"><i class="fa-solid fa-plus fa-xl"></i></button>
                                         </td> 
                                             
-                                        <td>₱ <?php echo $sub_total = $row_product_price['product_price'] * $row['quantity']?></td>
-                                        <td>
+                                        <td class="align-middle">₱ <?php echo $sub_total = $row_product_price['product_price'] * $row['quantity']?></td>
+                                        <td class="align-middle">
                                             <?php 
                                                 echo $product_stock;
                                             ?>
                                         </td>           
-                                        <td>
+                                        <td class="align-middle">
                                             <button type="submit" value="updatecart" name="update_cart" class="btn btn-warning btn-rounded m-2">Update</button>
                                             <button type="submit" value="Remove Cart"name="remove_cart" class="btn btn-danger btn-rounded">Delete</button>      
                                             </form>    
@@ -233,8 +243,11 @@
                                     $total_price+=$sub_total;
                                     }
                                 } ?>
+                                
                                 </tbody>
                             </table>
+                            </div>
+                            </div>
                             <!-- subtotal -->
                             <?php 
                             
@@ -260,8 +273,7 @@
                             }
                             
                             ?>
-                            
-                        </div>
+
                     </div>
                 </form>                
     <!-- last child -->
