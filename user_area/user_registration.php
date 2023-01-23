@@ -37,6 +37,12 @@
           $province = $_POST['province'];
           $contact_num = $_POST['contact_num'];
           
+
+          $number = preg_match('@[0-9]@', $user_password);
+          $uppercase = preg_match('@[A-Z]@', $user_password);
+          $lowercase = preg_match('@[a-z]@', $user_password);
+          $specialChars = preg_match('@[^\w]@', $user_password);
+
           // accessing image
           $customer_img= $_FILES['customer_img']['name'];
 
@@ -57,6 +63,9 @@
         
         if($rows_count != 0){
           $ne_error='Email aldready taken';
+        }
+        else if(strlen($user_password) < 8 || !$number || !$uppercase || !$lowercase || !$specialChars){
+        $password_not_strong = 'Password must be at least 8 characters in length and must contain at least one number, one upper case letter, one lower case letter and one special character.';
         }
         else if($user_password != $conf_user_password){
         $password_not_match = 'Password do not match';
@@ -82,7 +91,7 @@
             title: 'Registration Successful',
             showConfirmButton: false,
             timer: 1500
-          })</script>";
+          }).then(function(){window.location = '/gocery/index.php'})</script>";
         } 
         else {
           die(mysqli_error($con));
@@ -144,6 +153,11 @@
                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                       <input type="password" id="user_password" class="form-control" placeholder="Enter your password" name="user_password" required autocomplete="off"/>
+                      <?php
+                      if(isset($password_not_strong)):
+                      ?>
+                      <span><?php echo $password_not_strong;?></span>
+                      <?php endif?>
                     </div>
                   </div>
                   <div class="d-flex flex-row align-items-center mb-4">
