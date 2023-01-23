@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="../styles.css">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
+
 <body>
 
         
@@ -105,7 +106,7 @@
                                 <h4 class="text-light"> <i class="fa-solid fa-circle-user fa-xl"></i>  Your Profile</h4>
                             </li>
                             <li class="nav-item p-3">
-                                <img src="../product_images/among-us-twerk.gif" class="profile-img m-1 rounded-circle" alt="sus">
+                                <img src="../product_images/sumi.jpg" class="profile-img m-1 rounded-circle" alt="sus">
                             </li>
                             <li class="nav-item nav-link p-3 text-start fs-5">
                                 <a class="nav-link nav-button" aria-current="page" href="user_profile.php?get_order_details" > <i class="fa-solid fa-circle-user fa-xl"></i>  <strong>Pending Orders</strong></a>
