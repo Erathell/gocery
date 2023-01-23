@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Order</title>
+    <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
     <?php
@@ -17,10 +18,11 @@
     $customer_id = $row_data_fetch['customer_id'];
     
     ?>
-<table class="table table-hover text-light">
+    
+<table class="table text-light">
     <thead class="text-center">
         <tr>
-            <th scope="col">Order #</th>
+            <th scope="col" >Order #</th>
             <th scope="col">Amount due</th>
             <th scope="col">Total Products</th>
             <th scope="col">Date</th>
@@ -39,17 +41,15 @@
             $quantity = $row_orders['quantity'];
             $date = $row_orders['date'];
             $order_status = $row_orders['order_status'];
-            echo "<tr>
-            <th scope='row'>$order_id</th>
-            <td>$amount</td>
+            echo "<tr'>
+            <th scope='row' >$order_id</th>
+            <td>$amount Php</td>
             <td>$quantity</td>
             <td>$date</td>
             <td>$order_status</td>
             <td><a href='user_logout.php' class='text-decoration-none'>Confirm</a></td>
-        </tr>";
-        }
+                </tr>";}
         ?>
-        
     </tbody>
 </table>
 
