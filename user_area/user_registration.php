@@ -23,12 +23,18 @@
 <body class="text-center login" data-new-gr-c-s-check-loaded="14.1093.0" data-gr-ext-installed>
   <?php
         if(isset($_POST['user_register'])){
-          $user_fullname = $_POST['user_fullname'];
+          $user_fname = $_POST['first_name'];
+          $user_mname = $_POST['middle_name'];
+          $user_lname = $_POST['last_name'];
           $user_email = $_POST['user_email'];
           $user_password = $_POST['user_password'];
           $hash_password = password_hash($user_password,PASSWORD_DEFAULT);
           $conf_user_password = $_POST['conf_user_password'];
-          $user_address = $_POST['user_address'];
+          $house_no = $_POST['house_no'];
+          $street = $_POST['street'];
+          $barangay = $_POST['barangay'];
+          $municipality = $_POST['municipality'];
+          $province = $_POST['province'];
           $contact_num = $_POST['contact_num'];
           
           // accessing image
@@ -58,16 +64,15 @@
         else{
         
         //insert_query
-        $insert_query = "insert into `customer`(name,address,contact_num,email,password,user_ip, customer_img) values('$user_fullname','$user_address',$contact_num,'$user_email','$hash_password','$user_ip', '$customer_img')";
+        $insert_query = "insert into `customer`(first_name,middle_name,last_name,house_no,street,barangay,municipality,province,contact_num,email,password,user_ip,customer_img) values('$user_fname','$user_mname','$user_lname','$house_no','$street','$barangay','$municipality','$province',$contact_num,'$user_email','$hash_password','$user_ip', '$customer_img')";
         $sql_execute = mysqli_query($con, $insert_query);
-
         //selecting name for session
-        $name_query = "Select * from `customer` where name like '%$user_fullname%'";
+        $name_query = "Select * from `customer` where first_name like '%$user_fname%'";
         $result_name = mysqli_query($con,$name_query);
         $name_data = mysqli_fetch_assoc($result_name);
         //$name = $name_data['name'];
-        if (isset($name_data['name'])) {
-          $name = $name_data['name'];}  
+        if (isset($name_data['first_name'])) {
+          $name = $name_data['first_name'];}  
 
         if ($sql_execute) {
           $_SESSION['name'] = $name;
@@ -77,7 +82,7 @@
             title: 'Registration Successful',
             showConfirmButton: false,
             timer: 1500
-          }).then(function(){window.location = '/gocery/index.php'})</script>";
+          })</script>";
         } 
         else {
           die(mysqli_error($con));
@@ -109,8 +114,19 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="text" id="user_fullname" class="form-control" placeholder="Enter your full name" name="user_fullname" required autocomplete="off"/>
-                  
+                      <input type="text" id="user_fname" class="form-control" placeholder="Enter your first name" name="first_name" required autocomplete="off"/>
+                    </div>
+                  </div>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text" id="user_mname" class="form-control" placeholder="Enter your middle name(optional)" name="middle_name" autocomplete="off"/>
+                    </div>
+                  </div>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text" id="user_lname" class="form-control" placeholder="Enter your last name" name="last_name" required autocomplete="off"/>
                     </div>
                   </div>
 
@@ -144,9 +160,34 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                   <i class="fa-solid fa-house fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="text" id="user_address" class="form-control" placeholder="Enter your address" name="user_address" required autocomplete="off"/>
+                      <input type="text" id="house_no" class="form-control" placeholder="House no. / Building no." name="house_no" required autocomplete="off"/>
                     </div>
                   </div>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                  <i class="fa-solid fa-house fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text" id="street" class="form-control" placeholder="Street" name="street" required autocomplete="off"/>
+                    </div>
+                  </div>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                  <i class="fa-solid fa-house fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text" id="barangay" class="form-control" placeholder="Barangay" name="barangay" required autocomplete="off"/>
+                    </div>
+                  </div>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                  <i class="fa-solid fa-house fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text" id="municipality" class="form-control" placeholder="Municipality/City" name="municipality" required autocomplete="off"/>
+                    </div>
+                  </div>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                  <i class="fa-solid fa-house fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text" id="province" class="form-control" placeholder="Province" name="province" required autocomplete="off"/>
+                    </div>
+                  </div>
+
                   <div class="d-flex flex-row align-items-center mb-4">
                   <i class="fa-solid fa-phone fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">

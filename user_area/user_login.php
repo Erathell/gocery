@@ -100,8 +100,8 @@ if (isset($_POST['login'])) {
   $row_data = mysqli_fetch_assoc($result);
 
    //fetching name and customer id
-  if (isset($row_data['name'])) {
-    $name = $row_data['name'];
+  if (isset($row_data['first_name'])) {
+    $name = $row_data['first_name'];
     $customer_id = $row_data['customer_id'];}
 
   //cart item
