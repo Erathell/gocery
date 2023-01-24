@@ -11,7 +11,7 @@
       <!-- left column -->
       <div class="col-md-3">
         <div class="text-center">
-          <img src="../product_images/among-us-twerk.gif" class="profile-img m-1 rounded-circle" alt="avatar">
+          <img src="../product_images/among-us-twerk.gif" class="profile-img m-1 rounded-circle" alt="avatar" style="height: 125px;">
           <h6>Upload a different photo...</h6>
           
           <input type="file" class="form-control">
