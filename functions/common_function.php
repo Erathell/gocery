@@ -292,7 +292,7 @@
     function get_order_details() {
         global $con;
         $username=$_SESSION['name'];
-        $get_details = "Select * from `customer` where name = '$username'";
+        $get_details = "Select * from `customer` where first_name = '$username'";
         $result_query = mysqli_query($con, $get_details);
         $row_query=mysqli_fetch_array($result_query);
             $user_id = $row_query['customer_id'];
