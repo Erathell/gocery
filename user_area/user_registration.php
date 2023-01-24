@@ -132,7 +132,7 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="text" id="user_mname" class="form-control" placeholder="Enter your middle name(optional)" name="middle_name" autocomplete="off"/>
+                      <input type="text" id="user_mname" class="form-control" placeholder="Enter your middle name (optional)" name="middle_name" autocomplete="off"/>
                     </div>
                   </div>
                   <div class="d-flex flex-row align-items-center mb-4">

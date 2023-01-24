@@ -177,6 +177,10 @@ body {
 }
 
 
+.table-hover-orange:hover{
+    background-color: #FF6E41;
+}
+
 
 .fa-x-red{
     color: red;

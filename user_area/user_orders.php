@@ -19,7 +19,7 @@
     
     ?>
     
-<table class="table text-light">
+<table class="table text-light ">
     <thead class="text-center">
         <tr>
             <th scope="col" >Order #</th>
@@ -41,9 +41,9 @@
             $quantity = $row_orders['quantity'];
             $date = $row_orders['date'];
             $order_status = $row_orders['order_status'];
-            echo "<tr'>
+            echo "<tr class='table-hover-orange'>
             <th scope='row' >$order_id</th>
-            <td>$amount Php</td>
+            <td class='mb-2'>$amount Php</td>
             <td>$quantity</td>
             <td>$date</td>
             <td>$order_status</td>
