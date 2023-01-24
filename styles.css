@@ -19,13 +19,14 @@ input::-webkit-inner-spin-button {
 .logo-reg-1{
 
     position: absolute;
-    width: 50vh;
-    top: -12px;
+
+
 }
 .logo-reg-2{
 
     position: absolute;
-    width: 75vh;
+
+
 }
 .sticky-nav {
     position:-webkit-sticky;

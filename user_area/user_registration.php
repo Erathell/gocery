@@ -225,9 +225,9 @@
 
               </div>
               <div class="col-md-23 col-lg-6 col-xl-7 d-flex align-items-center justify-content-center order-2">
-                <div class="parent-img">
-                  <img src="../images/shopping.gif" alt="shopping-gif" class="logo-reg-2">
-                  <img src="../images/logo.png" class="logo-reg-1 " alt="Logo">
+                <div class="parent-img d-flex flex-column">
+                  <img src="../images/shopping.gif" alt="shopping-gif" class="img-fluid ">
+                  <img src="../images/logo.png" class="img-fluid " alt="Logo">
                 </div>
               </div>
             </div>
