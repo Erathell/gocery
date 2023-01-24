@@ -81,10 +81,13 @@
         $name_data = mysqli_fetch_assoc($result_name);
         //$name = $name_data['name'];
         if (isset($name_data['first_name'])) {
-          $name = $name_data['first_name'];}  
+          $name = $name_data['first_name'];
+          $customer_id = $name_data['customer_id'];
+        }  
 
         if ($sql_execute) {
           $_SESSION['name'] = $name;
+          $_SESSION['customer_id'] = $customer_id;
           echo "<script>Swal.fire({
             position: 'center',
             icon: 'success',
