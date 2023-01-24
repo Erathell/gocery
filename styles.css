@@ -14,8 +14,19 @@ input::-webkit-inner-spin-button {
 }
 .logo{
     width: 20vh;
+    position: relative;
 }
+.logo-reg-1{
 
+    position: absolute;
+    width: 50vh;
+    top: -12px;
+}
+.logo-reg-2{
+
+    position: absolute;
+    width: 75vh;
+}
 .sticky-nav {
     position:-webkit-sticky;
     position:sticky;
@@ -170,5 +181,11 @@ body {
     color: red;
 }
 
+.parent-img{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
 
