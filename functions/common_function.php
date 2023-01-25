@@ -289,35 +289,35 @@
         
 
       // get user order details
-    function get_order_details() {
-        global $con;
-        $username=$_SESSION['name'];
-        $customer_id = $_SESSION['customer_id'];
-        $get_details = "Select * from `customer` where first_name = '$username' and customer_id ='$customer_id'";
-        $result_query = mysqli_query($con, $get_details);
-        $row_query=mysqli_fetch_array($result_query);
-            $user_id = $row_query['customer_id'];
-            if(!isset($_GET['edit_account'])){
-                if(!isset($_GET['my_orders'])){
-                $get_orders = "Select * from `transaction` where customer_id = '$user_id' and order_status = 'pending'";
-                $result_order_query = mysqli_query($con, $get_orders);
-                $row_count = mysqli_num_rows($result_order_query);
+    // function get_order_details() {
+    //     global $con;
+    //     $username=$_SESSION['name'];
+    //     $customer_id = $_SESSION['customer_id'];
+    //     $get_details = "Select * from `customer` where first_name = '$username' and customer_id ='$customer_id'";
+    //     $result_query = mysqli_query($con, $get_details);
+    //     $row_query=mysqli_fetch_array($result_query);
+    //         $user_id = $row_query['customer_id'];
+    //         if(!isset($_GET['edit_account'])){
+    //             if(!isset($_GET['my_orders'])){
+    //             $get_orders = "Select * from `transaction` where customer_id = '$user_id' and order_status = 'pending'";
+    //             $result_order_query = mysqli_query($con, $get_orders);
+    //             $row_count = mysqli_num_rows($result_order_query);
                 
-                if($row_count>0){
-                    echo "<h3 class = 'text-light text-center mt-5' >You have <span class= 'text- danger'>$row_count</span> pending orders</h3>";
-                    echo "<div class='text-center'><a href='./user_profile.php?my_orders'><button type='button' class='btn btn-green btn-rounded mb-3'>Order Details</button></a></div>";
-                }
-                else{
-                    echo "<h3 class = 'text-light text-center my-2' >You have <span class= 'text- danger'>Zero</span> pending orders</h3>";
-                    echo "<p class= 'text-center'><a class ='text-decoration-none text-light p-0' href = '/gocery/index.php'> Explore Products</a></p>";
+    //             if($row_count>0){
+    //                 echo "<h3 class = 'text-light text-center mt-5' >You have <span class= 'text- danger'>$row_count</span> pending orders</h3>";
+    //                 echo "<div class='text-center'><a href='./user_profile.php?my_orders'><button type='button' class='btn btn-green btn-rounded mb-3'>Order Details</button></a></div>";
+    //             }
+    //             else{
+    //                 echo "<h3 class = 'text-light text-center my-2' >You have <span class= 'text- danger'>Zero</span> pending orders</h3>";
+    //                 echo "<p class= 'text-center'><a class ='text-decoration-none text-light p-0' href = '/gocery/index.php'> Explore Products</a></p>";
 
-                }
-                }
-            }
+    //             }
+    //             }
+    //         }
         
 
 
-    }  
+    // }  
 
 
         
