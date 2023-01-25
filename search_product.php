@@ -51,7 +51,7 @@
                     
                     } else 
                     echo "<li class='nav-item'>
-                    <a class='nav-link nav-button' href='cart.php'><i class='fa-solid fa-cart-shopping fa-xl '></i><strong><sup>";
+                    <a class='nav-link nav-button' href='cart.php'><i class='fa-solid fa-cart-shopping fa-xl '></i><strong> <sup>";
                     echo cart_number();
                     echo "</sup> Cart</strong></a>
                 </li>";
@@ -69,7 +69,7 @@
             </div>
             </nav>
             <!-- second child -->
-            <nav class="navbar navbar-expand-lg" style="background-color: #322348;">
+            <nav class="navbar navbar-expand-lg p-2" style="background-color: #322348;">
                 <ul class="navbar-nav me-auto">
                 <?php
                 if(!isset($_SESSION['name'])){
@@ -93,7 +93,11 @@
                 }
                 ?>
                 </ul>
-                <a class="nav-link" href="./seller_area/seller_login.php"><button class="btn btn-green me-2" >Seller Center</button></a>
+                <ul class="navbar-nav ms-auto">
+                    <a class="nav-link" href="./seller_area/seller_login.php"><button class="btn btn-green" >Seller Center</button></a>
+                    <a class="nav-link" href="./courier_area/courier_login.php"><button class="btn btn-green" >Courier Center</button></a>
+                </ul>
+                
             </nav>
             <!-- third child -->    
         <div class="row products-sect">

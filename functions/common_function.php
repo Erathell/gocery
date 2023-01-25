@@ -304,8 +304,8 @@
                 $row_count = mysqli_num_rows($result_order_query);
                 
                 if($row_count>0){
-                    echo "<h3 class = 'text-light text-center my-2' >You have <span class= 'text- danger'>$row_count</span> pending orders</h3>";
-                    echo "<p class= 'text-center'><a class ='text-decoration-none text-light p-0' href = './user_profile.php?my_orders'> Order Details</a></p>";
+                    echo "<h3 class = 'text-light text-center mt-5' >You have <span class= 'text- danger'>$row_count</span> pending orders</h3>";
+                    echo "<div class='text-center'><a href='./user_profile.php?my_orders'><button type='button' class='btn btn-green btn-rounded mb-3'>Order Details</button></a></div>";
                 }
                 else{
                     echo "<h3 class = 'text-light text-center my-2' >You have <span class= 'text- danger'>Zero</span> pending orders</h3>";

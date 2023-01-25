@@ -4,14 +4,14 @@
 
 
 <div class="container text-light">
-    <div class="ms-5 my-2">
+    <div class="ms-5 my-3">
         <h1>Edit Profile</h1>
     </div>
 	<div class="row my-3">
       <!-- left column -->
       <div class="col-md-3">
         <div class="text-center">
-          <img src="../product_images/among-us-twerk.gif" class="profile-img m-1 rounded-circle" alt="avatar" style="height: 125px;">
+          <img src="../product_images/among-us-twerk.gif" class="profile-img m-1 rounded-circle" alt="avatar" >
           <h6>Upload a different photo...</h6>
           
           <input type="file" class="form-control">
@@ -25,16 +25,53 @@
         
         <form class="form-horizontal" role="form">
           <div class="form-group">
-            <label class="col-lg-3 control-label">Full Name:</label>
+            <label class="col-lg-3 control-label">First Name:</label>
             <div class="col-lg-8">
               <input class="form-control" type="text" value="Jane">
             </div>
-            <div class="form-group">
-            <label class="col-lg-3 control-label">Address:</label>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Middle Name:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value="United States of Sus">
+              <input class="form-control" type="text" value="Michael">
             </div>
-
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Last Name:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" value="Doe">
+            </div>
+          </div>
+          <div class="form-group">
+              <label class="col-lg-3 control-label">House No/Building No:</label>
+              <div class="col-lg-8">
+                <input class="form-control" type="text" value="United States of Sus">
+              </div>
+          </div>
+          <div class="form-group">
+              <label class="col-lg-3 control-label">Street:</label>
+              <div class="col-lg-8">
+                <input class="form-control" type="text" value="United States of Sus">
+              </div>
+          </div>
+          <div class="form-group">
+              <label class="col-lg-3 control-label">Barangay:</label>
+              <div class="col-lg-8">
+                <input class="form-control" type="text" value="United States of Sus">
+              </div>
+          </div>
+          <div class="form-group">
+              <label class="col-lg-3 control-label">Municipality/City:</label>
+              <div class="col-lg-8">
+                <input class="form-control" type="text" value="United States of Sus">
+              </div>
+          </div>
+          <div class="form-group">
+              <label class="col-lg-3 control-label">Province:</label>
+              <div class="col-lg-8">
+                <input class="form-control" type="text" value="United States of Sus">
+              </div>
+          </div>
           <div class="form-group">
             <label class="col-lg-3 control-label">Email:</label>
             <div class="col-lg-8">
@@ -43,7 +80,7 @@
           </div>
 
           
-          </div>
+          
           <div class="form-group">
             <label class="col-md-3 control-label">Password:</label>
             <div class="col-md-8">
@@ -62,6 +99,7 @@
               <input type="button" class="btn btn-green" value="Save Changes">
               <span></span>
               <input type="reset" class="btn btn-light" value="Cancel">
+              </div>
             </div>
           </div>
         </form>

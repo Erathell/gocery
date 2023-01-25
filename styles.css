@@ -70,6 +70,18 @@ input::-webkit-inner-spin-button {
 
 }
 
+.btn-orange{
+    --bs-btn-font-weight: 600;
+    --bs-btn-color: var(--bs-white);
+    --bs-btn-bg: #FF6E41;
+    --bs-btn-border-color: #FF6E41;
+    --bs-btn-border-radius: .5rem;
+    --bs-btn-hover-color: var(--bs-white);
+    --bs-btn-hover-bg: #42C84F;
+    --bs-btn-hover-border-color: #42C84F;
+
+}
+
 
 .categories:hover{
     background-color: #FF6E41;
@@ -176,6 +188,10 @@ body {
     
 }
 
+
+.table-hover-orange:hover{
+    background-color: #FF6E41;
+}
 
 
 .fa-x-red{

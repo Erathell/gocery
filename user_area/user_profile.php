@@ -106,7 +106,7 @@
                                 <h4 class="text-light"> <i class="fa-solid fa-circle-user fa-xl"></i>  Your Profile</h4>
                             </li>
                             <li class="nav-item p-3">
-                                <img src="../product_images/among-us-twerk.gif" class="profile-img m-1 rounded-circle" alt="profile_image" style="height: 125px;">
+                                <img src="../product_images/among-us-twerk.gif" class="profile-img m-1 rounded-circle" alt="profile_image">
                             </li>
                             <li class="nav-item nav-link p-3 text-start fs-5">
                                 <a class="nav-link nav-button" aria-current="page" href="user_profile.php?get_order_details" > <i class="fa-solid fa-circle-user fa-xl"></i>  <strong>Pending Orders</strong></a>
@@ -117,14 +117,14 @@
                                 
                             </li>
                             <li class="nav-item nav-link p-3 text-start fs-5">
-                                <a class="nav-link nav-button" aria-current="page" href="user_profile.php?my_orders"> <i class="fa-solid fa-circle-user fa-xl"></i>  <strong>Orders</strong> </a>
+                                <a class="nav-link nav-button" aria-current="page" href="user_profile.php?my_orders"> <i class="fa-solid fa-circle-user fa-xl"></i>  <strong>Completed Orders</strong> </a>
                             </li>
                         </ul>
                     </div>
-                    <div class="col-md-9 ms-3 mt-3 bg-purple-light rounded-4">
+                    <div class="col-md-9 card ms-3 mt-3 mb-5 bg-purple-light rounded-4">
                                 <?php 
                             if(isset($_GET['get_order_details'])){
-                                get_order_details();
+                                include('user_orders_pending.php');
                             }
                             elseif(isset($_GET['edit_profile'])){
                                 include('edit_profile.php');

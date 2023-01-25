@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User-Registration</title>
+    <title>Courier Registration</title>
     <!-- bootstrap CSS link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <!-- font awesome link -->
@@ -73,7 +73,7 @@
         else{
         
         //insert_query
-        $insert_query = "insert into `customer`(first_name,middle_name,last_name,house_no,street,barangay,municipality,province,contact_num,email,password,user_ip,customer_img) values('$user_fname','$user_mname','$user_lname','$house_no','$street','$barangay','$municipality','$province',$contact_num,'$user_email','$hash_password','$user_ip', '$customer_img')";
+        $insert_query = "insert into `courier`(first_name,middle_name,last_name,house_no,street,barangay,municipality,province,contact_num,email,password,user_ip,courier_img) values('$user_fname','$user_mname','$user_lname','$house_no','$street','$barangay','$municipality','$province',$contact_num,'$user_email','$hash_password','$user_ip', '$customer_img')";
         $sql_execute = mysqli_query($con, $insert_query);
         //selecting name for session
         $name_query = "Select * from `customer` where first_name like '%$user_fname%'";
@@ -94,7 +94,7 @@
             title: 'Registration Successful',
             showConfirmButton: false,
             timer: 1500
-          }).then(function(){window.location = '/gocery/index.php'})</script>";
+          }).then(function(){window.location = 'index.php'})</script>";
         } 
         else {
           die(mysqli_error($con));
