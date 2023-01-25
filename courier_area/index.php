@@ -1,3 +1,10 @@
+<?php
+include('../includes/connect.php');
+include('../functions/common_function.php');
+@session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,13 +29,7 @@
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #563D7C;">
             <div class="container-fluid">
                 <img src="../images/logo.png" class="logo" alt="logo">
-                <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #563D7C;">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a href="" class="nav-link text-white fw-bold"><i class="fa-solid fa-user fa-xl"></i> Welcome guest</a>
-                        </li>
-                    </ul>
-                </nav>
+                
             </div>
         </nav>
     </div>
@@ -42,15 +43,13 @@
             <div class="col-md-12 secondary p-2 px-5 d-flex align-items-center">
                 <div>
                     <a href="#"><img src="../images/pineapple-juice.jpg" alt="" class="admin_image"></a>
-                    <p class="text-light text-center">Courier Name</p>
+                    <p class="text-light text-center"><?php echo $_SESSION['name']?></p>
                 </div>
                 <div class="button text-center ms-auto me-auto">
-                        <button type="button" class="btn btn-green m-2"><a href="index.php?add_product" class="nav-link">Add Product</a></button>
-                        <button type="button" class="btn btn-green m-2"><a href="index.php?add_category" class="nav-link">Add Category</a></button>
-                        <button type="button" class="btn btn-green m-2"><a href="index.php?view_products" class="nav-link">View Products</a></button>
-                        <button type="button" class="btn btn-green m-2"><a href="#" class="nav-link">View Transactions</a></button>
-                        <button type="button" class="btn btn-green m-2"><a href="index.php?edit_profile" class="nav-link">Edit Profile</a></button>
-                        <button type="button" class="btn btn-green m-2"><a href="#" class="nav-link">Log Out</a></button> 
+                        <button type="button" class="btn btn-green m-2"><a href="#" class="nav-link">Available Deliveries</a></button>
+                        <button type="button" class="btn btn-green m-2"><a href="#" class="nav-link">Delivery History</a></button>
+                        <button type="button" class="btn btn-green m-2"><a href="#" class="nav-link">Edit Profile</a></button>
+                        <button type="button" class="btn btn-green m-2"><a href="courier_logout.php" class="nav-link">Log Out</a></button> 
                 </div>
             </div>
         </div>
