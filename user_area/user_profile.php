@@ -121,7 +121,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="col-md-9 ms-3 mt-3 bg-purple-light rounded-4">
+                    <div class="col-md-9 card ms-3 mt-3 mb-5 bg-purple-light rounded-4">
                                 <?php 
                             if(isset($_GET['get_order_details'])){
                                 get_order_details();
