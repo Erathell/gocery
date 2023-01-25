@@ -54,7 +54,7 @@ input::-webkit-inner-spin-button {
 }
 
 .admin_image{
-    width: 100px;
+    max-width: 100px;
     object-fit: contain;
 }
 

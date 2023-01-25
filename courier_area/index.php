@@ -42,7 +42,7 @@ include('../functions/common_function.php');
         <div class="row p-0">
             <div class="col-md-12 secondary p-2 px-5 d-flex align-items-center">
                 <div>
-                    <a href="#"><img src="../images/pineapple-juice.jpg" alt="" class="admin_image"></a>
+                    <a href="#"><img src="../user_images/<?php echo $_SESSION['courier_img']?>" alt="" class="admin_image"></a>
                     <p class="text-light text-center"><?php echo $_SESSION['name']?></p>
                 </div>
                 <div class="button text-center ms-auto me-auto">
@@ -50,6 +50,7 @@ include('../functions/common_function.php');
                         <button type="button" class="btn btn-green m-2"><a href="#" class="nav-link">Delivery History</a></button>
                         <button type="button" class="btn btn-green m-2"><a href="#" class="nav-link">Edit Profile</a></button>
                         <button type="button" class="btn btn-green m-2"><a href="courier_logout.php" class="nav-link">Log Out</a></button> 
+                        
                 </div>
             </div>
         </div>
@@ -57,17 +58,14 @@ include('../functions/common_function.php');
         <!-- fourth child -->
         <div class="container my-3">
             <?php 
-                if(isset($_GET['add_category'])){
+                if(isset($_GET['available_deliveries'])){
                     include('add_category.php');
                 }
-                elseif(isset($_GET['add_product'])){
+                elseif(isset($_GET['delivery_history'])){
                     include('add_product.php');
                 }
-                elseif(isset($_GET['view_products'])){
-                    include('view_products.php');
-                }
                 elseif(isset($_GET['edit_profile'])){
-                    include('edit_seller.php');
+                    include('view_products.php');
                 }
             ?>
 

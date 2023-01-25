@@ -44,18 +44,18 @@
           $specialChars = preg_match('@[^\w]@', $user_password);
 
           // accessing image
-          $customer_img= $_FILES['customer_img']['name'];
+          $courier_img= $_FILES['courier_img']['name'];
 
           // accessing image temp
-          $customer_img_tmp= $_FILES['customer_img']['tmp_name'];
+          $courier_img_tmp= $_FILES['courier_img']['tmp_name'];
 
-          move_uploaded_file($customer_img_tmp, "../user_images/$customer_img");
+          move_uploaded_file($courier_img_tmp, "../user_images/$courier_img");
 
           $user_ip = getIPAddress();
           //select query
         
           
-        $select_query_email = "Select * from `customer` where  email='$user_email'";
+        $select_query_email = "Select * from `courier` where  email='$user_email'";
         $result = mysqli_query($con, $select_query_email);
         $rows_count = mysqli_num_rows($result);
         $name_data = mysqli_fetch_assoc($result);

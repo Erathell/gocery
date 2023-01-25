@@ -97,7 +97,9 @@ if (isset($_POST['login'])) {
    //fetching name and customer id
   if (isset($row_data['first_name'])) {
     $name = $row_data['first_name'];
-    $courier_id = $row_data['courier_id'];}
+    $courier_id = $row_data['courier_id'];
+    $courier_img = $row_data['courier_img'];
+  }
 
 
   //checking for user existence
@@ -112,6 +114,7 @@ if (isset($_POST['login'])) {
         if ($rows_count == 1 ) {
           $_SESSION['name'] = $name;
           $_SESSION['courier_id'] = $courier_id;
+          $_SESSION['courier_img'] = $courier_img;
           echo "<script>Swal.fire({
               position: 'center',
               icon: 'success',
@@ -123,6 +126,7 @@ if (isset($_POST['login'])) {
         else {
           $_SESSION['name']= $name;
           $_SESSION['courier_id'] = $courier_id;
+          $_SESSION['courier_img'] = $courier_img;
           echo "<script>Swal.fire({
               position: 'center',
               icon: 'success',
