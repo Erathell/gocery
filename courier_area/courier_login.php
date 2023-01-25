@@ -87,12 +87,6 @@ if (isset($_POST['login'])) {
   $user_password = $_POST['user_password'];
   $user_ip = getIPAddress();
 
-
-  // $name_query = "Select * from `customer` where email like '%$user_email%'";
-  // $result_name = mysqli_query($con,$name_query);
-  // $name_data = mysqli_fetch_assoc($result_name);
-  //$name = $name_data['name'];
-  
   
   $select_query = "Select * from `courier` where email='$user_email'";
   $result = mysqli_query($con, $select_query);
@@ -113,7 +107,8 @@ if (isset($_POST['login'])) {
         $_SESSION['name']= $name;
         $_SESSION['courier_id'] = $courier_id;
       if ($user_email == $row_data['email']) {
-        if ($rows_count == 1 and $rows_count_cart == 0) {
+        
+        if ($rows_count == 1 ) {
           $_SESSION['name'] = $name;
           $_SESSION['courier_id'] = $courier_id;
           echo "<script>Swal.fire({
@@ -122,7 +117,7 @@ if (isset($_POST['login'])) {
               title: 'Login successfuly ',
               showConfirmButton: false,
               timer: 1500
-            }).then(function(){window.location = '/gocery/index.php'})</script>";
+            }).then(function(){window.location = 'index.php'})</script>";
         } 
         else {
           $_SESSION['name']= $name;
@@ -133,7 +128,7 @@ if (isset($_POST['login'])) {
               title: 'Login successfuly',
               showConfirmButton: false,
               timer: 1500
-            }).then(function(){window.location = '/gocery/index.php'})</script>";
+            }).then(function(){window.location = 'index.php'})</script>";
         }
       }
       else{
