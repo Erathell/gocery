@@ -33,7 +33,7 @@
 
     <tbody class="text-center">
         <?php
-        $get_order_details = "Select * from `transaction` where customer_id= '$customer_id' AND order_status LIKE 'complete'";
+        $get_order_details = "Select * from `transaction` where customer_id= '$customer_id' AND order_status NOT LIKE 'complete'";
         $result_orders = mysqli_query($con, $get_order_details);
         while($row_orders = mysqli_fetch_assoc($result_orders)){
             $order_id = $row_orders['transaction_id'];
