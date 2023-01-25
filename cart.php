@@ -38,6 +38,22 @@
             $run_query=mysqli_fetch_array($result);
             $user_id=$run_query['customer_id'];
             
+            if(isset($_POST['checkout'])){
+                global $con;
+                $user_id = $_SESSION['customer_id'];
+                $get_ip = getIPAddress();
+                $cart_query="Select * from `cart` where ip_address= '$get_ip' and customer_id=$user_id";
+                $result_cart=mysqli_query($con,$cart_query);
+                
+                
+                while($row=mysqli_fetch_array($result_cart)){
+                    $product_id=$row['product_id'];
+                    $quantity=$row['quantity'];
+                    $update_prod = "update `products` set product_stock=product_stock - $quantity where product_id=$product_id";
+                    $run_update = mysqli_query($con,$update_prod);
+            }
+            echo "<script>window.open('./user_area/order.php?user_id=$user_id', '_self')</script>";
+        }
             if(isset($_POST['update_cart'])){
                 $quantities=$_POST['qty'];
                 $cart_id = $_POST['cart_id'];
@@ -249,6 +265,7 @@
                             </div>
                             </div>
                             <!-- subtotal -->
+                            <form method="post">
                             <?php 
                             
                             $get_ip = getIPAddress();
@@ -262,18 +279,18 @@
                                 if(isset($_SESSION['name'])){
                                     echo "<div class='d-flex align-items-end flex-column'>
                                     <h4 class='pb-2'>Subtotal: <strong>₱ $total_price</strong></h4>
-                                    <a href='./user_area/order.php?user_id=$user_id'><button type='button' class='btn btn-green btn-rounded'>Proceed to checkout</button></a>
+                                    <button type='submit' name='checkout'class='btn btn-green btn-rounded'>Proceed to checkout</button>
                                 </div>";
                                 } else  {
                                     echo "<div class='d-flex align-items-end flex-column'>
                                     <h4 class='pb-2'>Subtotal: <strong>₱ $total_price</strong></h4>
-                                    <a href='./user_area/user_login.php'><button type='button' class='btn btn-green btn-rounded'>Proceed to checkout</button></a>
+                                    <button type='submit' name='checkout' class='btn btn-green btn-rounded'>Proceed to checkout</button>
                                 </div>";
                                 }
                             }
                             
                             ?>
-
+                        </form>
                     </div>
                 </form>                
     <!-- last child -->
