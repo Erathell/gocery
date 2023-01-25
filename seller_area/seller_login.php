@@ -56,11 +56,11 @@ session_start();
         <h1 class="h3 mb-3 fw-md text-light">Please sign in</h1>
 
         <div class="form-floating mb-2">
-        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="user_email">
+        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="seller_email">
         <label for="floatingInput">Email address</label>
         </div>
         <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="user_password">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="seller_password">
         <label for="floatingPassword">Password</label><i class="far fa-eye" id="togglePassword" style="position: absolute; top: 20px;right:16px;cursor: pointer;"></i>
         </div>
 
@@ -83,8 +83,8 @@ session_start();
 <?php
 
 if (isset($_POST['login'])) {
-  $user_email = $_POST['user_email'];
-  $user_password = $_POST['user_password'];
+  $seller_email = $_POST['user_email'];
+  $seller_password = $_POST['user_password'];
   $user_ip = getIPAddress();
 
 
@@ -94,7 +94,7 @@ if (isset($_POST['login'])) {
   //$name = $name_data['name'];
   
   
-  $select_query = "Select * from `customer` where email='$user_email'";
+  $select_query = "Select * from `seller` where email='$seller_email'";
   $result = mysqli_query($con, $select_query);
   $rows_count = mysqli_num_rows($result);
   $row_data = mysqli_fetch_assoc($result);
@@ -102,7 +102,7 @@ if (isset($_POST['login'])) {
    //fetching name and customer id
   if (isset($row_data['name'])) {
     $name = $row_data['name'];
-    $customer_id = $row_data['customer_id'];}
+    $seller_id = $row_data['seller_id'];}
 
   //cart item
   $select_query_cart = "Select * from `cart` where ip_address='$user_ip'";
@@ -112,14 +112,14 @@ if (isset($_POST['login'])) {
   //checking for user existence
   if($rows_count>0){
     $_SESSION['name']= $name;
-    $_SESSION['customer_id'] = $customer_id;
+    $_SESSION['seller_id'] = $seller_id;
       if(password_verify($user_password,$row_data['password'])){
         $_SESSION['name']= $name;
-        $_SESSION['customer_id'] = $customer_id;
+        $_SESSION['seller_id'] = $seller_id;
       if ($user_email == $row_data['email']) {
         if ($rows_count == 1 and $rows_count_cart == 0) {
           $_SESSION['name'] = $name;
-          $_SESSION['customer_id'] = $customer_id;
+          $_SESSION['customer_id'] = $seller_id;
           echo "<script>Swal.fire({
               position: 'center',
               icon: 'success',
@@ -130,7 +130,7 @@ if (isset($_POST['login'])) {
         } 
         else {
           $_SESSION['name']= $name;
-          $_SESSION['customer_id'] = $customer_id;
+          $_SESSION['seller_id'] = $seller_id;
           echo "<script>Swal.fire({
               position: 'center',
               icon: 'success',
