@@ -70,7 +70,7 @@ session_start();
         </label>
         </div>
         <button class="w-100 btn btn-lg btn-green" type="submit" name="login">Sign in</button>
-        <p class="small fw-bold mt-2 pt-1 mb-0 text-light">Don't have an account? <a class="text-info" href="user_registration.php">Register</a></p>
+        <p class="small fw-bold mt-2 pt-1 mb-0 text-light">Don't have an account? <a class="text-info" href="courier_registration.php">Register</a></p>
     </form>
     </main>
 
@@ -94,7 +94,7 @@ if (isset($_POST['login'])) {
   //$name = $name_data['name'];
   
   
-  $select_query = "Select * from `customer` where email='$user_email'";
+  $select_query = "Select * from `courier` where email='$user_email'";
   $result = mysqli_query($con, $select_query);
   $rows_count = mysqli_num_rows($result);
   $row_data = mysqli_fetch_assoc($result);
@@ -102,24 +102,20 @@ if (isset($_POST['login'])) {
    //fetching name and customer id
   if (isset($row_data['first_name'])) {
     $name = $row_data['first_name'];
-    $customer_id = $row_data['customer_id'];}
+    $courier_id = $row_data['courier_id'];}
 
-  //cart item
-  $select_query_cart = "Select * from `cart` where ip_address='$user_ip'";
-  $select_cart = mysqli_query($con, $select_query_cart);
-  $rows_count_cart = mysqli_num_rows($select_cart);
 
   //checking for user existence
   if($rows_count>0){
     $_SESSION['name']= $name;
-    $_SESSION['customer_id'] = $customer_id;
+    $_SESSION['courier_id'] = $courier_id;
       if(password_verify($user_password,$row_data['password'])){
         $_SESSION['name']= $name;
-        $_SESSION['customer_id'] = $customer_id;
+        $_SESSION['courier_id'] = $courier_id;
       if ($user_email == $row_data['email']) {
         if ($rows_count == 1 and $rows_count_cart == 0) {
           $_SESSION['name'] = $name;
-          $_SESSION['customer_id'] = $customer_id;
+          $_SESSION['courier_id'] = $courier_id;
           echo "<script>Swal.fire({
               position: 'center',
               icon: 'success',
@@ -130,7 +126,7 @@ if (isset($_POST['login'])) {
         } 
         else {
           $_SESSION['name']= $name;
-          $_SESSION['customer_id'] = $customer_id;
+          $_SESSION['courier_id'] = $courier_id;
           echo "<script>Swal.fire({
               position: 'center',
               icon: 'success',
