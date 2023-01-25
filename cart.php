@@ -27,10 +27,7 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-<?php
 
-
-?>
         <?php
             $user_ip=getIPAddress();
             $get_user= "select * from `customer` where user_ip='$user_ip'";
@@ -49,9 +46,16 @@
                 while($row=mysqli_fetch_array($result_cart)){
                     $product_id=$row['product_id'];
                     $quantity=$row['quantity'];
-                    $update_prod = "update `products` set product_stock=product_stock - $quantity where product_id=$product_id";
-                    $run_update = mysqli_query($con,$update_prod);
-            }
+                    $select_prod = "select * from `products` where product_id=$product_id";
+                    $result_prod = mysqli_query($con,$select_prod);
+                    $result_assoc = mysqli_fetch_assoc($result_prod);
+                    if($result_assoc['product_stock']  >= $quantity){
+                        $update_prod = "update `products` set product_stock=product_stock - $quantity where product_id=$product_id";
+                        $run_update = mysqli_query($con,$update_prod);
+                    } else {echo "<script>alert('Not enough stock!')</script>";
+                        echo "<script>window.open('./cart.php', '_self')</script>";
+                        }
+                    }
             echo "<script>window.open('./user_area/order.php?user_id=$user_id', '_self')</script>";
         }
             if(isset($_POST['update_cart'])){
@@ -60,6 +64,7 @@
                 $update_cart="update `cart` set quantity=$quantities where product_id=$cart_id and ip_address='$get_ip'";
                 $result=mysqli_query($con, $update_cart);
                 echo "<script>Swal.fire({
+                    title: 'Update',
                     position: 'top-end',
                     icon: 'success',
                     title: 'Quantity Updated',
