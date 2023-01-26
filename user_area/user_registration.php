@@ -92,7 +92,7 @@
             title: 'Registration Successful',
             showConfirmButton: false,
             timer: 1500
-          }).then(function(){window.location = 'login.php'})</script>";
+          }).then(function(){window.location = 'user_login.php'})</script>";
         } 
         else {
           die(mysqli_error($con));
