@@ -24,7 +24,6 @@
     $result_name = mysqli_query($con,$name_query);
     $name_data = mysqli_fetch_assoc($result_name);
     //$name = $name_data['name'];
-
     if (isset($name_data['first_name'])) {
       $name = $name_data['first_name'];
       $customer_id = $name_data['customer_id'];
@@ -36,26 +35,27 @@
 
 
 //save password triggers
-if (isset($_POST['save_password'])) {
-  $password = $_POST['password'];
-  $hash_password = password_hash($password,PASSWORD_DEFAULT);
-  $conf_password = $_POST['conf_password'];
-  $number = preg_match('@[0-9]@', $password);
-  $uppercase = preg_match('@[A-Z]@', $password);
-  $lowercase = preg_match('@[a-z]@', $password);
-  $specialChars = preg_match('@[^\w]@', $password);
+  if (isset($_POST['save_password'])) {
+    $password = $_POST['password'];
+    $hash_password = password_hash($password,PASSWORD_DEFAULT);
+    $conf_password = $_POST['conf_password'];
 
-  if(strlen($password) < 8 || !$number || !$uppercase || !$lowercase || !$specialChars){
+    //check password strength
+    $number = preg_match('@[0-9]@', $password);
+    $uppercase = preg_match('@[A-Z]@', $password);
+    $lowercase = preg_match('@[a-z]@', $password);
+    $specialChars = preg_match('@[^\w]@', $password);
+
+    if(strlen($password) < 8 || !$number || !$uppercase || !$lowercase || !$specialChars){
     $password_not_strong = 'Password must be at least 8 characters in length and must contain at least one number, one upper case letter, one lower case letter and one special character.';
     }
     else if($password != $conf_password){
     $password_not_match = 'Password do not match';
     } 
     else {
-      //update query password
+    //update query password
     $update_query_password = "update `customer` set password='$hash_password' ";
     $sql_execute_pass = mysqli_query($con, $update_query_password);
-    
     if ($sql_execute_pass) {
       $_SESSION['name'] = $name;
       $_SESSION['customer_id'] = $customer_id;
@@ -82,7 +82,7 @@ if (isset($_POST['save_image'])) {
   $customer_img_tmp= $_FILES['customer_img']['tmp_name'];
 
   move_uploaded_file($customer_img_tmp, "../user_images/$customer_img");
-
+  //update query image
   $update_query_img = "update `customer` set customer_img = '$customer_img' where customer_id = '$customer_id' and user_ip = '$user_ip' " ;
   $sql_execute_img = mysqli_query($con, $update_query_img);
 
@@ -152,21 +152,11 @@ if (isset($_POST['save_image'])) {
     if($rows_count != 0){
       $ne_error='Email aldready taken';
     }
-    // else if(strlen($password) < 8 || !$number || !$uppercase || !$lowercase || !$specialChars){
-    // $password_not_strong = 'Password must be at least 8 characters in length and must contain at least one number, one upper case letter, one lower case letter and one special character.';
-    // }
-    // else if($password != $conf_password){
-    // $password_not_match = 'Password do not match';
-    // }
     else{
     
-    //update_query
+    //update_query personal info
     $update_query = "update `customer` set first_name= '$fname' ,middle_name= '$mname',last_name= '$lname',house_no= '$house_no',street= '$street',barangay= '$barangay',municipality= '$municipality',province= '$province',contact_num='$contact_num',email='$email' where customer_id='$customer_id' and user_ip ='$user'";
     $sql_execute = mysqli_query($con, $update_query);
-    
-    //selecting name for session
-   
-
     if ($sql_execute) {
       $_SESSION['name'] = $name;
       $_SESSION['customer_id'] = $customer_id;
