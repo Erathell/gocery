@@ -2,16 +2,6 @@
     include('../includes/connect.php');
 
 
-    // if(isset($_POST['remove_product'])){
-    //       $product_id=$_POST['product_id'];
-    //       $delete_query="Delete from `products` where product_id=$product_id";
-    //       $run_delete=mysqli_query($con,$delete_query);
-    //       if($run_delete){
-    //           echo "<script>window.open('index.php?view_products','_self')</script>";
-    //       }
-
-    // }
-
           
         
         if(isset($_POST['remove_product'])){

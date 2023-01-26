@@ -55,7 +55,9 @@ input::-webkit-inner-spin-button {
 
 .admin_image{
     max-width: 100px;
-    object-fit: contain;
+    min-height: 100px;
+    min-width: 100px;
+
 }
 
 .btn-green{

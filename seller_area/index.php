@@ -1,3 +1,8 @@
+<?php include('../includes/connect.php');
+include('../functions/common_function.php');
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,7 +46,7 @@
         <div class="row p-0">
             <div class="col-md-12 secondary p-2 px-5 d-flex align-items-center">
                 <div>
-                    <a href="#"><img src="../images/<?php echo $_SESSION['seller_img'] ?>" alt="" class="admin_image"></a>
+                    <a href="#"><img src="../user_images/<?php echo $_SESSION['seller_img'] ?>" alt="" class="admin_image rounded-circle "></a>
                     <p class="text-light text-center">Seller Name</p>
                 </div>
                 <div class="button text-center ms-auto me-auto">
