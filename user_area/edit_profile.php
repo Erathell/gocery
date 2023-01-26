@@ -86,11 +86,6 @@ if (isset($_POST['save_image'])) {
   $update_query_img = "update `customer` set customer_img = '$customer_img' where customer_id = '$customer_id' and user_ip = '$user_ip' " ;
   $sql_execute_img = mysqli_query($con, $update_query_img);
 
-    // selecting name for session
-    $name_query = "Select * from `customer` where customer_id like '%$customer_id%'";
-    $result_name = mysqli_query($con,$name_query);
-    $name_data = mysqli_fetch_assoc($result_name);
-    $name = $name_data['name'];
     
 
     if ($sql_execute_img) {
@@ -184,8 +179,9 @@ if (isset($_POST['save_image'])) {
     ?>
 
 
-<form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+
 <div class="container text-light">
+<form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
     <div class="ms-5 my-3">
         <h1>Edit Profile</h1>
     </div>
@@ -288,7 +284,7 @@ if (isset($_POST['save_image'])) {
           
           <div class="form-group">
             <label class="col-md-3 control-label">Password:</label>
-           
+          
             <div class="col-md-8">
               <input class="form-control" type="password"  name="password" required>
               <?php
