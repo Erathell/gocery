@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Order</title>
     <link rel="stylesheet" href="../styles.css">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <?php
@@ -55,8 +56,8 @@
                     <td>$order_status
                         $product_name
                     </td>
-                    <td><a href='user_logout.php' class='text-decoration-none'>Confirm</a></td>
-                        </tr>";
+                    <td><button type='submit' name='confirm' class='btn btn-green-purple rounded-pill'>Show Receipt</button></td>
+                </tr>";
                 }
   
         ?>
