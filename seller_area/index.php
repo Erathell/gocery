@@ -25,7 +25,7 @@ include('../functions/common_function.php');
 $user_ip = getIPAddress();
 $seller_id = $_SESSION['seller_id'];
 $seller_name= $_SESSION['name'];
-$get_user = "Select * from `seller` where user_ip = '$user_ip' and seller_id = '$seller_id' and first_name = '$seller_name'";
+$get_user = "Select * from `seller` where user_ip = '$user_ip' and seller_id = '$seller_id'";
 $result = mysqli_query($con,$get_user);
 $row_data_fetch = mysqli_fetch_array($result);
 
