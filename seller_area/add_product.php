@@ -6,7 +6,8 @@
     $product_category = $_POST['product_category'];
     $product_price = $_POST['price'];
     $product_stock = $_POST['stock'];
-    $product_status = 'true';
+    $product_brand = $_POST['brands'];
+
     
     
 
@@ -26,7 +27,7 @@
 
         //insert query
 
-        $insert_product = "insert into `products`(name,product_description,category_id,product_image,product_price,date,status,product_stock) values('$product_title','$product_description','$product_category','$product_image', '$product_price',NOW(),'$product_status',$product_stock)";
+        $insert_product = "insert into `products`(name,product_description,category_id, brands,product_image,product_price,date,product_stock) values('$product_title','$product_description','$product_category', '$product_brand','$product_image', '$product_price',NOW(),$product_stock)";
         $result_query = mysqli_query($con, $insert_product);
         if($result_query){
             echo "<script>Swal.fire({
@@ -59,6 +60,10 @@
         <div class="form-outline mb-4 w-50 m-auto">
             <label for="keywords" class="form-label">Product Keywords</label>
             <input type="text" name="keywords" id="keywords" class="form-control" placeholder="Enter Product Keywords" autocomplete="off" required>
+        </div>
+        <div class="form-outline mb-4 w-50 m-auto">
+            <label for="keywords" class="form-label">Product Brand</label>
+            <input type="text" name="brands" id="brands" class="form-control" placeholder="Enter Product Brand" autocomplete="off" required>
         </div>
         <!-- categories -->
         <div class="form-outline mb-4 w-50 m-auto"><select name="product_category" id="#" class="form-select">

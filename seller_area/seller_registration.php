@@ -198,6 +198,7 @@
                       <input type="text" id="province" class="form-control" placeholder="Province" name="province" required autocomplete="off"/>
                     </div>
                   </div>
+                  
                   <div class="d-flex flex-row align-items-center mb-4">
                   <i class="fa-solid fa-shop fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">

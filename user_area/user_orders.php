@@ -26,10 +26,11 @@
         <tr>
             <th scope="col" >Order #</th>
             <th scope="col">Amount due</th>
+            <th scope="col">Product</th>
             <th scope="col">Total Products</th>
             <th scope="col">Date</th>
             <th scope="col">Complete/Incomplete</th>
-            <th scope="col">Order Confirmation</th>
+            <!-- <th scope="col">Order Confirmation</th> -->
         </tr>
     </thead>
 
@@ -51,13 +52,13 @@
                 echo "<tr class='table-hover-orange'>
                     <th scope='row' >$order_id</th>
                     <td class='mb-2'>Php $amount</td>
+                    <td>$product_name</td>
                     <td>$quantity</td>
                     <td>$date</td>
                     <td>$order_status
-                        $product_name
                     </td>
-                    <td><button type='submit' name='confirm' class='btn btn-green-purple rounded-pill'>Show Receipt</button></td>
-                </tr>";
+                    <!-- <td><a href='user_logout.php' class='text-decoration-none'>Confirm</a></td>
+                        </tr> -->";
                 }
   
         ?>

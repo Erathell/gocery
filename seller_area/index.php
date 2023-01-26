@@ -1,3 +1,8 @@
+<?php include('../includes/connect.php');
+include('../functions/common_function.php');
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,11 +28,7 @@
             <div class="container-fluid">
                 <img src="../images/logo.png" class="logo" alt="logo">
                 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #563D7C;">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a href="" class="nav-link text-white fw-bold"><i class="fa-solid fa-user fa-xl"></i> Welcome guest</a>
-                        </li>
-                    </ul>
+
                 </nav>
             </div>
         </nav>
@@ -41,8 +42,8 @@
         <div class="row p-0">
             <div class="col-md-12 secondary p-2 px-5 d-flex align-items-center">
                 <div>
-                    <a href="#"><img src="../images/<?php echo $_SESSION['seller_img'] ?>" alt="" class="admin_image"></a>
-                    <p class="text-light text-center">Seller Name</p>
+                    <a href="#"><img src="../user_images/<?php echo $_SESSION['seller_img'] ?>" alt="" class="admin_image rounded-circle mb-2 "></a>
+                    <p class="text-light text-center fw-bold"><?php echo $_SESSION['name']?></p>
                 </div>
                 <div class="button text-center ms-auto me-auto">
                         <button type="button" class="btn btn-green m-2"><a href="index.php?add_product" class="nav-link">Add Product</a></button>

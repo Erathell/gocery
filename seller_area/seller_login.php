@@ -70,6 +70,7 @@ session_start();
         </label>
         </div>
         <button class="w-100 btn btn-lg btn-green" type="submit" name="login">Sign in</button>
+        <a class="small fw-bold mt-2 pt-1 mb-0 text-info" href="../index.php">Go Shopping</a></p>
         
     </form>
     </main>
@@ -83,8 +84,8 @@ session_start();
 <?php
 
 if (isset($_POST['login'])) {
-  $seller_email = $_POST['user_email'];
-  $seller_password = $_POST['user_password'];
+  $seller_email = $_POST['seller_email'];
+  $seller_password = $_POST['seller_password'];
   $user_ip = getIPAddress();
 
 
@@ -100,30 +101,27 @@ if (isset($_POST['login'])) {
   $row_data = mysqli_fetch_assoc($result);
 
    //fetching name and customer id
-  if (isset($row_data['name'])) {
-    $name = $row_data['name'];
+  if (isset($row_data['first_name'])) {
+    $name = $row_data['first_name'];
     $seller_id = $row_data['seller_id'];
     $seller_img=$row_data['seller_img'];
   }
 
-  //cart item
-  $select_query_cart = "Select * from `cart` where ip_address='$user_ip'";
-  $select_cart = mysqli_query($con, $select_query_cart);
-  $rows_count_cart = mysqli_num_rows($select_cart);
+
 
   //checking for user existence
   if($rows_count>0){
     $_SESSION['name']= $name;
     $_SESSION['seller_id'] = $seller_id;
     $_SESSION['seller_img'] = $seller_img;
-      if(password_verify($user_password,$row_data['password'])){
+      if(password_verify($seller_password,$row_data['password'])){
         $_SESSION['name']= $name;
         $_SESSION['seller_id'] = $seller_id;
         $_SESSION['seller_img'] = $seller_img;
-      if ($user_email == $row_data['email']) {
-        if ($rows_count == 1 and $rows_count_cart == 0) {
+      if ($seller_email == $row_data['email']) {
+
           $_SESSION['name'] = $name;
-          $_SESSION['customer_id'] = $seller_id;
+          $_SESSION['seller_id'] = $seller_id;
           $_SESSION['seller_img'] = $seller_img;
           echo "<script>Swal.fire({
               position: 'center',
@@ -131,19 +129,8 @@ if (isset($_POST['login'])) {
               title: 'Login successfuly ',
               showConfirmButton: false,
               timer: 1500
-            }).then(function(){window.location = '/gocery/index.php'})</script>";
-        } 
-        else {
-          $_SESSION['name']= $name;
-          $_SESSION['seller_id'] = $seller_id;
-          echo "<script>Swal.fire({
-              position: 'center',
-              icon: 'success',
-              title: 'Login successfuly',
-              showConfirmButton: false,
-              timer: 1500
-            }).then(function(){window.location = '/gocery/index.php'})</script>";
-        }
+            }).then(function(){window.location = './index.php'})</script>";
+        
       }
       else{
         echo "<script>Swal.fire({
