@@ -285,11 +285,12 @@ if (isset($_POST['save_image'])) {
 
           <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
           <h3>Password</h3>
-
+          
           <div class="form-group">
             <label class="col-md-3 control-label">Password:</label>
+           
             <div class="col-md-8">
-              <input class="form-control" type="password" value="11111122333" name="password" required>
+              <input class="form-control" type="password"  name="password" required>
               <?php
                       if(isset($password_not_strong)):
                       ?>
@@ -300,12 +301,12 @@ if (isset($_POST['save_image'])) {
           <div class="form-group">
             <label class="col-md-3 control-label">Confirm password:</label>
             <div class="col-md-8">
-              <input class="form-control" type="password" value="11111122333" name="conf_password" required>
-              <?php
-                      if(isset($password_not_match)):
-                      ?>
-                      <span><?php echo $password_not_match;?></span>
-                      <?php endif?>
+              <input class="form-control" type="password" name="conf_password" required> 
+          <?php
+              if(isset($password_not_match)):?>
+              <span><?php echo $password_not_match;?></span>
+          <?php endif?>
+          
             </div>
           </div>
           <div class="form-group">
