@@ -159,7 +159,7 @@ if(isset($_POST['save_info'])){
           <img src="../user_images/<?php echo $row_data_fetch['seller_img'];?>" class="profile-img m-1 rounded-circle" alt="avatar">
           <h6>Upload a different photo...</h6>
           <input type="file" class="form-control" name="seller_image" required>
-          <input type="submit" class="btn btn-green my-3" value="Save Changes" name="save_image">
+          <input type="submit" class="btn btn-green my-3" value="Upload Image" name="save_image">
         </div>
       </div>
   </form>

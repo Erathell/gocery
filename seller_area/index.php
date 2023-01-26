@@ -51,7 +51,7 @@ $row_data_fetch = mysqli_fetch_array($result);
         <div class="row p-0">
             <div class="col-md-12 secondary p-2 px-5 d-flex align-items-center">
                 <div>
-                    <a href="#"><img src="../user_images/<?php echo $row_data_fetch['seller_img'] ?>" alt="" class="admin_image rounded-circle mb-2 "></a>
+                    <a href="#"><img src="../user_images/<?php echo $row_data_fetch['seller_img'] ?>" alt="" class="profile-img rounded-circle mb-2 "></a>
                     <p class="text-light text-center fw-bold"><?php echo $row_data_fetch['first_name']?></p>
                 </div>
                 <div class="button text-center ms-auto me-auto">
