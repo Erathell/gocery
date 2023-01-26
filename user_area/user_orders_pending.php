@@ -17,7 +17,7 @@
     } 
     $user = $_SESSION['name'];
     $customer_id = $_SESSION['customer_id'];
-    $get_user = "Select * from `customer` where first_name = '$user' and customer_id = '$customer_id'";
+    $get_user = "Select * from `customer` where customer_id = '$customer_id'";
     $result = mysqli_query($con,$get_user);
     $row_data_fetch = mysqli_fetch_assoc($result);
     $customer_id = $row_data_fetch['customer_id'];
