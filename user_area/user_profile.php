@@ -24,7 +24,8 @@
 <?php
 $user = $_SESSION['name'];
 $customer_id = $_SESSION['customer_id'];
-$get_user = "Select * from `customer` where first_name = '$user' and customer_id = '$customer_id'";
+$user_ip = getIPAddress();;
+$get_user = "Select * from `customer` where customer_id = '$customer_id' and user_ip ='$user_ip'";
 $result = mysqli_query($con,$get_user);
 $row_data_fetch = mysqli_fetch_array($result); 
 ?>
