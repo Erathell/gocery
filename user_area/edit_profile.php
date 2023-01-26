@@ -54,7 +54,7 @@
     } 
     else {
     //update query password
-    $update_query_password = "update `customer` set password='$hash_password' ";
+    $update_query_password = "update `customer` set password='$hash_password' where customer_id='$customer_id' and user_ip ='$user_ip' ";
     $sql_execute_pass = mysqli_query($con, $update_query_password);
     if ($sql_execute_pass) {
       $_SESSION['name'] = $name;
@@ -107,38 +107,19 @@ if (isset($_POST['save_image'])) {
 
 
 
-    if(isset($_POST['save'])){
+    if(isset($_POST['save_info'])){
       $fname = $_POST['fname'];
       $mname = $_POST['mname'];
       $lname = $_POST['lname'];
       $email = $_POST['email'];
-      // $password = $_POST['password'];
-      // $hash_password = password_hash($password,PASSWORD_DEFAULT);
-      // $conf_password = $_POST['conf_password'];
       $house_no = $_POST['house_no'];
       $street = $_POST['street'];
       $barangay = $_POST['barangay'];
       $municipality = $_POST['municipality'];
       $province = $_POST['province'];
       $contact_num = $_POST['contact_num'];
-      
 
-      // $number = preg_match('@[0-9]@', $password);
-      // $uppercase = preg_match('@[A-Z]@', $password);
-      // $lowercase = preg_match('@[a-z]@', $password);
-      // $specialChars = preg_match('@[^\w]@', $password);
-
-      // // accessing image
-      // $customer_img= $_FILES['customer_img']['name'];
-
-      // // accessing image temp
-      // $customer_img_tmp= $_FILES['customer_img']['tmp_name'];
-
-      // move_uploaded_file($customer_img_tmp, "../user_images/$customer_img");
-
-    
       //select query
-
     $select_query_email = "Select * from `customer` where  email='$email'";
     $result = mysqli_query($con, $select_query_email);
     $rows_count = mysqli_num_rows($result);
@@ -161,7 +142,7 @@ if (isset($_POST['save_image'])) {
         title: 'Edit Profile Successful',
         showConfirmButton: false,
         timer: 1500
-      }).then(function(){window.location = 'user_profile.php'})</script>";
+      })</script>";
     } 
     else {
       die(mysqli_error($con));
@@ -271,7 +252,7 @@ if (isset($_POST['save_image'])) {
           <div class="form-group">
             <label class="col-md-3 control-label"></label>
             <div class="col-md-8 mb-5">
-              <input type="submit" class="btn btn-green" value="Save Changes" name="save">
+              <input type="submit" class="btn btn-green" value="Save Changes" name="save_info">
               <span></span>
               <input type="reset" class="btn btn-light" value="Cancel">
               </div>
@@ -298,10 +279,10 @@ if (isset($_POST['save_image'])) {
             <label class="col-md-3 control-label">Confirm password:</label>
             <div class="col-md-8">
               <input class="form-control" type="password" name="conf_password" required> 
-          <?php
-              if(isset($password_not_match)):?>
-              <span><?php echo $password_not_match;?></span>
-          <?php endif?>
+              <?php
+                  if(isset($password_not_match)):?>
+                  <span><?php echo $password_not_match;?></span>
+              <?php endif?>
           
             </div>
           </div>
