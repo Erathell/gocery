@@ -93,22 +93,24 @@ session_start();
             <div class="ms-5 my-3">
                 <h1>Edit Product</h1>
             </div>
-            <form class="form-horizontal"  method="POST" enctype="multipart/form-data">
+            
                 <div class="row my-3">
                     <!-- left column -->
                     <div class="col-md-3 form-group">
-                        <div class="text-center">
-                            <img src="../product_images/<?php echo "$product_image" ?>" class="admin_image m-1 rounded-circle" alt="product">
-                            <h6>Upload a different photo...</h6>
-                            <input class="form-control" name="product_image" type="file" >
-                        </div>
-
+                        <form class="form-horizontal" method="POST" enctype="multipart/form-data">
+                            <div class="text-center">
+                                <img src="../product_images/<?php echo "$product_image" ?>" class="admin_image m-1 rounded-circle" alt="product">
+                                <h6>Upload a different photo...</h6>
+                                <input class="form-control mb-2" name="product_image" type="file">
+                                <input type="submit" name="upload_image" class="btn btn-green" value="Upload Image">
+                            </div>
+                        </form>
                     </div>
-
+                    
                     <!-- edit form column -->
                     <div class="col-md-9 ">
 
-
+                    <form class="form-horizontal" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
                             <label class="col-lg-3 control-label">Product Name:</label>
                             <div class="col-lg-8">
@@ -187,6 +189,19 @@ session_start();
 
     <?php
 
+    if(isset($_POST['upload_image'])){
+        global $con;
+        $product_img = $_FILES['product_image']['name'];
+        $product_img_tmp = $_FILES['product_image']['tmp_name'];
+
+
+        move_uploaded_file($product_img_tmp, "../product_images/$product_img");
+        $update_image = "update `products` SET product_image='$product_img' where product_id=$product_id";
+        $run_update = mysqli_query($con, $update_image);
+        if ($run_update) {
+            echo "<script>window.open('edit_product.php?product_id=$product_id','_self')</script>";
+        }
+    }
 
     if (isset($_POST['save_changes'])) {
         global $con;
@@ -196,19 +211,12 @@ session_start();
         $category_id = $_POST['product_category'];
         $product_price = $_POST['product_price'];
         $product_stock = $_POST['product_stock'];
-        $product_img = $_FILES['product_img']['name'];
-        $product_img_tmp = $_FILES['product_img']['tmp_name'];
-
-
-            move_uploaded_file($product_img_tmp , "../product_images/$product_img");
-            $update_product = "update `products` SET name='$product_name', product_description='$product_description', product_keywords='$product_keywords', brands='$product_brand', category_id=$category_id, product_price=$product_price, date=NOW(), product_stock=$product_stock, product_image='$product_img' where product_id=$product_id";
-            $run_update = mysqli_query($con, $update_product);
-            if ($run_update) {
-                echo "<script>window.open('edit_product.php?product_id=$product_id','_self')</script>";
-            } 
-  
-                
-
+        
+        $update_product = "update `products` SET name='$product_name', product_description='$product_description', product_keywords='$product_keywords', brands='$product_brand', category_id=$category_id, product_price=$product_price, date=NOW(), product_stock=$product_stock where product_id=$product_id";
+        $run_update = mysqli_query($con, $update_product);
+        if ($run_update) {
+            echo "<script>window.open('edit_product.php?product_id=$product_id','_self')</script>";
+        }
     }
     ?>
 </body>
