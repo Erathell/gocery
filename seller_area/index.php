@@ -1,6 +1,6 @@
 <?php include('../includes/connect.php');
 include('../functions/common_function.php');
-session_start();
+@session_start();
 ?>
 
 <!DOCTYPE html>
@@ -21,6 +21,15 @@ session_start();
 </head>
 
 <body>
+<?php
+$user_ip = getIPAddress();
+$seller_id = $_SESSION['seller_id'];
+$seller_name= $_SESSION['name'];
+$get_user = "Select * from `seller` where user_ip = '$user_ip' and seller_id = '$seller_id' and first_name = '$seller_name'";
+$result = mysqli_query($con,$get_user);
+$row_data_fetch = mysqli_fetch_array($result);
+
+?>
         <!-- navbar -->
     <div class="container-fluid p-0">
         <!-- first child -->
@@ -42,8 +51,8 @@ session_start();
         <div class="row p-0">
             <div class="col-md-12 secondary p-2 px-5 d-flex align-items-center">
                 <div>
-                    <a href="#"><img src="../user_images/<?php echo $_SESSION['seller_img'] ?>" alt="" class="admin_image rounded-circle mb-2 "></a>
-                    <p class="text-light text-center fw-bold"><?php echo $_SESSION['name']?></p>
+                    <a href="#"><img src="../user_images/<?php echo $row_data_fetch['seller_img'] ?>" alt="" class="admin_image rounded-circle mb-2 "></a>
+                    <p class="text-light text-center fw-bold"><?php echo $row_data_fetch['first_name']?></p>
                 </div>
                 <div class="button text-center ms-auto me-auto">
                         <button type="button" class="btn btn-green m-2"><a href="index.php?add_product" class="nav-link">Add Product</a></button>
