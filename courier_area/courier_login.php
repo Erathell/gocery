@@ -106,6 +106,7 @@ if (isset($_POST['login'])) {
   if($rows_count>0){
     $_SESSION['name']= $name;
     $_SESSION['courier_id'] = $courier_id;
+    $_SESSION['courier_img'] = $courier_img;
       if(password_verify($user_password,$row_data['password'])){
         $_SESSION['name']= $name;
         $_SESSION['courier_id'] = $courier_id;

@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Courier Registration</title>
+    <title>Seller Registration</title>
     <!-- bootstrap CSS link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <!-- font awesome link -->
@@ -35,6 +35,7 @@
           $barangay = $_POST['barangay'];
           $municipality = $_POST['municipality'];
           $province = $_POST['province'];
+          $store_name = $_POST['store_name'];
           $contact_num = $_POST['contact_num'];
           
 
@@ -44,18 +45,18 @@
           $specialChars = preg_match('@[^\w]@', $user_password);
 
           // accessing image
-          $courier_img= $_FILES['courier_img']['name'];
+          $seller_img= $_FILES['seller_img']['name'];
 
           // accessing image temp
-          $courier_img_tmp= $_FILES['courier_img']['tmp_name'];
+          $seller_img_tmp= $_FILES['seller_img']['tmp_name'];
 
-          move_uploaded_file($courier_img_tmp, "../user_images/$courier_img");
+          move_uploaded_file($seller_img_tmp, "../user_images/$seller_img");
 
           $user_ip = getIPAddress();
           //select query
         
           
-        $select_query_email = "Select * from `courier` where  email='$user_email'";
+        $select_query_email = "Select * from `seller` where  email='$user_email'";
         $result = mysqli_query($con, $select_query_email);
         $rows_count = mysqli_num_rows($result);
         $name_data = mysqli_fetch_assoc($result);
@@ -73,22 +74,22 @@
         else{
         
         //insert_query
-        $insert_query = "insert into `courier`(first_name,middle_name,last_name,house_no,street,barangay,municipality,province,contact_num,email,password,user_ip,courier_img) values('$user_fname','$user_mname','$user_lname','$house_no','$street','$barangay','$municipality','$province',$contact_num,'$user_email','$hash_password','$user_ip', '$courier_img')";
+        $insert_query = "insert into `seller`(first_name,middle_name,last_name,house_no,street,barangay,municipality,province,contact_num,email,password,user_ip,seller_img, store_name) values('$user_fname','$user_mname','$user_lname','$house_no','$street','$barangay','$municipality','$province',$contact_num,'$user_email','$hash_password','$user_ip', '$seller_img', '$store_name')";
         $sql_execute = mysqli_query($con, $insert_query);
         //selecting name for session
-        $name_query = "Select * from `courier` where first_name like '%$user_fname%'";
+        $name_query = "Select * from `seller` where first_name like '%$user_fname%'";
         $result_name = mysqli_query($con,$name_query);
         $name_data = mysqli_fetch_assoc($result_name);
         //$name = $name_data['name'];
         if (isset($name_data['first_name'])) {
           $name = $name_data['first_name'];
-          $courier_id = $name_data['courier_id'];
+          $seller_id = $name_data['seller_id'];
         }  
 
         if ($sql_execute) {
           $_SESSION['name'] = $name;
-          $_SESSION['courier_id'] = $courier_id;
-          $_SESSION['courier_img'] = $courier_img;
+          $_SESSION['seller_id'] = $seller_id;
+          $_SESSION['seller_img'] = $seller_img;
           echo "<script>Swal.fire({
             position: 'center',
             icon: 'success',
@@ -197,6 +198,12 @@
                       <input type="text" id="province" class="form-control" placeholder="Province" name="province" required autocomplete="off"/>
                     </div>
                   </div>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                  <i class="fa-solid fa-shop fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text" id="store_name" class="form-control" placeholder="Store Name" name="store_name" required autocomplete="off"/>
+                    </div>
+                  </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
                   <i class="fa-solid fa-phone fa-lg me-3 fa-fw"></i>
@@ -206,11 +213,11 @@
                   </div>
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fa-solid fa-lg me-3 fa-fw fa-image"></i>
-                    <input name="courier_img" type="file" class="form-control">
+                    <input name="seller_img" type="file" class="form-control">
                   </div>
                   <div class="form-check d-flex justify-content-center mb-5">
                     <label class="form-check-label" for="form2Example3">
-                      Already have an account? <a class="fw-bold text-info" href="courier_login.php">Login</a>
+                      Already have an account? <a class="fw-bold text-info" href="seller_login.php">Login</a>
                     </label>
                   </div>
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">

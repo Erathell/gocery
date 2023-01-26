@@ -102,7 +102,9 @@ if (isset($_POST['login'])) {
    //fetching name and customer id
   if (isset($row_data['name'])) {
     $name = $row_data['name'];
-    $seller_id = $row_data['seller_id'];}
+    $seller_id = $row_data['seller_id'];
+    $seller_img=$row_data['seller_img'];
+  }
 
   //cart item
   $select_query_cart = "Select * from `cart` where ip_address='$user_ip'";
@@ -113,13 +115,16 @@ if (isset($_POST['login'])) {
   if($rows_count>0){
     $_SESSION['name']= $name;
     $_SESSION['seller_id'] = $seller_id;
+    $_SESSION['seller_img'] = $seller_img;
       if(password_verify($user_password,$row_data['password'])){
         $_SESSION['name']= $name;
         $_SESSION['seller_id'] = $seller_id;
+        $_SESSION['seller_img'] = $seller_img;
       if ($user_email == $row_data['email']) {
         if ($rows_count == 1 and $rows_count_cart == 0) {
           $_SESSION['name'] = $name;
           $_SESSION['customer_id'] = $seller_id;
+          $_SESSION['seller_img'] = $seller_img;
           echo "<script>Swal.fire({
               position: 'center',
               icon: 'success',

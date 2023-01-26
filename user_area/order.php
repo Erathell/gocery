@@ -31,10 +31,8 @@
                 ($user_id, $product_id, 0, 0, $product_values*$quantity, $quantity, NOW(), '$status')";
                 $result_orders=mysqli_query($con, $insert_orders);
 
-                // insert for transaction_pending table
-                $insert_pending_orders="insert into `transaction_pending` (customer_id, product_id, quantity, order_status) values 
-                ($user_id, $product_id, $quantity, '$status')";
-                $result_pending_orders=mysqli_query($con, $insert_pending_orders);
+
+
             }
         }
 

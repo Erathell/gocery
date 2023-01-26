@@ -41,7 +41,7 @@
         <div class="row p-0">
             <div class="col-md-12 secondary p-2 px-5 d-flex align-items-center">
                 <div>
-                    <a href="#"><img src="../images/pineapple-juice.jpg" alt="" class="admin_image"></a>
+                    <a href="#"><img src="../images/<?php echo $_SESSION['seller_img'] ?>" alt="" class="admin_image"></a>
                     <p class="text-light text-center">Seller Name</p>
                 </div>
                 <div class="button text-center ms-auto me-auto">
