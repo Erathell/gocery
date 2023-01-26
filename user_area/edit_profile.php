@@ -125,7 +125,7 @@ if (isset($_POST['save_image'])) {
     $rows_count = mysqli_num_rows($result);
     $name_data = mysqli_fetch_assoc($result);
     
-    if($rows_count != 0){
+    if($rows_count > 1){
       $ne_error='Email aldready taken';
     }
     else{
