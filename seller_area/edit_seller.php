@@ -112,7 +112,7 @@ if(isset($_POST['save_info'])){
   $rows_count = mysqli_num_rows($result);
   $name_data = mysqli_fetch_assoc($result);
 
-  if($rows_count > 1){
+  if($rows_count != 0){
     $ne_error='Email aldready taken';
   }
   else{
@@ -172,63 +172,63 @@ if(isset($_POST['save_info'])){
               <div class="form-group row">
                 <label class="col-lg-2 control-label fw-bold">First Name:</label>
                 <div class="col-lg-8 mb-2">
-                  <input class="form-control " type="text" value=<?php echo $row_data_fetch['first_name'];?> name="fname">
+                  <input class="form-control " type="text" value=<?php echo $row_data_fetch['first_name'];?> name="fname" required>
                 </div>
                 </div>
 
                 <div class="form-group row">
                 <label for="middlename" class="col-lg-2 control-label fw-bold">Middle Name:</label>
                 <div class="col-lg-8 mb-2">
-                  <input id="middlename" class="form-control" type="text" value=<?php echo $row_data_fetch['middle_name'];?> name="mname">
+                  <input id="middlename" class="form-control" type="text" value=<?php echo $row_data_fetch['middle_name'];?> name="mname" required>
                 </div>
                 </div>
 
                 <div class="form-group row">
                 <label class="col-lg-2 control-label fw-bold">last Name:</label>
                 <div class="col-lg-8 mb-2">
-                  <input class="form-control" type="text" value=<?php echo $row_data_fetch['last_name'];?> name="lname">
+                  <input class="form-control" type="text" value=<?php echo $row_data_fetch['last_name'];?> name="lname" required>
                 </div>
                 </div>
 
                 <div class="form-group row">
                   <label class="col-lg-2 control-label fw-bold">House No/Building No:</label>
                     <div class="col-lg-8 mb-2">
-                      <input class="form-control" type="text" value=<?php echo $row_data_fetch['house_no'];?> name="house_no">
+                      <input class="form-control" type="text" value=<?php echo $row_data_fetch['house_no'];?> name="house_no" required>
                     </div>
                 </div>
 
                 <div class="form-group row">
                   <label class="col-lg-2 control-label fw-bold">Street:</label>
                     <div class="col-lg-8 mb-2">
-                      <input class="form-control" type="text" value=<?php echo $row_data_fetch['street'];?> name="street">
+                      <input class="form-control" type="text" value=<?php echo $row_data_fetch['street'];?> name="street" required>
                     </div>
                 </div>
 
                 <div class="form-group row">
                   <label class="col-lg-2 control-label fw-bold">Barangay:</label>
                     <div class="col-lg-8 mb-2">
-                      <input class="form-control" type="text" value=<?php echo $row_data_fetch['barangay'];?> name="barangay">
+                      <input class="form-control" type="text" value=<?php echo $row_data_fetch['barangay'];?> name="barangay" required>
                     </div>
                 </div>
 
                 <div class="form-group row">
                   <label class="col-lg-2 control-label fw-bold">Municipality/City:</label>
                     <div class="col-lg-8 mb-2">
-                      <input class="form-control" type="text" value=<?php echo $row_data_fetch['municipality'];?> name="municipality">
+                      <input class="form-control" type="text" value=<?php echo $row_data_fetch['municipality'];?> name="municipality" required>
                     </div>
                 </div>
 
                 <div class="form-group row">
                   <label class="col-lg-2 control-label fw-bold">Province:</label>
                     <div class="col-lg-8 mb-2">
-                      <input class="form-control" type="text" value=<?php echo $row_data_fetch['province'];?> name="province">
+                      <input class="form-control" type="text" value=<?php echo $row_data_fetch['province'];?> name="province" required>
                     </div>
                 </div>
 
               <div class="form-group row">
                 <label class="col-md-2 control-label fw-bold">Email:</label>
                 <div class="col-lg-8 mb-2">
-                  <input class="form-control" type="text" value=<?php echo $row_data_fetch['email'];?>  name="email">
+                  <input class="form-control" type="text" value=<?php echo $row_data_fetch['email'];?>  name="email" required>
                   <?php if(isset($ne_error)):?>
                       <span><?php echo $ne_error;?></span>
                       <?php endif?>
@@ -238,7 +238,7 @@ if(isset($_POST['save_info'])){
               <div class="form-group row">
                   <label class="col-lg-2 control-label fw-bold">Province:</label>
                     <div class="col-lg-8 mb-2">
-                      <input class="form-control" type="number" value=<?php echo $row_data_fetch['contact_num'];?> name="contact_num">
+                      <input class="form-control" type="number" value=<?php echo $row_data_fetch['contact_num'];?> name="contact_num" required>
                     </div>
                 </div>
 
