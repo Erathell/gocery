@@ -86,15 +86,13 @@
         }  
 
         if ($sql_execute) {
-          $_SESSION['name'] = $name;
-          $_SESSION['customer_id'] = $customer_id;
           echo "<script>Swal.fire({
             position: 'center',
             icon: 'success',
             title: 'Registration Successful',
             showConfirmButton: false,
             timer: 1500
-          }).then(function(){window.location = '/gocery/index.php'})</script>";
+          }).then(function(){window.location = 'login.php'})</script>";
         } 
         else {
           die(mysqli_error($con));
