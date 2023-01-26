@@ -34,6 +34,7 @@
 
 //save password triggers
 if (isset($_POST['save_pass'])) {
+  $old_password = $_POST['old_password'];
   $password = $_POST['password'];
   $hash_password = password_hash($password, PASSWORD_DEFAULT);
   $conf_password = $_POST['conf_password'];
@@ -44,27 +45,31 @@ if (isset($_POST['save_pass'])) {
   $lowercase = preg_match('@[a-z]@', $password);
   $specialChars = preg_match('@[^\w]@', $password);
 
-  if (strlen($password) < 8 || !$number || !$uppercase || !$lowercase || !$specialChars) {
-    $password_not_strong = 'Password must be at least 8 characters in length and must contain at least one number, one upper case letter, one lower case letter and one special character.';
-  } else if ($password != $conf_password) {
-    $password_not_match = 'Password do not match';
-  } else {
-    //update query password
-    $update_query_password = "update `seller` set password='$hash_password' where seller_id='$seller_id' and user_ip ='$user_ip'";
-    $sql_execute_pass = mysqli_query($con, $update_query_password);
-    if ($sql_execute_pass) {
-      $_SESSION['name'] = $name;
-      $_SESSION['seller_id'] = $seller_id;
-      echo "<script>Swal.fire({
+  if (password_verify($old_password, $row_data_fetch['password'])) {
+    if (strlen($password) < 8 || !$number || !$uppercase || !$lowercase || !$specialChars) {
+      $password_not_strong = 'Password must be at least 8 characters in length and must contain at least one number, one upper case letter, one lower case letter and one special character.';
+    } else if ($password != $conf_password) {
+      $password_not_match = 'Password do not match';
+    } else {
+      //update query password
+      $update_query_password = "update `seller` set password='$hash_password' where seller_id='$seller_id' and user_ip ='$user_ip'";
+      $sql_execute_pass = mysqli_query($con, $update_query_password);
+      if ($sql_execute_pass) {
+        $_SESSION['name'] = $name;
+        $_SESSION['seller_id'] = $seller_id;
+        echo "<script>Swal.fire({
           position: 'center',
           icon: 'success',
           title: 'Password Change',
           showConfirmButton: false,
           timer: 1500
-        }).then(function(){window.location = 'index.php'})</script>";
-    } else {
-      die(mysqli_error($con));
+        }).then(function(){window.location = 'index.php?edit_profile'})</script>";
+      } else {
+        die(mysqli_error($con));
+      }
     }
+  } else{
+    $old_password_incorrect = 'Old Password Incorrect';
   }
 }
      //save image triggers   
@@ -90,7 +95,7 @@ if (isset($_POST['save_pass'])) {
         title: 'Edit Profile Successful',
         showConfirmButton: false,
         timer: 1500
-      }).then(function(){window.location = 'index.php'})</script>";
+      }).then(function(){window.location = 'index.php?edit_profile'})</script>";
     } 
     else {
       die(mysqli_error($con));
@@ -289,9 +294,20 @@ if($rows_count>0){
           </form>
 
           <form class="form-group row" role="form" action="" method="post" enctype="multipart/form-data">
+            <h3>Password</h3>
+            <div class="form-group row">
+                  <label class="col-md-2 control-label fw-bold">Old Password:</label>
+                  <div class="col-md-8 mb-2">
+                    <input class="form-control" type="password" value="" name="old_password">
+                    <?php
+                        if(isset($old_password_incorrect)):
+                        ?>
+                        <span><?php echo $old_password_incorrect;?></span>
+                        <?php endif?>
+                </div>
+                  </div>
                 <div class="form-group row">
-                  <h3>Password</h3>
-                  <label class="col-md-2 control-label fw-bold">Password:</label>
+                  <label class="col-md-2 control-label fw-bold">New Password:</label>
                   <div class="col-md-8 mb-2">
                     <input class="form-control" type="password" value="" name="password">
                     <?php
