@@ -27,49 +27,55 @@
     if (isset($name_data['first_name'])) {
       $name = $name_data['first_name'];
       $customer_id = $name_data['customer_id'];
-    } 
-
+    }
     $get_user = "Select * from `customer` where user_ip = '$user_ip' and customer_id = '$customer_id'";
     $result = mysqli_query($con,$get_user);
     if ($row_data_fetch = mysqli_fetch_array($result)) {
       $oldemail =$row_data_fetch['email']; 
   }
+
 //save password triggers
-  if (isset($_POST['save_password'])) {
-    $password = $_POST['password'];
-    $hash_password = password_hash($password,PASSWORD_DEFAULT);
-    $conf_password = $_POST['conf_password'];
 
-    //check password strength
-    $number = preg_match('@[0-9]@', $password);
-    $uppercase = preg_match('@[A-Z]@', $password);
-    $lowercase = preg_match('@[a-z]@', $password);
-    $specialChars = preg_match('@[^\w]@', $password);
 
-    if(strlen($password) < 8 || !$number || !$uppercase || !$lowercase || !$specialChars){
-    $password_not_strong = 'Password must be at least 8 characters in length and must contain at least one number, one upper case letter, one lower case letter and one special character.';
-    }
-    else if($password != $conf_password){
-    $password_not_match = 'Password do not match';
+if (isset($_POST['save_password'])) {
+  $old_password = $_POST['old_password'];
+  $password = $_POST['password'];
+  $hash_password = password_hash($password, PASSWORD_DEFAULT);
+  $conf_password = $_POST['conf_password'];
+
+  //check password strength
+  $number = preg_match('@[0-9]@', $password);
+  $uppercase = preg_match('@[A-Z]@', $password);
+  $lowercase = preg_match('@[a-z]@', $password);
+  $specialChars = preg_match('/^[\w\s\.-]*$/', $password);
+
+  if (password_verify($old_password, $row_data_fetch['password'])) {
+    if (strlen($password) < 8 || !$number || !$uppercase || !$lowercase || !$specialChars) {
+      $password_not_strong = 'Password must be at least 8 characters in length and must contain at least one number, one upper case letter, one lower case letter and one special character.';
     } 
-    else {
-    //update query password
-    $update_query_password = "update `customer` set password='$hash_password' where customer_id='$customer_id' and user_ip ='$user_ip' ";
-    $sql_execute_pass = mysqli_query($con, $update_query_password);
-    if ($sql_execute_pass) {
-      $_SESSION['name'] = $name;
-      $_SESSION['customer_id'] = $customer_id;
-      echo "<script>Swal.fire({
+    if ($password != $conf_password) {
+      $password_not_match = 'Password do not match';
+    } else {
+      //update query password
+      $update_query_password = "update `customer` set password='$hash_password' where customer_id='$customer_id' and user_ip ='$user_ip' ";
+      $sql_execute_pass = mysqli_query($con, $update_query_password);
+      if ($sql_execute_pass) {
+        $_SESSION['name'] = $name;
+        $_SESSION['customer_id'] = $customer_id;
+        echo "<script>Swal.fire({
         position: 'center',
         icon: 'success',
         title: 'Password Change',
         showConfirmButton: false,
         timer: 1500
       }).then(function(){window.location = 'user_profile.php?edit_profile'})</script>";
-    } 
-    else {
-      die(mysqli_error($con));
+      } else {
+        die(mysqli_error($con));
+      }
     }
+  }
+  else{
+    $old_password_incorrect = 'Old Password Incorrect';
   }
 }
 
@@ -290,10 +296,20 @@ if (isset($_POST['save_image'])) {
 
           <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
           <h3>Password</h3>
+          <div class="form-group">
+            <label class="col-md-3 control-label">Old Password:</label>
+            <div class="col-md-8">
+              <input class="form-control" type="password"  name="old_password" required>
+              <?php
+                      if(isset($old_password_incorrect)):
+                      ?>
+                      <span><?php echo $old_password_incorrect;?></span>
+                      <?php endif?>
+            </div>
+          </div>
           
           <div class="form-group">
-            <label class="col-md-3 control-label">Password:</label>
-          
+            <label class="col-md-3 control-label">New Password:</label>
             <div class="col-md-8">
               <input class="form-control" type="password"  name="password" required>
               <?php
