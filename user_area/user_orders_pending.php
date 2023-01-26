@@ -9,14 +9,18 @@
 </head>
 <body>
     <?php
-    // include('../includes/connect.php');
-    // session_start();
+    include('../includes/connect.php');
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
     $user = $_SESSION['name'];
     $customer_id = $_SESSION['customer_id'];
     $get_user = "Select * from `customer` where first_name = '$user' and customer_id = '$customer_id'";
     $result = mysqli_query($con,$get_user);
     $row_data_fetch = mysqli_fetch_assoc($result);
     $customer_id = $row_data_fetch['customer_id'];
+    
     
     ?>
     
@@ -33,6 +37,7 @@
     </thead>
 
     <tbody class="text-center">
+        <form action="" method="POST">
         <?php
         $get_order_details = "Select * from `transaction` where customer_id= '$customer_id' AND order_status NOT LIKE 'complete'";
         $result_orders = mysqli_query($con, $get_order_details);
@@ -42,18 +47,28 @@
             $quantity = $row_orders['quantity'];
             $date = $row_orders['date'];
             $order_status = $row_orders['order_status'];
+            $product_id = $row_orders['product_id'];
             echo "<tr class='table-hover-orange'>
             <th scope='row' >$order_id</th>
-            <td class='mb-2'>$amount Php</td>
+            <td class='mb-2'>Php $amount</td>
             <td>$quantity</td>
             <td>$date</td>
             <td>$order_status</td>
-            <td><a href='user_logout.php' class='text-decoration-none'>Confirm</a></td>
+            <td><button type='submit' name='confirm' class='btn btn-green-purple rounded-pill'>Confirm</button></td>
                 </tr>";}
         ?>
+        </form>
     </tbody>
 </table>
-
+<?php if(isset($_POST['confirm'])){
+        $update_pending = "update `transaction_pending` set order_status='complete' where customer_id = '$customer_id' and product_id=$product_id and transaction_id=$order_id";
+        $update_transaction ="update `transaction` set order_status='complete' where customer_id = '$customer_id' and product_id=$product_id and transaction_id=$order_id";
+        $run_query = mysqli_query($con, $update_pending);
+        $run_query_transaction = mysqli_query($con, $update_transaction);
+        if($run_query_transaction){
+            echo "<script>window.open('./user_profile.php?get_order_details','_self')</script>";
+        }
+    }?>
     
 </body>
 </html>

@@ -70,6 +70,18 @@ input::-webkit-inner-spin-button {
 
 }
 
+.btn-green-purple{
+    --bs-btn-font-weight: 600;
+    --bs-btn-color: var(--bs-white);
+    --bs-btn-bg: #42C84F;
+    --bs-btn-border-color: #42C84F;
+    --bs-btn-border-radius: .5rem;
+    --bs-btn-hover-color: var(--bs-white);
+    --bs-btn-hover-bg: #563D7C;
+    --bs-btn-hover-border-color: #563D7C;
+
+}
+
 .btn-orange{
     --bs-btn-font-weight: 600;
     --bs-btn-color: var(--bs-white);
