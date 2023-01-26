@@ -24,6 +24,8 @@
       }
     
 
+    
+
 
 ?>
 
@@ -51,7 +53,7 @@
                             <h5 class='card-title'>$product_title</h5>
                             <p class='card-text'>$product_description</p>
                             <form method='POST' >
-                                <a href='#' style='background-color:#42C84F; border-color: #42C84F;' class='btn btn-primary'>Edit Product</a>
+                                <a href='edit_product.php?product_id=$product_id' class='btn btn-green'><i class='fa-solid fa-pen-to-square fa-lg'></i> Edit Product</a>
                                 <input type='hidden' name='product_id' value=$product_id>
                                 <button type='submit' name='remove_product' class='btn btn-danger'><i class='fa-solid fa-xmark fa-lg'></i></button>
                             </form>
