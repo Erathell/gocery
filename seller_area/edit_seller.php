@@ -28,8 +28,9 @@
     }
     $get_user = "Select * from `seller` where user_ip = '$user_ip' and seller_id = '$seller_id'";
     $result = mysqli_query($con,$get_user);
-    $row_data_fetch = mysqli_fetch_array($result);
-
+    if ($row_data_fetch = mysqli_fetch_array($result)) {
+    $oldemail =$row_data_fetch['email']; 
+}
 
 //save password triggers
 if (isset($_POST['save_pass'])) {
@@ -95,7 +96,7 @@ if (isset($_POST['save_pass'])) {
       die(mysqli_error($con));
     }
 }
-
+//seller profile save trigger
 if(isset($_POST['save_info'])){
   $fname = $_POST['fname'];
   $mname = $_POST['mname'];
@@ -107,16 +108,59 @@ if(isset($_POST['save_info'])){
   $municipality = $_POST['municipality'];
   $province = $_POST['province'];
   $contact_num = $_POST['contact_num'];
-  $select_query_email = "Select * from `seller` where email='$email'";
+  $select_query_email = "Select * from `seller` where email='$email' and user_ip ='$user_ip'";
   $result = mysqli_query($con, $select_query_email);
   $rows_count = mysqli_num_rows($result);
+if($rows_count>0){
   $name_data = mysqli_fetch_assoc($result);
-
-  if($rows_count != 0){
-    $ne_error='Email aldready taken';
+  if($oldemail!=$email){
+    if($email== $name_data['email']){
+      $ne_error='Email aldready taken';
+    }
+    else{
+      //update_query personal info
+      $update_query = "update `seller` set first_name= '$fname' ,middle_name= '$mname',last_name= '$lname',house_no= '$house_no',street= '$street',barangay= '$barangay',municipality= '$municipality',province= '$province',contact_num='$contact_num',email='$email' where seller_id='$seller_id' and user_ip ='$user_ip'";
+      $sql_execute = mysqli_query($con, $update_query);
+      if ($sql_execute) {
+        $_SESSION['name'] = $name;
+        $_SESSION['seller_id'] = $seller_id;
+        echo "<script>Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Edit Profile Successful',
+          showConfirmButton: false,
+          timer: 1500
+        }).then(function(){window.location = 'index.php?edit_profile'})</script>";
+      } 
+      else {
+        die(mysqli_error($con));
+      }
+      }
   }
   else{
   
+    //update_query personal info
+    $update_query = "update `seller` set first_name= '$fname' ,middle_name= '$mname',last_name= '$lname',house_no= '$house_no',street= '$street',barangay= '$barangay',municipality= '$municipality',province= '$province',contact_num='$contact_num',email='$email' where seller_id='$seller_id' and user_ip ='$user_ip'";
+    $sql_execute = mysqli_query($con, $update_query);
+    
+
+    if ($sql_execute) {
+      $_SESSION['name'] = $name;
+      $_SESSION['seller_id'] = $seller_id;
+      echo "<script>Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Edit Profile Successful',
+        showConfirmButton: false,
+        timer: 1500
+      }).then(function(){window.location = 'index.php?edit_profile'})</script>";
+    } 
+    else {
+      die(mysqli_error($con));
+    }
+    }
+}
+  else{
   //update_query personal info
   $update_query = "update `seller` set first_name= '$fname' ,middle_name= '$mname',last_name= '$lname',house_no= '$house_no',street= '$street',barangay= '$barangay',municipality= '$municipality',province= '$province',contact_num='$contact_num',email='$email' where seller_id='$seller_id' and user_ip ='$user_ip'";
   $sql_execute = mysqli_query($con, $update_query);
@@ -129,20 +173,12 @@ if(isset($_POST['save_info'])){
       title: 'Edit Profile Successful',
       showConfirmButton: false,
       timer: 1500
-    }).then(function(){window.location = 'index.php','_self'})</script>";
+    }).then(function(){window.location = 'index.php?edit_profile'})</script>";
   } 
   else {
     die(mysqli_error($con));
   }
   }
-  //selecting cart items
-  // $select_cart_items = "Select * from `cart` where ip_address = '$user_ip'";
-  // $result_cart = mysqli_query($con, $select_cart_items);
-  // $rows_count_cart = mysqli_num_rows($result_cart);
-  // if($rows_count_cart>0){
-  //   $_SESSION['name'];
-  // echo "<script> alert('You have items in your cart')</script>";
-  // } 
 }
   
 
