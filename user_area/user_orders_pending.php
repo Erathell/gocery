@@ -61,7 +61,7 @@
     </tbody>
 </table>
 <?php if(isset($_POST['confirm'])){
-        $update_transaction ="update `transaction` set order_status='complete' where customer_id = '$customer_id' and product_id=$product_id and transaction_id=$order_id";
+        $update_transaction ="update `transaction` set order_status='Complete' where customer_id = '$customer_id' and product_id=$product_id and transaction_id=$order_id";
         $run_query = mysqli_query($con, $update_pending);
         $run_query_transaction = mysqli_query($con, $update_transaction);
         if($run_query_transaction){
