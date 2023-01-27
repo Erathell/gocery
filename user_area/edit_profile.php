@@ -9,9 +9,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Order</title>
+    <!-- bootstrap CSS link -->
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <!-- font awesome link -->
+    <link rel="stylesheet" href="../fontawesome/css/all.min.css" />
+    <!-- CSS file -->
     <link rel="stylesheet" href="../styles.css">
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-</head>
+    <!-- Sweet Alert 2 Link -->
+    <script type="text/javascript" src="../sweetalert2/dist/sweetalert2.all.js"></script>
 
 
 <body>

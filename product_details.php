@@ -12,17 +12,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gocery</title>
     <!-- bootstrap CSS link -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
     <!-- font awesome link -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./fontawesome/css/all.min.css" />
     <!-- CSS file -->
     <link rel="stylesheet" href="styles.css">
+    <!-- Sweet Alert 2 Link -->
+    <script type="text/javascript" src="./sweetalert2/dist/sweetalert2.all.js"></script>
 </head>
 <body>
 
         
         <div class=" main container-fluid p-0">
-            <!-- navbar -->
+              <!-- navbar -->
             <!-- first child -->
             <nav class="navbar sticky-nav navbar-expand-lg" style="background-color: #563D7C;">
             <div class="container-fluid">
@@ -33,20 +35,32 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" style="color: white;" href="index.php"><i class="fa-solid fa-house fa-xl"></i><strong> Home</strong></a>
+                        <a class="nav-link nav-button" aria-current="page" href="index.php"><i class="fa-solid fa-house fa-xl "></i><strong> Home</strong></a>
                     </li>
                     <?php
                     if(!isset($_SESSION['name'])){
                         echo "<li class='nav-item'>
                         <a class='nav-link' style='color: white;' href='./user_area/user_registration.php'><i class='fa-solid fa-user fa-xl'></i><strong> Register</strong></a>
                     </li>";
-                    }
-                    ?>
+                    }else {
+                        echo "<li class='nav-item'>
+                        <a class='nav-link' style='color: white;' href='./user_area/user_profile.php'><i class='fa-solid fa-user fa-xl'></i><strong> My Account</strong></a>
+                    </li>";
+                }
+                if(!isset($_SESSION['name'])){
+                    echo "<li class='nav-item'>
+                    <a class='nav-link nav-button' href='./user_area/user_login.php'><i class='fa-solid fa-cart-shopping fa-xl '></i><strong><sup> 0";
+                
+                } else 
+                echo "<li class='nav-item'>
+                <a class='nav-link nav-button' href='cart.php'><i class='fa-solid fa-cart-shopping fa-xl '></i><strong><sup> ";
+                echo cart_number();
+                echo "</sup> Cart</strong></a>
+            </li>";
+                ?>
+                    
                     <li class="nav-item">
-                        <a class="nav-link" href="#" style="color: white;"><i class="fa-solid fa-cart-shopping fa-xl"></i><strong><sup>1</sup> Cart</strong></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" style="color: white;" href="#"><i class="fa-solid fa-hand-holding-dollar fa-xl"></i><strong> Total Price</strong> </a>
+                    <span class="nav-link nav-button"><i class=" fa-solid fa-hand-holding-dollar fa-xl "></i><strong> Total Price: ₱ <?php total_cart_price() ?></strong></span>
                     </li>
                 </ul>
                 <form class="d-flex" action="search_product.php" method="get">
@@ -128,6 +142,6 @@
 
 
     <!-- JS link -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="./bootstrap/js/bootstrap.bundle.min.js" ></script>
 </body>
 </html>

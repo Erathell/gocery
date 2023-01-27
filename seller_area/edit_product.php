@@ -17,14 +17,14 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seller Dashboard</title>
-    <!-- Bootstrap CSS Link -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-
-    <!-- Font Awesome Link -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- bootstrap CSS link -->
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <!-- font awesome link -->
+    <link rel="stylesheet" href="../fontawesome/css/all.min.css" />
     <!-- CSS file -->
     <link rel="stylesheet" href="../styles.css">
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Sweet Alert 2 Link -->
+    <script type="text/javascript" src="../sweetalert2/dist/sweetalert2.all.js"></script>
 </head>
 
 <body>
@@ -93,22 +93,22 @@ session_start();
             <div class="ms-5 my-3">
                 <h1>Edit Product</h1>
             </div>
-            
-                <div class="row my-3">
-                    <!-- left column -->
-                    <div class="col-md-3 form-group">
-                        <form class="form-horizontal" method="POST" enctype="multipart/form-data">
-                            <div class="text-center">
-                                <img src="../product_images/<?php echo "$product_image" ?>" class="admin_image m-1 rounded-circle" alt="product">
-                                <h6>Upload a different photo...</h6>
-                                <input class="form-control mb-2" name="product_image" type="file">
-                                <input type="submit" name="upload_image" class="btn btn-green" value="Upload Image">
-                            </div>
-                        </form>
-                    </div>
-                    
-                    <!-- edit form column -->
-                    <div class="col-md-9 ">
+
+            <div class="row my-3">
+                <!-- left column -->
+                <div class="col-md-3 form-group">
+                    <form class="form-horizontal" method="POST" enctype="multipart/form-data">
+                        <div class="text-center">
+                            <img src="../product_images/<?php echo "$product_image" ?>" class="admin_image m-1 rounded-circle" alt="product">
+                            <h6>Upload a different photo...</h6>
+                            <input class="form-control mb-2" name="product_image" type="file">
+                            <input type="submit" name="upload_image" class="btn btn-green" value="Upload Image">
+                        </div>
+                    </form>
+                </div>
+
+                <!-- edit form column -->
+                <div class="col-md-9 ">
 
                     <form class="form-horizontal" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
@@ -177,19 +177,19 @@ session_start();
                                 <input type="reset" class="btn btn-light" value="Cancel">
                             </div>
                         </div>
-                    </div>
-            </form>
+                </div>
+                </form>
+            </div>
         </div>
-    </div>
     </div>
 
     </div>
     <!-- Bootstrap JS Link -->
-
+    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <?php
 
-    if(isset($_POST['upload_image'])){
+    if (isset($_POST['upload_image'])) {
         global $con;
         $product_img = $_FILES['product_image']['name'];
         $product_img_tmp = $_FILES['product_image']['tmp_name'];
@@ -211,7 +211,7 @@ session_start();
         $category_id = $_POST['product_category'];
         $product_price = $_POST['product_price'];
         $product_stock = $_POST['product_stock'];
-        
+
         $update_product = "update `products` SET name='$product_name', product_description='$product_description', product_keywords='$product_keywords', brands='$product_brand', category_id=$category_id, product_price=$product_price, date=NOW(), product_stock=$product_stock where product_id=$product_id";
         $run_update = mysqli_query($con, $update_product);
         if ($run_update) {
