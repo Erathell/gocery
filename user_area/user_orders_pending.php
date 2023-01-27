@@ -56,8 +56,9 @@
             $product_name=$row_prod['name'];
             echo "<tr class='table-hover-orange'>
             <th scope='row' >$order_id</th>
-            <td>$product_name</td>
             <td class='mb-2'>Php $amount</td>
+            <td>$product_name</td>
+            <td>$quantity</td>
             <td>$date</td>
             <td>$order_status</td>
             <td><button type='submit' name='confirm' class='btn btn-green-purple rounded-pill'>Confirm</button></td>
