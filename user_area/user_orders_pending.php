@@ -30,6 +30,7 @@
         <tr>
             <th scope="col" >Order #</th>
             <th scope="col">Amount due</th>
+            <th scope="col">Product</th>
             <th scope="col">Total Products</th>
             <th scope="col">Date</th>
             <th scope="col">Complete/Incomplete</th>
@@ -49,9 +50,14 @@
             $date = $row_orders['date'];
             $order_status = $row_orders['order_status'];
             $product_id = $row_orders['product_id'];
+            $get_prod_details = "Select * from `products` where product_id= '$product_id'";
+            $result_products = mysqli_query($con, $get_prod_details);
+            $row_prod = mysqli_fetch_assoc($result_products); 
+            $product_name=$row_prod['name'];
             echo "<tr class='table-hover-orange'>
             <th scope='row' >$order_id</th>
             <td class='mb-2'>Php $amount</td>
+            <td>$product_name</td>
             <td>$quantity</td>
             <td>$date</td>
             <td>$order_status</td>
