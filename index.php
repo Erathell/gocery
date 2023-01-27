@@ -78,21 +78,21 @@
                 <?php
                 if(!isset($_SESSION['name'])){
                     echo "<li class='nav-item'>
-                    <span class='nav-link text-light'>Welcome Guest</span>
+                    <span class='nav-link text-light fw-bold'>Welcome Guest</span>
                 </li>";
                 }else{
                     echo "<li class='nav-item'>
-                    <span class='nav-link text-light'>Welcome ".$_SESSION['name']."</span>
+                    <span class='nav-link text-light fw-bold'>Welcome ".$_SESSION['name']."</span>
                 </li>";
                 }
 
                 if(!isset($_SESSION['name'])){
                     echo "<li class='nav-item'>
-                    <a class='nav-link' style='color: white;' href='./user_area/user_login.php'>Login</a>
+                    <a class='nav-link text-light fw-bold link-hover' href='./user_area/user_login.php'>Login</a>
                 </li>";
                 }else{
-                    echo "<li class='nav-item'>
-                    <a class='nav-link' style='color: white;' href='./user_area/user_logout.php'>Logout</a>
+                    echo "<li class='nav-item '>
+                    <a class='nav-link text-light fw-bold btn btn-green ' href='./user_area/user_logout.php'>Logout</a>
                 </li>";
                 }
                 

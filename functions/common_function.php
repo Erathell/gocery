@@ -108,7 +108,7 @@
 
             
             $search_value=$_GET['search_data'];
-            $search_query="Select * from `products` where product_keywords like '%$search_value%'or name like '$search_value'";
+            $search_query="Select * from `products` where product_keywords like '%$search_value%'or name like '$search_value' or brands like '$search_value'";
             $result_query = mysqli_query($con, $search_query);
             $num_rows=mysqli_num_rows($result_query);
             
