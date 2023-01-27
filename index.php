@@ -88,11 +88,11 @@
 
                 if(!isset($_SESSION['name'])){
                     echo "<li class='nav-item'>
-                    <a class='nav-link text-light fw-bold link-hover' href='./user_area/user_login.php'>Login</a>
+                    <a class='nav-link text-light fw-bold btn btn-green' href='./user_area/user_login.php'>Login</a>
                 </li>";
                 }else{
                     echo "<li class='nav-item '>
-                    <a class='nav-link text-light fw-bold btn btn-green ' href='./user_area/user_logout.php'>Logout</a>
+                    <a class='nav-link text-light fw-bold btn btn-green' href='./user_area/user_logout.php'>Logout</a>
                 </li>";
                 }
                 
