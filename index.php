@@ -100,7 +100,7 @@
                 </ul>
                 <ul class="navbar-nav ms-auto">
                     <a class="nav-link" href="./seller_area/seller_login.php"><button class="btn btn-green" >Seller Center</button></a>
-                    <a class="nav-link" href="./courier_area/courier_login.php"><button class="btn btn-green" >Courier Center</button></a>
+
                 </ul>
                 
             </nav>
