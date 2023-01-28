@@ -21,6 +21,8 @@ include('../functions/common_function.php');
   <link rel="stylesheet" href="../styles.css">
   <!-- Sweet Alert 2 Link -->
   <script type="text/javascript" src="../sweetalert2/dist/sweetalert2.all.js"></script>
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="fonts.css">
 </head>
 
 <body class="" data-new-gr-c-s-check-loaded="14.1093.0" data-gr-ext-installed>
@@ -238,7 +240,7 @@ include('../functions/common_function.php');
     </div>
   </section>
   <!-- JS link -->
-  <script src="./bootstrap/js/bootstrap.bundle.min.js" ></script>
+  <script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

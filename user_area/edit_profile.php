@@ -17,7 +17,8 @@
     <link rel="stylesheet" href="../styles.css">
     <!-- Sweet Alert 2 Link -->
     <script type="text/javascript" src="../sweetalert2/dist/sweetalert2.all.js"></script>
-
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="fonts.css">
 
 <body>
 <?php
