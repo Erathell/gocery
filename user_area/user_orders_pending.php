@@ -73,7 +73,7 @@
             <?php if (isset($_POST['confirm'])) {
         $product_id = $_POST['product_id'];
         $order_id = $_POST['order_id'];
-        $update_transaction = "update `transaction` set order_status='RECEIVE' where customer_id ='$customer_id' and product_id=$product_id and transaction_id=$order_id";
+        $update_transaction = "update `transaction` set order_status='RECEIVED' where customer_id ='$customer_id' and product_id=$product_id and transaction_id=$order_id";
         $run_query_transaction = mysqli_query($con, $update_transaction);
         if ($run_query_transaction) {
             echo "<script>window.open('user_profile.php?get_order_details','_self')</script>";
