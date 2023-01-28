@@ -166,17 +166,18 @@ session_start();
                 </li>";
                 } else {
                     echo "<li class='nav-item'>
-                    <a class='nav-link' style='color: white;' href='#'>Welcome " . $_SESSION['name'] . "</a>
+                    
+                    <span class='nav-link text-light fw-bold'>Welcome ".$_SESSION['name']."</span>
                 </li>";
                 }
 
                 if (!isset($_SESSION['name'])) {
                     echo "<li class='nav-item'>
-                    <a class='nav-link' style='color: white;' href='./user_area/user_login.php'>Login</a>
+                    <a class='nav-link text-light fw-bold btn btn-green' href='./user_area/user_login.php'>Login</a>
                 </li>";
                 } else {
                     echo "<li class='nav-item'>
-                    <a class='nav-link' style='color: white;' href='./user_area/user_logout.php'>Logout</a>
+                    <a class='nav-link text-light fw-bold btn btn-green' href='./user_area/user_logout.php'>Logout</a>
                 </li>";
                 }
                 ?>

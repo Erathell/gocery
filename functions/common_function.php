@@ -72,9 +72,9 @@
                 
                 <img src='product_images/$product_image' class='card-img-top' alt='$product_title'>
                 <div class='card-body'>
-                    <h4 class='card-title'>$product_title</h4>
+                    <h4 class='card-title fw-bold'>$product_title</h4>
                     <p class='card-text'>$product_description</p>
-                    <h5>₱$product_price</h5>
+                    <h5>₱ $product_price</h5>
                     <a href='index.php?add_to_cart=$product_id' style='background-color:#42C84F; border-color: #42C84F;' class='btn btn-green'>Add to Cart</a>
                     <a href='product_details.php?product_id=$product_id' class='btn btn-secondary'>View More</a>
                 </div>
@@ -128,9 +128,9 @@
                     <div class='card' style='width: 90%'>
                         <img src='product_images/$product_image' class='card-img-top' alt='$product_title'>
                         <div class='card-body'>
-                        <h4 class='card-title'>$product_title</h4>
+                        <h4 class='card-title fw-bold'>$product_title</h4>
                             <p class='card-text'>$product_description</p>
-                            <h5>₱$product_price</h5>
+                            <h5>₱ $product_price</h5>
                             <a href='index.php?add_to_cart=$product_id' style='background-color:#42C84F; border-color: #42C84F;' class='btn btn-green'>Add to Cart</a>
                             <a href='product_details.php?product_id=$product_id' class='btn btn-secondary'>View More</a>
                         </div>
