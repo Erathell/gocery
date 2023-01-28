@@ -66,14 +66,14 @@
             <td>
             <input type='hidden' value='$order_id' name='order_id'>
             <input type='hidden' value='$product_id' name='product_id'>
-            <button type='submit' name='confirm' class='btn btn-green-purple rounded-pill'>Confirm</button></td>
+            <button type='submit' name='confirm' class='btn btn-green-purple rounded-pill'>Delivered</button></td>
             </form> </tr>";
             }
             ?>
             <?php if (isset($_POST['confirm'])) {
         $product_id = $_POST['product_id'];
         $order_id = $_POST['order_id'];
-        $update_transaction = "update `transaction` set order_status='Complete' where customer_id ='$customer_id' and product_id=$product_id and transaction_id=$order_id";
+        $update_transaction = "update `transaction` set order_status='receive' where customer_id ='$customer_id' and product_id=$product_id and transaction_id=$order_id";
         $run_query_transaction = mysqli_query($con, $update_transaction);
         if ($run_query_transaction) {
             echo "<script>window.open('user_profile.php?get_order_details','_self')</script>";
