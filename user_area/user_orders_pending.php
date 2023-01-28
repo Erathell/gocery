@@ -71,17 +71,26 @@
             }
             ?>
             <?php if (isset($_POST['confirm'])) {
-        $product_id = $_POST['product_id'];
-        $order_id = $_POST['order_id'];
-        $update_transaction = "update `transaction` set order_status='RECEIVED' where customer_id ='$customer_id' and product_id=$product_id and transaction_id=$order_id";
-        $run_query_transaction = mysqli_query($con, $update_transaction);
-        if ($run_query_transaction) {
-            echo "<script>window.open('user_profile.php?get_order_details','_self')</script>";
-        }
-    } ?>
+                if ($order_status == 'RECEIVED') {
+                    echo "<script>Swal.fire({
+                        position: 'center',
+                        icon: 'error',
+                        title: 'Item already delivered.',
+                        showConfirmButton: false,
+                        timer: 1500})</script>";
+                } else {
+                    $product_id = $_POST['product_id'];
+                    $order_id = $_POST['order_id'];
+                    $update_transaction = "update `transaction` set order_status='RECEIVED' where customer_id ='$customer_id' and product_id=$product_id and transaction_id=$order_id";
+                    $run_query_transaction = mysqli_query($con, $update_transaction);
+                    if ($run_query_transaction) {
+                        echo "<script>window.open('user_profile.php?get_order_details','_self')</script>";
+                    }
+                }
+            } ?>
         </tbody>
     </table>
-    
+
 
 </body>
 
