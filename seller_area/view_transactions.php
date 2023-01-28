@@ -67,7 +67,23 @@ $customer_id = $row_data_fetch['customer_id'];
                     <td> <input type='hidden' value='$order_id' name='order_id'>
                     <input type='hidden' value='$product_id' name='product_id'>
                     <button type='submit' name='complete' class='btn btn-green-purple rounded-pill'>Complete</button></td></form></tr>";
-                } else  echo "<tr class='table-hover-orange'>
+                } 
+                elseif($order_status == 'RECEIVED'){
+                    echo "<tr class='table-hover-orange'>
+                    <th scope='row' >$order_id</th>
+                    <td>$customer_address</td>
+                    <td>$customer_number</td>
+                    <td class='mb-2'>Php $amount</td>
+                    <td>$product_name</td>
+                    <td>$quantity</td>
+                    <td>$date</td>
+                    <td><span class='fw-bold' style='color:#ffc107;'>$order_status</span></td>
+                    <form action='' method='POST'>
+                    <td> <input type='hidden' value='$order_id' name='order_id'>
+                    <input type='hidden' value='$product_id' name='product_id'>
+                    <button type='submit' name='complete' class='btn btn-green-purple rounded-pill'>Complete</button></td></form></tr>";
+                }
+                 else  echo "<tr class='table-hover-orange'>
                 <th scope='row' >$order_id</th>
                 <td>$customer_address</td>
                 <td>$customer_number</td>
