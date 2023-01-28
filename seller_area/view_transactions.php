@@ -63,8 +63,10 @@ $customer_id = $row_data_fetch['customer_id'];
                     <td>$quantity</td>
                     <td>$date</td>
                     <td><span class='fw-bold' style='color:#ffc107;'>$order_status</span></td>
-                    <!-- <td><a href='user_logout.php' class='text-decoration-none'>Confirm</a></td>
-                        </tr> -->";
+                    <form action='' method='POST'>
+                    <td> <input type='hidden' value='$order_id' name='order_id'>
+                    <input type='hidden' value='$product_id' name='product_id'>
+                    <button type='submit' name='complete' class='btn btn-green-purple rounded-pill'>Complete</button></td></form></tr>";
                 } else  echo "<tr class='table-hover-orange'>
                 <th scope='row' >$order_id</th>
                 <td>$customer_address</td>
@@ -75,18 +77,29 @@ $customer_id = $row_data_fetch['customer_id'];
                 <td>$date</td>
                 <td><span class='fw-bold' style='color:green;'>$order_status</span></td>
                 <!-- <td><a href='user_logout.php' class='text-decoration-none'>Confirm</a></td>
-                    </tr> -->";
+                    </tr> -->
+                <form action='' method='POST'>
+                <td> 
+                <input type='hidden' value='$order_id' name='order_id'>
+                <input type='hidden' value='$product_id' name='product_id'>
+                <button type='submit' name='complete' class='btn btn-green-purple rounded-pill'>Complete</button></td></form></tr>";
                     
-            if($order_status =='receive'){
-                    echo "<form action='' method='POST'>
-                    <td> 
-                    <input type='hidden' value='$order_id' name='order_id'>
-                    <input type='hidden' value='$product_id' name='product_id'>
-                    <button type='submit' name='complete' class='btn btn-green-purple rounded-pill'>Complete</button></td></form></tr>";
-                    }else{
-                    echo "<td><span class='fw-bold' style='color:green;'>Complete</span></td></tr>
-                    ";
-                    }
+            // if($order_status =='receive'){
+            //         echo "<form action='' method='POST'>
+            //         <td> 
+            //         <input type='hidden' value='$order_id' name='order_id'>
+            //         <input type='hidden' value='$product_id' name='product_id'>
+            //         <button type='submit' name='complete' class='btn btn-green-purple rounded-pill'>Complete</button></td></form></tr>";
+            //     } else {
+            //         echo "<script>Swal.fire({
+            //             position: 'center',
+            //             icon: 'error',
+            //             title: 'Item not yet ',
+            //             showConfirmButton: false,
+            //             timer: 1500
+            //         })</script>";
+            //     }
+            
                 
             }
             ?>
@@ -95,9 +108,37 @@ $customer_id = $row_data_fetch['customer_id'];
                 $transaction_id = $_POST['order_id'];    
                 $prod_id=$_POST['product_id'];
                 //selecting query
-                // $status_query = "Select * from transaction where transaction_id='$transaction_id' and product_id='$prod_id'";
-                $upate_status = "update `transaction` set order_status = 'Complete' where transaction_id='$transaction_id' and product_id='$prod_id'";
-                $update_result = mysqli_query($con, $upate_status);
+                $status_query = "Select * from transaction where transaction_id='$transaction_id' and product_id='$prod_id'";
+                $status_result = mysqli_query($con, $status_query);
+                $fetch_data = mysqli_fetch_assoc($status_result);
+                if (isset($fetch_data['order_status'])) {
+                    $trans = $fetch_data['order_status'];
+                }
+
+                if($trans == 'Complete' or $trans == 'complete'){
+                    echo "<script>Swal.fire({
+                        position: 'center',
+                        icon: 'error',
+                        title: 'Item already delivered.',
+                        showConfirmButton: false,
+                        timer: 1500})</script>";
+                }
+                else if($trans == 'pending'){
+                    echo "<script>Swal.fire({
+                        position: 'center',
+                        icon: 'error',
+                        title: 'Item not yet delivered.',
+                        showConfirmButton: false,
+                        timer: 1500})</script>";
+                }
+                else if($trans == 'receive'){
+                    $upate_status = "update `transaction` set order_status = 'Complete' where transaction_id='$transaction_id' and product_id='$prod_id'";
+                    $update_result = mysqli_query($con, $upate_status);}
+                else{
+                    die(mysqli_error($con));
+                }
+                
+                
     }?>
         </tbody>
     </table>
