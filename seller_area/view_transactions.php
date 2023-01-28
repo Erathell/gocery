@@ -99,8 +99,7 @@ $customer_id = $row_data_fetch['customer_id'];
             //             timer: 1500
             //         })</script>";
             //     }
-            
-                
+        
             }
             ?>
             <?php
@@ -115,7 +114,7 @@ $customer_id = $row_data_fetch['customer_id'];
                     $trans = $fetch_data['order_status'];
                 }
 
-                if($trans == 'Complete' or $trans == 'complete'){
+                if($trans == 'COMPLETE'){
                     echo "<script>Swal.fire({
                         position: 'center',
                         icon: 'error',
@@ -123,7 +122,7 @@ $customer_id = $row_data_fetch['customer_id'];
                         showConfirmButton: false,
                         timer: 1500})</script>";
                 }
-                else if($trans == 'pending'){
+                else if($trans == 'PENDING'){
                     echo "<script>Swal.fire({
                         position: 'center',
                         icon: 'error',
@@ -131,9 +130,20 @@ $customer_id = $row_data_fetch['customer_id'];
                         showConfirmButton: false,
                         timer: 1500})</script>";
                 }
-                else if($trans == 'receive'){
-                    $upate_status = "update `transaction` set order_status = 'Complete' where transaction_id='$transaction_id' and product_id='$prod_id'";
-                    $update_result = mysqli_query($con, $upate_status);}
+                else if($trans == 'RECEIVED'){
+                    $upate_status = "update `transaction` set order_status = 'COMPLETE' where transaction_id='$transaction_id' and product_id='$prod_id'";
+                    $update_result = mysqli_query($con, $upate_status);
+                    if ($update_result) {
+                        echo "<script>Swal.fire({
+                            position: 'center',
+                            icon: 'success',
+                            title: 'Order Completed',
+                            showConfirmButton: false,
+                            timer: 1500
+                        }).then(function(){window.location = 'index.php?view_transactions'})</script>";
+                    } else {
+                        die(mysqli_error($con));
+                    }}
                 else{
                     die(mysqli_error($con));
                 }
