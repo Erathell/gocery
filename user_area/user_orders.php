@@ -31,7 +31,7 @@
 
     ?>
 
-    <table class="table text-light ">
+    <table class="table font-grey">
         <thead class="text-center">
             <tr>
                 <th scope="col">Order #</th>
