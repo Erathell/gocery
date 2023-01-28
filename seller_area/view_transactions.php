@@ -23,8 +23,8 @@ $customer_id = $row_data_fetch['customer_id'];
                 <th scope="col">Product</th>
                 <th scope="col">Total Products</th>
                 <th scope="col">Date</th>
-                <th scope="col">Complete/Incomplete</th>
-                <!-- <th scope="col">Order Confirmation</th> -->
+                <th scope="col">Status</th>
+                <th scope="col">Order Confirmation</th>
             </tr>
         </thead>
 
@@ -76,11 +76,29 @@ $customer_id = $row_data_fetch['customer_id'];
                 <td><span class='fw-bold' style='color:green;'>$order_status</span></td>
                 <!-- <td><a href='user_logout.php' class='text-decoration-none'>Confirm</a></td>
                     </tr> -->";
+                    
+            if($order_status =='receive'){
+                    echo "<form action='' method='POST'>
+                    <td> 
+                    <input type='hidden' value='$order_id' name='order_id'>
+                    <input type='hidden' value='$product_id' name='product_id'>
+                    <button type='submit' name='complete' class='btn btn-green-purple rounded-pill'>Complete</button></td></form></tr>";
+                    }else{
+                    echo "<td><span class='fw-bold' style='color:green;'>Complete</span></td></tr>
+                    ";
+                    }
+                
             }
-
-
-
             ?>
+            <?php
+            if(isset($_POST['complete'])){
+                $transaction_id = $_POST['order_id'];    
+                $prod_id=$_POST['product_id'];
+                //selecting query
+                // $status_query = "Select * from transaction where transaction_id='$transaction_id' and product_id='$prod_id'";
+                $upate_status = "update `transaction` set order_status = 'Complete' where transaction_id='$transaction_id' and product_id='$prod_id'";
+                $update_result = mysqli_query($con, $upate_status);
+    }?>
         </tbody>
     </table>
 </div>
