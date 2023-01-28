@@ -22,10 +22,10 @@
             $product_stock = $row['product_stock'];
             echo "<div class='col-md-4 mb-2'>
             <div class='card' style='width: 90%'>
-                <img src='product_images/$product_image' class='card-img-top' alt='$product_title'>
+                <img src='product_images/$product_image' class='card-img-top p-2' alt='$product_title'>
                 <div class='card-body'>
-                    <h4 class='card-title'>$product_title</h4>
-                    <h5>₱$product_price</h5>
+                    <h4 class='card-title fw-bold'>$product_title</h4>
+                    <h5>₱ $product_price</h5>
                     <p class='card-text'>$product_description</p>
                     <p class='card-text'><strong>Stock: </strong>$product_stock</p>
                     <a href='index.php?add_to_cart=$product_id' style='background-color:#42C84F; border-color: #42C84F;' class='btn btn-green'>Add to Cart</a>
