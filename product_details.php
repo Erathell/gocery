@@ -107,7 +107,7 @@ session_start();
         <div class="row px-1">
             <div class="col-md-10">
                 <!-- products -->
-                <div class="row m-5">
+                <div class="row text-center m-5">
                     <!--fetching products-->
                     <?php
                     view_details();
