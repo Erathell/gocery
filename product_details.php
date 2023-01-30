@@ -76,26 +76,27 @@ session_start();
         <!-- second child -->
         <nav class="navbar navbar-expand-lg p-2" style="background-color: #322348;">
             <ul class="navbar-nav me-auto">
-                <?php
-                if (!isset($_SESSION['name'])) {
+            <?php
+                if(!isset($_SESSION['name'])){
                     echo "<li class='nav-item'>
-                    <a class='nav-link' style='color: white;' href='#'>Welcome Guest</a>
+                    <span class='nav-link text-light fw-bold'>Welcome Guest</span>
                 </li>";
-                } else {
+                }else{
                     echo "<li class='nav-item'>
-                    <a class='nav-link' style='color: white;' href='#'>Welcome " . $_SESSION['name'] . "</a>
+                    <span class='nav-link text-light fw-bold'>Welcome ".$_SESSION['name']."</span>
                 </li>";
                 }
 
-                if (!isset($_SESSION['name'])) {
+                if(!isset($_SESSION['name'])){
                     echo "<li class='nav-item'>
-                    <a class='nav-link' style='color: white;' href='./user_area/user_login.php'>Login</a>
+                    <a class='nav-link text-light fw-bold btn btn-green' href='./user_area/user_login.php'>Login</a>
                 </li>";
-                } else {
-                    echo "<li class='nav-item'>
-                    <a class='nav-link' style='color: white;' href='./user_area/user_logout.php'>Logout</a>
+                }else{
+                    echo "<li class='nav-item '>
+                    <a class='nav-link text-light fw-bold btn btn-green' href='./user_area/user_logout.php'>Logout</a>
                 </li>";
                 }
+                
                 ?>
             </ul>
         </nav>
@@ -111,7 +112,7 @@ session_start();
                     <!--fetching products-->
                     <?php
                     view_details();
-                    get_uniq_cat();
+                    get_related();
                     ?>
                     <!--row end -->
                 </div>
