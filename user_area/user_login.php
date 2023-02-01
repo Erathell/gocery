@@ -72,6 +72,7 @@ session_start();
         </div>
         <button class="w-100 btn btn-lg btn-green" type="submit" name="login">Sign in</button>
         <p class="small fw-bold mt-2 pt-1 mb-0 text-light">Don't have an account? <a class="text-info" href="user_registration.php">Register</a></p>
+        <a class="small fw-bold mt-2 pt-1 mb-0 text-info" href="../index.php">Go Shopping</a></p>
     </form>
     </main>
 
