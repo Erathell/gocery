@@ -201,7 +201,7 @@ if (isset($_POST['save_image'])) {
 
 
 
-<div class="container text-light">
+<div class="container text">
 <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
     <div class="ms-5 my-3">
         <h1>Edit Profile</h1>
