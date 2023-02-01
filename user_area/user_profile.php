@@ -97,7 +97,7 @@ include('../functions/common_function.php');
                 </li>";
                 } else {
                     echo "<li class='nav-item'>
-                    <a class='nav-link text-light fw-bold btn btn-green' href='./user_area/user_logout.php'>Logout</a>
+                    <a class='nav-link text-light fw-bold btn btn-green' href='user_logout.php'>Logout</a>
                 </li>";
                 }
                 ?>
